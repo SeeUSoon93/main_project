@@ -20,7 +20,7 @@ public class MemberVO {
 	String memID;
 	String nickName;
 	String gender;
-	int age;
+	String age;
 	
 	
 	
