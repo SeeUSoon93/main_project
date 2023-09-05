@@ -24,7 +24,7 @@
 		//카카오로그인
 		function kakaoLogin() {
 			Kakao.Auth.login({
-				scope : 'profile_nickname, account_email, gender, age_range',			
+				scope : 'account_email',			
 				success : function(response) {
 					Kakao.API.request({
 						url : '/v2/user/me',

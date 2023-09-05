@@ -7,7 +7,7 @@ import com.smhrd.db.SqlSessionManager;
 
 public class MemberDAO {
 	
-	SqlSessionFactory sqlSessionFactory = SqlSessionFactory.getSqlSession();
+	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
 	// 회원가입
 		public int join(MemberVO vo) {

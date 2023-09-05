@@ -8,26 +8,22 @@ import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 
 public class SqlSessionManager {
-	// mybatis에서 제공 -> pom.xml 파일에 라이브러리 추가
-		private static SqlSessionFactory sqlSessionFactory;
-		
-		// DAO에서 호출
-		public static SqlSessionFactory getSqlSession() {
-			return sqlSessionFactory;
+
+	private static SqlSessionFactory sqlSessionFactory;
+	
+	public static SqlSessionFactory getSqlSession() {
+		return sqlSessionFactory;
+	}
+	
+	static {
+		try {
+			String resource = "com/smhrd/db/mybatis-config.xml";
+			InputStream inputStream = Resources.getResourceAsStream(resource);
+			sqlSessionFactory =
+					new SqlSessionFactoryBuilder().build(inputStream);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
+	}
 
-		static {
-
-			try {
-				String resource = "com/smhrd/db/mybatis-config.xml";
-				InputStream inputStream;
-				inputStream = Resources.getResourceAsStream(resource);
-				sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
-
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-		}
 }
