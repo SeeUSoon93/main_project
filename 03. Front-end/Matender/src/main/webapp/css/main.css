@@ -1,0 +1,107 @@
+@charset "UTF-8";
+
+@import url(./fontstyle.css);
+
+#menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+	margin: 20px;
+	font-family: "GeekbleMalang2WOFF2";
+}
+
+#logo {
+	display: flex;
+	align-items: center;
+}
+
+.headmenu {
+	display: flex;
+	list-style-type: none;
+	font-size: 1.25rem;
+	align-items: center
+}
+
+.headmenu>li {
+	margin: 0 40px;
+	justify-content: space-between;
+}
+
+.joinBtn {
+	background-color: #CC9933;
+	padding: 15px 20px;
+	border-radius: 10px;
+}
+
+li:hover {
+	color: #CC9933;
+	cursor: pointer;
+}
+
+.joinBtn:hover {
+	background-color: #0d4660;
+	color: white;
+	text-decoration: none;
+}
+
+#banner {
+	background-image: url(../img/2.PNG);
+	height: 500px;
+	max-width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+a {
+	text-decoration: none;
+}
+
+.joinBtn>a {
+	color: white;
+}
+
+
+
+/* 스크롤 하기 위해서 body 늘려줌 */
+body {
+	height: 6000px;
+}
+
+
+h1 {
+	font-size: 5em;
+	width: 258px;
+	color: white;
+	font-family: sans-serif;
+	position: absolute;
+	top: 200px;
+	left:400px;	
+	animation: slide 2s ease-out;
+}
+
+/* 애니메이션 슬라이드 효과 : 나타내기 */
+@keyframes slide {
+	from{
+		left: -100px;
+		opacity: 0;
+	}
+	to{
+		left: 400px;
+		opacity: 1;
+	}
+}
+
+/* 애니메이션 슬라이드 효과 : 사라지기 */
+@keyframes disappear {
+	from{
+		left: 400px;
+		opacity: 1;
+	}
+	to{
+		left: -100px;
+		opacity: 0;
+	}
+}
+
