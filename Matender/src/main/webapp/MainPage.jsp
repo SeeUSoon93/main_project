@@ -8,7 +8,6 @@
 
 <link rel="stylesheet" href="./css/main.css">
 
-
 </head>
 <body>
 	<!-- include 지시자 : 현재 페이지에 다른 파일의 내용을 삽일할 때(header, nav, footer)

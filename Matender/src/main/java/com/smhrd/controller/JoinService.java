@@ -4,13 +4,11 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.smhrd.command.Command;
 import com.smhrd.model.MemberDAO;
 import com.smhrd.model.MemberVO;
 
-public class JoinService implements Command {
+public class JoinService {
 
-	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response) {
 		String email = request.getParameter("email");
 		String memID = request.getParameter("memID");
