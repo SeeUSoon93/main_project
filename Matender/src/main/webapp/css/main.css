@@ -2,6 +2,12 @@
 
 @import url(./fontstyle.css);
 
+/*
+------------------
+	MainHeader
+------------------
+*/
+
 #menu {
 	display: flex;
 	justify-content: center;
@@ -33,11 +39,12 @@
 	padding: 15px 20px;
 	border-radius: 10px;
 }
-
+/*
 li:hover {
 	color: #CC9933;
 	cursor: pointer;
 }
+*/
 
 .joinBtn:hover {
 	background-color: #0d4660;
@@ -45,14 +52,6 @@ li:hover {
 	text-decoration: none;
 }
 
-#banner {
-	background-image: url(../img/2.PNG);
-	height: 500px;
-	max-width: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-}
 
 a {
 	text-decoration: none;
@@ -63,12 +62,25 @@ a {
 }
 
 
+/*
+-----------------
+	MainPage
+-----------------
+*/
+
+#banner {
+	background-image: url(../img/2.PNG);
+	height: 500px;
+	max-width: 100%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
 
 /* 스크롤 하기 위해서 body 늘려줌 */
 body {
 	height: 6000px;
 }
-
 
 h1 {
 	font-size: 5em;
@@ -105,3 +117,70 @@ h1 {
 	}
 }
 
+
+/*
+-----------------
+	HeaderMenu
+-----------------
+*/
+
+
+.headmenu a {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  text-align: center;
+  -webkit-box-flex: 1;
+  -webkit-flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
+  -webkit-animation-duration: 1s;
+  animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  padding: 0;
+  color: black;
+}
+
+.joinBtn a {
+	color: white;
+} 
+
+.headmenu a div {
+  display: block;
+  -webkit-transition: -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.headmenu a:after {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  content: attr(data-hover);
+  display: inline;
+  text-align: center;
+  -webkit-transition: top 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: top 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.headmenu a:hover {
+  color: #CC9933;
+}
+
+.headmenu a:hover div {
+  color: #CC9933;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+}
+
+.headmenu a:hover:after {
+  top: 0;
+}
+
+.headmenu a:active {
+  -webkit-animation-name: rubberBand;
+  animation-name: rubberBand;
+}
