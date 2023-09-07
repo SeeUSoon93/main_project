@@ -1,0 +1,54 @@
+-- 테스트 값
+-- MEMBER
+INSERT INTO MEMBER VALUES('admin', 'admin','남','30대');
+
+-- BOARD
+CREATE SEQUENCE BOARD_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO BOARD VALUES('B'||BOARD_SEQ.nextval, 'test', 'test', sysdate, 0, 'test', 'admin');
+
+-- RECIPE
+-- recipeNum
+CREATE SEQUENCE RECIPE_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO RECIPE VALUES('R'||RECIPE_SEQ.nextval, 'CH002', 'test',  'test',  'test',  'test',  'test',  'test', 'admin');
+
+-- BOARD_REPLE
+--repleNo
+
+CREATE SEQUENCE REPLE_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO BOARD_REPLE VALUES('RE'||REPLE_SEQ.nextval, 'test', sysdate, 'B1', 'admin');
+
+
+-- BOOKMARK
+INSERT INTO BOOKMARK VALUES('admin', 'R1');
+
+-- INGREMENT
+-- ingreNum
+
+CREATE SEQUENCE INGREMENT_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO INGREMENT VALUES('IN'||INGREMENT_SEQ.nextval, 'R1', 'test', 'test');
+
+-- MEMBER_LIKE
+INSERT INTO MEMBER_LIKE VALUES('admin', 'R1');
+
+-- RECIPE_REPLE
+INSERT INTO RECIPE_REPLE VALUES('RE'||REPLE_SEQ.nextval, 'test', sysdate, 'R1', 'admin');
+
+
+-- TB_IMG
+CREATE SEQUENCE IMG_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO TB_IMG VALUES('IMG'||IMG_SEQ.nextval, null, 'R1', 'test', sysdate);
