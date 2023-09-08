@@ -10,9 +10,8 @@
 	</insert>
 	
 	<select id="emailCheck" resultType="MemberVO">
-		SELECT * FROM MEMBER WHERE EMAIL = #{email}	
+		SELECT * FROM MEMBER WHERE "email" = #{email}	
 	</select>
-	
 	
 
 </mapper>

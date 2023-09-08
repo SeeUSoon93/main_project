@@ -22,6 +22,7 @@ public class MemberDAO {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		System.out.println("넘어옴?");
 		MemberVO vo = session.selectOne("com.smhrd.db.memberMapper.emailCheck", email);
+		System.out.println("SQL 넘어옴?");
 		session.close();
 
 		if (vo != null) {

@@ -54,6 +54,7 @@
                                 success : (data)=>{
                                 	if(data == 'false'){
                                 		// 중복이니까 로그인시키기
+                                		location.replace("MainPage.jsp")
                                 	}else{
                                 		$.ajax({
                                 		// 중복이 아니니까 회원가입 시키기
