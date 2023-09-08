@@ -8,96 +8,103 @@
 
 </head>
 <body>
-	<a class="btn btnkakao" id="kakao-login-btn"
-		style="text-align: center;" href="javascript:kakaoLogin()">카카오 1초
-		로그인/회원가입</a>
+	<!-- ajax -->
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
 
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.3.0/kakao.min.js"
+		integrity="sha384-70k0rrouSYPWJt7q9rSTKpiTfX6USlMYjZUtr1Du+9o4cGvhPAWxngdtVZDdErlh"
+		crossorigin="anonymous">
+		
+	</script>
+
+	<ul>
+		<p id="token-result"></p>
+		<li onclick="kakaoLogin();"><a id="kakao-login-btn"
+			href="javascript:void(0)"> <img
+				src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
+				width="222" alt="카카오 로그인 버튼"></a></li>
+		<li onclick="kakaoLogout();"><a href="javascript:void(0)"> <span>카카오
+					로그아웃</span>
+		</a></li>
+	</ul>
+
+	<!-- 카카오 스크립트 -->
+	<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 	<script>
-// 카카오 초기화
-Kakao.init('9af0b209440991a98a4221fd3e573d44');
-function kakaoLogin() {
+		Kakao.init('9af0b209440991a98a4221fd3e573d44'); //발급받은 키 중 javascript키를 사용해준다.
+		console.log(Kakao.isInitialized()); // sdk초기화여부판단
 	
-    Kakao.Auth.login({
-        success: function(response) {
-            Kakao.API.request({ // 사용자 정보 가져오기 
-                url: '/v2/user/me',
-                success: (response) => {
-                	var kakaoid = response.id+"K";
-                    $.ajax({
-    					type : "post",
-    					url : 'Idcheck', // ID중복체크를 통해 회원가입 유무를 결정한다.
-    					data : {"userid":memID},
-    					dataType:"json",
-    					success : function(json){   				
-    						if(json.idExists){
-    							// 존재하는 경우 로그인 처리
-    							createHiddenLoginForm(memID);
-    							
-    						} else{
-    							// 회원가입
-    							$.ajax({
-    								type : "post",
-    		    					url : 'Join.jsp',
-    		    					data : {"userid":kakaoid,
-    		    						    "email":response.kakao_account.email},
-    		    					dataType :"json",
-    		    					success : function(json){
-    		    						if(json.success){
-    		    							// 로그인
-    		    							createHiddenLoginForm(kakaoid);		    							
-    		    						} else {
-    		    							alert('카카오 회원가입 실패. 일반계정으로 로그인하시기 바랍니다.');
-    		    						}
-    		    					},
-    		    					error: function(request, status, error){
-    		    		                   alert("code: "+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
-    		    		                }
-    							});
-    						}						
-    					},
-    					error: function(request, status, error){
-    		                   alert("code: "+request.status+"\n"+"message: "+request.responseText+"\n"+"error: "+error);
-    		                }
-    				});
-                }
-            });
-            // window.location.href='/ex/kakao_login.html' //리다이렉트 되는 코드
-        },
-        fail: function(error) {
-            alert(error);
-        }
-    });
-}
 
-function createHiddenLoginForm(kakaoId){
-	
-	var frm = document.createElement('form');
-	frm.setAttribute('method', 'post');
-	frm.setAttribute('action', '/member/kakaoLogin.go');
-	var hiddenInput = document.createElement('input');
-	hiddenInput.setAttribute('type','hidden');
-	hiddenInput.setAttribute('name','userid');
-	hiddenInput.setAttribute('value',kakaoId);
-	frm.appendChild(hiddenInput);
-	document.body.appendChild(frm);
-	frm.submit();
-	
-}
+		//카카오로그인
+		function kakaoLogin() {
+			Kakao.Auth.login({
+				scope : 'profile_nickname, account_email, gender, age_range',
+				success : function(response) {
+					Kakao.API.request({
+						url : '/v2/user/me',
+						success : function(response) {							
+							console.log(response)		
+							
+							 // Ajax를 이용해 post방식으로 값 넘기기
+                            $.ajax({
+                                type : 'POST',
+                                url : 'EmailCheck',
+                                data : {email : response.kakao_account.email},
+                                datatype : "text",
+                                success : (data)=>{
+                                	if(data == 'false'){
+                                		// 중복이니까 로그인시키기
+                                	}else{
+                                		$.ajax({
+                                		// 중복이 아니니까 회원가입 시키기
+                                		type : 'POST',
+                                		url : 'JoinService',
+                                        data : {
+                                            nickName : response.properties.nickname,
+                                            email : response.kakao_account.email,
+                                            gender : response.kakao_account.gender,
+                                            age : response.kakao_account.age_range
+                                        },                           		
+                                        success : function(result) {
+                                            console.log(result);
+                                            location.replace("MainPage.jsp")
+                                        },
+                                        error : function(error) {
+                                            console.log(error);
+                                            location.replace("MainPage.jsp")
+                                        }                          		
+                                	})
+                                	}
+                                }
+                            });
+						},
+						fail : function(error) {
+							console.log(error)
+						},
+					})
+				},
+				fail : function(error) {
+					console.log(error)
+				},
+			})
+		}
+		
+		//카카오로그아웃  
+		function kakaoLogout() {
+			if (Kakao.Auth.getAccessToken()) {
+				Kakao.API.request({
+					url : '/v1/user/unlink',
+					success : function(response) {
+						console.log(response)
+					},
+					fail : function(error) {
+						console.log(error)
+					},
+				})
+				Kakao.Auth.setAccessToken(undefined)
+			}
+		}
+	</script>
 
-//카카오 초기화
-Kakao.init('9af0b209440991a98a4221fd3e573d44');
-    
-function kakaoLogout() {
-    if (!Kakao.Auth.getAccessToken()) {
-      alert('로그인을 해주세요.');
-      return
-    }
-    Kakao.Auth.logout(function() {
-      location.href = "logout"; // 로그아웃 처리
-	})
-}
-
-
-</script>
 </body>
 </html>

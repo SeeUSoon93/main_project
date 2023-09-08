@@ -9,16 +9,11 @@ import lombok.RequiredArgsConstructor;
 @Data
 
 @AllArgsConstructor
-@RequiredArgsConstructor
-@NoArgsConstructor
 
 public class MemberVO {
 	
-	@NonNull
-	String email;
-	@NonNull
-	String memID;
 	String nickName;
+	String email;
 	String gender;
 	String age;
 	

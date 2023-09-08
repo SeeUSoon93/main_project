@@ -1,19 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="com.smhrd.model.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script>
+		<%
+ String email = request.getParameter("email");
+		System.out.println("jsp : "+email);
+		System.out.println("----------------");
+		
+		%>
+	</script>
 </head>
 <body>
+
 	<form action="JoinService" method="post">
-		<h2>х╦©Ь╟║ют</h2>
-		MEM ID : <input type="password" placeholder="MEM ID╦╕ ют╥бго╪╪©Д" name="memId"><br>	
-		NICK : <input type="text" placeholder="╢пЁвюсю╩ ют╥бго╪╪©Д" name="nick"><br>
-		GENDER : <input type="text" placeholder="╪╨╨╟ю╩ ют╥бго╪╪©Д" name="gender"><br>		
-		AGE : <input type="text" placeholder="Ё╙юл╦╕ ют╥бго╪╪©Д" name="age"><br>		
-		<input type="submit" value="х╦©Ь╟║ют">
+		<h2>М ▄Л⌡░Й╟─Л·┘</h2>
+		NICK : <input type="text" placeholder="К▀┴К└╓Л·└Л²└ Л·┘К═╔М∙≤Л└╦Л ■" name="nickName"><br>
+		<!-- К▀┴К└╓Л·└ Л╓▒КЁ╣Л╡╢М│╛ М∙╢Л∙╪М∙╢Л ■~ -->
+		GENDER : <input type="text" placeholder="Л└╠КЁ└Л²└ Л·┘К═╔М∙≤Л└╦Л ■" name="gender"><br>
+		<!-- М▄─Л·╔: Л≈╟К═╧К▄─К┼■ К²╪Л²╢Л≤╓ К╡└М┼╪Л°╪К║° КЁ─Й╡╫М∙≤Л└╦Л ■ -->
+		AGE : <input type="text" placeholder="Л≈╟К═╧К▄─К╔╪ Л·┘К═╔М∙≤Л└╦Л ■" name="age"><br>
+		<input type="hidden" value=<%=email%> name="email">
+		</li> <input type="submit" value="М ▄Л⌡░Й╟─Л·┘">
 	</form>
 </body>
 </html>
