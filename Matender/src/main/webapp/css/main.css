@@ -3,18 +3,25 @@
 @import url(./fontstyle.css);
 
 /*
-------------------
+-----------------------------------
 	MainHeader
-------------------
+-----------------------------------
 */
+
+*{
+	margin: 0;
+	padding: 0;
+}
 
 #menu {
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	justify-content: space-between;
+	width: 100%;
 	height: 100px;
-	margin: 20px;
 	font-family: "GeekbleMalang2WOFF2";
+	position: absolute;
+
+
 }
 
 #logo {
@@ -26,7 +33,11 @@
 	display: flex;
 	list-style-type: none;
 	font-size: 1.25rem;
-	align-items: center
+	align-items: center;
+	width: 100%;
+	background-color: white;
+	object-fit: fill;
+	justify-content: center;
 }
 
 .headmenu>li {
@@ -39,12 +50,6 @@
 	padding: 15px 20px;
 	border-radius: 10px;
 }
-/*
-li:hover {
-	color: #CC9933;
-	cursor: pointer;
-}
-*/
 
 .joinBtn:hover {
 	background-color: #0d4660;
@@ -63,43 +68,125 @@ a {
 
 
 /*
------------------
-	MainPage
------------------
+----------------------------------
+	HeaderMenu
+----------------------------------
 */
 
-#banner {
-	background-image: url(../img/2.PNG);
-	height: 500px;
-	max-width: 100%;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
+
+.headmenu a {
+	position: relative;
+	overflow: hidden;
+	display: block;
+	text-align: center;
+	-webkit-box-flex: 1;
+	-webkit-flex-grow: 1;
+	-ms-flex-positive: 1;
+	flex-grow: 1;
+	animation-duration: 1s;
+	animation-duration: 1s;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	padding: 0;
+	color: black;
 }
 
-/* 스크롤 하기 위해서 body 늘려줌 */
+.joinBtn a {
+	color: white;
+}
+
+.headmenu a div {
+	display: block;
+	-webkit-transition: -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	transition: -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.headmenu a:after {
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	content: attr(data-hover);
+	display: inline;
+	text-align: center;
+	-webkit-transition: top 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+	transition: top 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.headmenu a:hover {
+	color: #CC9933;
+}
+
+.headmenu a:hover div {
+	color: #CC9933;
+	-webkit-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.headmenu a:hover:after {
+	top: 0;
+}
+
+.headmenu a:active {
+	-webkit-animation-name: rubberBand;
+	animation-name: rubberBand;
+}
+
+
+
+
+/*
+----------------------------------
+	MainPage
+----------------------------------
+*/
+
+/*body*/
 body {
-	height: 6000px;
+	width: 100%;
+	height: 100%;
+	text-align: center;
 }
 
-h1 {
-	font-size: 5em;
+#banner {
+	background-image: url(../img/배경7.jpg);
+	height: 600px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.back {
+	height: 700px;
+	width: 100%;
+}
+
+#ani {
+	font-size: 2vw;
 	width: 258px;
 	color: white;
 	font-family: sans-serif;
 	position: absolute;
-	top: 200px;
-	left:400px;	
-	animation: slide 2s ease-out;
+	top: 15%;
+	left: 15%;
+	text-align: left;
+	animation: slide 1.5s ease-out;
 }
+
+
+
 
 /* 애니메이션 슬라이드 효과 : 나타내기 */
 @keyframes slide {
-	from{
+	from {
 		left: -100px;
 		opacity: 0;
 	}
-	to{
+
+	to {
 		left: 400px;
 		opacity: 1;
 	}
@@ -107,80 +194,136 @@ h1 {
 
 /* 애니메이션 슬라이드 효과 : 사라지기 */
 @keyframes disappear {
-	from{
+	from {
 		left: 400px;
 		opacity: 1;
 	}
-	to{
+
+	to {
 		left: -100px;
 		opacity: 0;
 	}
 }
-
-
-/*
------------------
-	HeaderMenu
------------------
-*/
-
-
-.headmenu a {
-  position: relative;
-  overflow: hidden;
-  display: block;
-  text-align: center;
-  -webkit-box-flex: 1;
-  -webkit-flex-grow: 1;
-  -ms-flex-positive: 1;
-  flex-grow: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-  padding: 0;
-  color: black;
+#intro {
+	text-align: center;
+	font-family: "GmarketSansMedium";
+	font-size: 2em;
+	
+}
+h2 {
+	font-family: "GmarketSansMedium";
+	margin-left: 12%;
+	font-size: 2em;
 }
 
-.joinBtn a {
-	color: white;
-} 
 
-.headmenu a div {
-  display: block;
-  -webkit-transition: -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55), -webkit-transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.grid {
+	height: 1000px;
+	margin-top: 50px;
 }
 
-.headmenu a:after {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  content: attr(data-hover);
-  display: inline;
-  text-align: center;
-  -webkit-transition: top 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  transition: top 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+.grid1 {
+	width: 27%;
+	height: 70%;
+	margin-top: 5%;
+	margin-left: 12%;
+	margin-bottom: 10%;
+	float: left;
+	background-image: url(./img/코스모폴리탄.PNG);
+	background-size: 100% 100%;
+	border-radius: 5%;
 }
 
-.headmenu a:hover {
-  color: #CC9933;
+.grid2 {
+	width: 48%;
+	height: 90%;
+	margin-top: 2%;
+	margin-right: 7%;
+	margin-bottom: 2%;
+	float: right;
+	
 }
 
-.headmenu a:hover div {
-  color: #CC9933;
-  -webkit-transform: translateY(-100%);
-  transform: translateY(-100%);
+.grid3 {
+	width: 96%;
+	height: 46.7%;
+	margin-right: 50%;
 }
 
-.headmenu a:hover:after {
-  top: 0;
+.grid4 {
+	width: 46%;
+	height: 90%;
+	float: left;
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right: 1%;
+	margin-bottom: 2%;
+	background-image: url(./img/블루하와이안.PNG);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-radius: 5%;
 }
 
-.headmenu a:active {
-  -webkit-animation-name: rubberBand;
-  animation-name: rubberBand;
+.grid6 {
+	width: 46%;
+	height: 90%;
+	float: left;
+	margin-top: 4%;
+	margin-left: 2%;
+	margin-right: 1%;
+	margin-bottom: 3%;
+	font-family: "GmarketSansMedium";
+	font-size: 3em;
+	text-align: right;
+}
+
+.grid5 {
+	width: 46%;
+	height: 90%;
+	float: left;
+	margin-top: 2%;
+	margin-right: 1%;
+	margin-bottom: 2%;
+	background-image: url(./img/깔루아밀크.PNG);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-radius: 5%;
+}
+
+.grid7 {
+	width: 46%;
+	height: 90%;
+	float: right;
+	margin-top: 2%;
+	margin-left: 1%;
+	margin-right: 2%;
+	margin-bottom: 2%;
+	background-image: url(./img/섹스온더비치.PNG);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	border-radius: 5%;
+}
+
+.grid1:hover {
+	box-shadow: 1px 1px 20px black
+}
+
+.grid5:hover {
+	box-shadow: 1px 1px 20px black
+}
+
+.grid7:hover {
+	box-shadow: 1px 1px 20px black
+}
+
+.grid4:hover {
+	box-shadow: 1px 1px 20px black
+}
+
+/* footer */
+.footer {
+	text-align: left;
+	font-family: "GmarketSansMedium";
+	font-size: 15px;
+	
 }

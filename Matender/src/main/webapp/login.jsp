@@ -40,21 +40,37 @@
 			Kakao.Auth.login({
 				scope : 'profile_nickname, account_email, gender, age_range',
 				success : function(response) {
+					
 					Kakao.API.request({
 						url : '/v2/user/me',
 						success : function(response) {							
 							console.log(response)		
 							
 							 // Ajax를 이용해 post방식으로 값 넘기기
-                            $.ajax({
+                           
+							 $.ajax({
                                 type : 'POST',
                                 url : 'EmailCheck',
                                 data : {email : response.kakao_account.email},
                                 datatype : "text",
                                 success : (data)=>{
                                 	if(data == 'false'){
-                                		// 중복이니까 로그인시키기
-                                		location.replace("MainPage.jsp")
+                                		$.ajax({
+                                    		// 로그인 시키기
+                                    		type : 'POST',
+                                    		url : 'LoginService',
+                                            data : {
+                                                nickName : response.properties.nickname,
+                                            },                           		
+                                            success : function(result) {
+                                                console.log(result);
+                                                location.href="MainPage.jsp";
+                                            },
+                                            error : function(error) {
+                                                console.log(error);
+                                                location.href="MainPage.jsp";
+                                            }                          		
+                                    	})
                                 	}else{
                                 		$.ajax({
                                 		// 중복이 아니니까 회원가입 시키기
@@ -68,11 +84,11 @@
                                         },                           		
                                         success : function(result) {
                                             console.log(result);
-                                            location.replace("MainPage.jsp")
+                                            location.href="MainPage.jsp";
                                         },
                                         error : function(error) {
                                             console.log(error);
-                                            location.replace("MainPage.jsp")
+                                            location.href="MainPage.jsp";
                                         }                          		
                                 	})
                                 	}
@@ -90,7 +106,7 @@
 			})
 		}
 		
-		//카카오로그아웃  
+/* 		//카카오로그아웃  
 		function kakaoLogout() {
 			if (Kakao.Auth.getAccessToken()) {
 				Kakao.API.request({
@@ -104,7 +120,7 @@
 				})
 				Kakao.Auth.setAccessToken(undefined)
 			}
-		}
+		} */
 	</script>
 
 </body>

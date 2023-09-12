@@ -33,4 +33,14 @@ public class MemberDAO {
 			return true;
 		}
 	}
+	
+	// 로그인
+	public MemberVO login(String nickName) {
+		SqlSession session = sqlSessionFactory.openSession(true);		
+		MemberVO loginInfo = session.selectOne("com.smhrd.db.memberMapper.login",nickName);		
+		session.close();		
+		return loginInfo;
+	}
+	
+	
 }
