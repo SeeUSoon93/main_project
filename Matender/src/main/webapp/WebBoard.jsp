@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 	<link rel="stylesheet" href="./css/WebBoard.css">
+	<link rel="stylesheet" href="fontstyle.css" />
 </head>
 <body>
-	<div class="banner">banner</div>
+    <%@ include file="MainHeader.jsp"%>
 
     <div class="group">
         <form>
@@ -56,7 +57,7 @@
         </br>
         <span class="right">
             <button class="greylist">목 록</button>
-            <button class="gradient"  href="WebBoardInsertjsp.jsp">글쓰기</button>
+            <button class="gradient"><a href="WebBoardInsertjsp.jsp">글쓰기</a></button>
         </span>
         <ul class="center">
             <li><a href="#">&lt;</a></li>

@@ -12,7 +12,6 @@
 <body>
 	<%@ include file="MainHeader.jsp"%>
 	
-	<div class="banner">banner</div>
 	
 	 <div id="content">	
 		<div class="section2">

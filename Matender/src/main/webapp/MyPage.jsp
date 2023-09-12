@@ -5,8 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+	<link rel="stylesheet" href="fontstyle.css" />
 </head>
 <body>
-
+    <%@ include file="MainHeader.jsp"%>
 </body>
 </html>

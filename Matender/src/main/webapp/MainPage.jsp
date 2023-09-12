@@ -9,19 +9,12 @@
     <title>Docufment</title>
 	<link rel="stylesheet" href="fontstyle.css" />
     <link rel="stylesheet" href="main.css" />
-    <%@ include file="MainHeader.jsp"%>
 </head>
 <body>
+    <%@ include file="MainHeader.jsp"%>
 
 
     <div id="main">
-		<div id="banner">
-			<div id="ani">
-				<h1 id="mainsize">
-					PICK<br> YOU<br> FAVORITE
-				</h1>
-			</div>
-		</div>
 
 
 		<div id="intro">
@@ -35,8 +28,7 @@
 			<br>
 			<img src="./img/칵테일 일러스트.png">
 			<br>
-			<br>
-			<br>
+
 			<!-- <br> 칵테일 레시피 추천 및 커뮤니티 서비스 <br><br> -->
 		</div>
 
@@ -51,7 +43,6 @@
 		
 		
 		<script src="main.js"></script>
-		<hr>
 	<%@ include file="footer.jsp"%>
 	</div>
 	</body>

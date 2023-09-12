@@ -4,8 +4,21 @@
 <html>
 <head>
 <meta charset="UTF-8">
+	<link rel="stylesheet" href="fontstyle.css" />
+    <link rel="stylesheet" href="main.css" />
+    <%@ include file="MainHeader.jsp"%>
 <title>Insert title here</title>
-
+<style>
+	#kakao-login-btn {
+        height: 300px;
+		display: flex;
+        align-items: center;
+        justify-content: center;
+  		margin-left: auto;
+ 		margin-right: auto;
+        z-index: 10;
+	}
+</style>
 </head>
 <body>
 	<!-- ajax -->
@@ -19,13 +32,10 @@
 
 	<ul>
 		<p id="token-result"></p>
-		<li onclick="kakaoLogin();"><a id="kakao-login-btn"
+		<ol id="kakao-login-btn" onclick="kakaoLogin();"><a 
 			href="javascript:void(0)"> <img
 				src="https://k.kakaocdn.net/14/dn/btroDszwNrM/I6efHub1SN5KCJqLm1Ovx1/o.jpg"
-				width="222" alt="카카오 로그인 버튼"></a></li>
-		<li onclick="kakaoLogout();"><a href="javascript:void(0)"> <span>카카오
-					로그아웃</span>
-		</a></li>
+				width="230" alt="카카오 로그인 버튼"></a></ol>
 	</ul>
 
 	<!-- 카카오 스크립트 -->
@@ -122,6 +132,6 @@
 			}
 		} */
 	</script>
-
+	<%@ include file="footer.jsp"%>
 </body>
 </html>

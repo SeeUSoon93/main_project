@@ -8,10 +8,11 @@
 <title>Insert title here</title>
 </head>
 <link rel="stylesheet" href="./css/WebBoardInsert.css">
+	<link rel="stylesheet" href="fontstyle.css" />
 <body>
+    <%@ include file="MainHeader.jsp"%>
 	<!-- 로그인을 했을 때 닉네임 출력 -->
 	<%
-	MemberVO login = (MemberVO) session.getAttribute("loginInfo");
 	String nick;
 	if (login == null) {
 		nick = "로그인하세요";
@@ -19,7 +20,6 @@
 		nick = login.getNickName();
 	}
 	%>
-	<div class="banner">banner</div>
 
 	<div class="group">
 		<div class="boardHeader">
@@ -36,7 +36,7 @@
 				enctype="multipart/form-data">
 				<div class="writeRight">
 					<div class="nickName2">
-						<input type="text" value=<%=nick%> name="nickName">
+						<input type="text" value=<%=nick%> name="nickName" disabled/>
 					</div>
 					<div class="boardTitle2">
 						<input type="text" placeholder="제목을 입력하세요" name="boardTitle">

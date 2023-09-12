@@ -7,10 +7,31 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="./css/main.css">
+
 </head>
 <body>
+	<!--J쿼리 -->
+	<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.3.0/kakao.min.js"
+		integrity="sha384-70k0rrouSYPWJt7q9rSTKpiTfX6USlMYjZUtr1Du+9o4cGvhPAWxngdtVZDdErlh"
+		crossorigin="anonymous">
+		
+	</script>
+	<!-- 배너 이미지 랜덤 출력하는 자바스크립트 -->
+	<script>
+            $(document).ready(function(){ 
+      
+    var numberOfImages=4;       
+    var imageNum = Math.round(Math.random()*(numberOfImages-1))+1;     
+    var imgPath=('./img/배너'+imageNum+'.jpg');   
+    $('#banner').css('background-image', ('url("'+imgPath+'")'));
+     
+    });
+  </script>
 
 	<header>
+
 		<div id="menu">
 			<ul class="headmenu">
 				<!-- <ul class='headmenu'> -->
@@ -22,32 +43,46 @@
 				</li>
 				<li><a href="CockMenu.jsp" data-hover="전체메뉴"><div>전체메뉴</div></a></li>
 				<li><a href="CockRank.jsp" data-hover="인기순위"><div>인기순위</div></a></li>
-				<li><a href="WebMagazine.jsp" data-hover="칵테일 이야기"><div>칵테일 이야기</div></a></li>
+				<li><a href="WebMagazine.jsp" data-hover="칵테일 이야기"><div>칵테일
+							이야기</div></a></li>
 				<li><a href="ContentsPage.jsp" data-hover="컨텐츠"><div>컨텐츠</div></a></li>
-				<li><a href="ChallBoard.jsp" data-hover="도전! 바텐더"><div>도전! 바텐더</div></a></li>
+				<li><a href="ChallBoard.jsp" data-hover="도전! 바텐더"><div>도전!
+							바텐더</div></a></li>
 				<li><a href="WebBoard.jsp" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
-
+			
+			<div class="pagebarmom">
 				<%
 				MemberVO login = (MemberVO) session.getAttribute("loginInfo");
 				if (login != null) {
 					System.out.println(login.getNickName());
 				%>
-				<li class="joinBtn"><a href="MyPage.jsp">마이페이지</a></li>
-
-				<li onclick="kakaoLogout();"><a href="Logout">로그아웃</a></li>
+				<div class="pagebar">
+					<a href="MyPage.jsp">마이페이지</a>
+				</div>
+				<div onclick="kakaoLogout();" class="pagebar">
+					<a href="Logout">로그아웃</a>
+				</div>
 				<%
 				} else {
-					System.out.println("로그아웃 상태입니다");
 				%>
-				<li class="joinBtn"><a href="login.jsp">로그인/회원가입</a></li>
+
+				<div class="pagebar" class="joinBtn">
+					<a href="login.jsp">로그인/회원가입</a>
+				</div>
 				<%
 				}
 				%>
-
-			</ul>
+			</div>
+</ul>
 		</div>
 	</header>
-
+	<div id="banner">
+		<div id="ani">
+			<h1 id="mainsize">
+				PICK<br>YOUR COCKTAIL
+			</h1>
+		</div>
+	</div>
 	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.3.0/kakao.min.js"
 		integrity="sha384-70k0rrouSYPWJt7q9rSTKpiTfX6USlMYjZUtr1Du+9o4cGvhPAWxngdtVZDdErlh"
 		crossorigin="anonymous">
