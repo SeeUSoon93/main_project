@@ -37,6 +37,7 @@
 				<li onclick="kakaoLogout();"><a href="Logout">로그아웃</a></li>
 				<%
 				} else {
+					System.out.println("로그아웃 상태입니다");
 				%>
 				<li class="joinBtn"><a href="login.jsp">로그인/회원가입</a></li>
 				<%

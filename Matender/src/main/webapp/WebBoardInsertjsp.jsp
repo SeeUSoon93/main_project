@@ -1,45 +1,58 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="com.smhrd.model.MemberVO"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
 </head>
-	<link rel="stylesheet" href="./css/WebBoardInsert.css">
+<link rel="stylesheet" href="./css/WebBoardInsert.css">
 <body>
+	<!-- Î°úÍ∑∏Ïù∏ÏùÑ ÌñàÏùÑ Îïå ÎãâÎÑ§ÏûÑ Ï∂úÎ†• -->
+	<%
+	MemberVO login = (MemberVO) session.getAttribute("loginInfo");
+	String nick;
+	if (login == null) {
+		nick = "Î°úÍ∑∏Ïù∏ÌïòÏÑ∏Ïöî";
+	} else {
+		nick = login.getNickName();
+	}
+	%>
 	<div class="banner">banner</div>
 
 	<div class="group">
-        <div class="boardHeader">
-            <h1>∞‘Ω√±€ ¿€º∫</h1>
-        </div>
-        <div class="boardWrite">
-            <div class="writeLeft">
-                <div class="nickName1">
-                    ¿€º∫¿⁄
-                </div>
-                <div class="boardTitle1">
-                    ¡¶ &nbsp;&nbsp;∏Ò
-                </div>
-                <div class="boardText1">
-                    ≥ª &nbsp;&nbsp;øÎ
-                </div>
-            </div>
-            <div class="writeRight">
-                <div class="nickName2">
-                    <input type="text" placeholder="¥–≥◊¿”¿ª ¿‘∑¬«œººø‰">
-                </div>
-                <div class="boardTitle2">
-                    <input type="text" placeholder="¡¶∏Ò¿ª ¿‘∑¬«œººø‰">
-                </div>
-                <div class="boardText2">
-                    <textarea placeholder="≥ªøÎ¿ª ¿‘∑¬«œººø‰"></textarea>
-                    <div><input type="file"></div>
-                    <div class="writeBtn"><a href="#">¿€ º∫</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+		<div class="boardHeader">
+			<h1>Í≤åÏãúÍ∏Ä ÏûëÏÑ±</h1>
+		</div>
+
+		<div class="boardWrite">
+			<div class="writeLeft">
+				<div class="nickName1">ÏûëÏÑ±Ïûê</div>
+				<div class="boardTitle1">Ï†ú &nbsp;&nbsp;Î™©</div>
+				<div class="boardText1">ÎÇ¥ &nbsp;&nbsp;Ïö©</div>
+			</div>
+			<form action="WebBoardInsertService" method="post"
+				enctype="multipart/form-data">
+				<div class="writeRight">
+					<div class="nickName2">
+						<input type="text" value=<%=nick%> name="nickName">
+					</div>
+					<div class="boardTitle2">
+						<input type="text" placeholder="Ï†úÎ™©ÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî" name="boardTitle">
+					</div>
+					<div class="boardText2">
+						<textarea placeholder="ÎÇ¥Ïö©ÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî" name="boardText"></textarea>
+						<div>
+							<input type="file" name="filename">
+						</div>
+						<div class="writeBtn">
+							<input type="submit" value="Ïûë ÏÑ±">
+						</div>
+					</div>
+			</form>
+		</div>
+	</div>
+	</div>
 </body>
 </html>

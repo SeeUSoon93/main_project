@@ -7,6 +7,7 @@
 	
 	<typeAliases>
 		<typeAlias type="com.smhrd.model.MemberVO" alias="MemberVO"/>
+		<typeAlias type="com.smhrd.model.BoardVO" alias="BoardVO"/>
 	</typeAliases>	
 	
 	<environments default="development">
