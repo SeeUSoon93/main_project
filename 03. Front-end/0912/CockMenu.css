@@ -20,62 +20,27 @@
 }
 
 .group {
-	background-color: aliceblue;
+	background-color: tomato;
 	width: 100%;
 	height: 180px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position:relative;
 }
 
-.box1 {
-	/*background-color: rgb(255, 255, 128);*/
-	width: 600px;
-	height: 100px;
-	display: flex;
-	position: absolute;
-	bottom:70px;
-	float: left;
-}
-
-.box2 {
-	position:absolute;
-	bottom: 5px;
-	
-}
-
-.titlemom {
-	position:center;
-}
-
-.boxtitle {
-	width: 100px;
-	height: 50px;
-	margin-left: 60px;
-	margin-right: 40px;
-	font-family: "GeekbleMalang2WOFF2";
-	text-align: center;
-	font-size: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	float: left;
-}
 .groupBox {
 	border: solid 3px #000000;
 	width: 100px;
 	height: 100px;
 	margin-left: 40px;
 	margin-right: 40px;
-	border-radius: 100%;
+	border-radius: 30%;
 	font-family: "GeekbleMalang2WOFF2";
 	text-align: center;
 	font-size: 20px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex: 0.5;
 }
 
 .groupBox :hover {
