@@ -1,0 +1,278 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@import url(./fontstyle.css);
+
+
+
+.CateAndGroup {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+}
+
+.group {
+	/*background-color: aliceblue;*/
+	width: 100%;
+	height: 180px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+}
+
+.box1 {
+	width: 600px;
+	height: 100px;
+	display: flex;
+	position: absolute;
+	bottom:70px;
+	float: left;
+}
+
+.box2 {
+	position:absolute;
+	bottom: 5px;
+	
+}
+
+.titlemom {
+	position:center;
+}
+
+.boxtitle {
+	width: 100px;
+	height: 50px;
+	margin-left: 60px;
+	margin-right: 40px;
+	font-family: "GeekbleMalang2WOFF2";
+	text-align: center;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	float: left;
+}
+.groupBox1 {
+	background-color: lightgray;
+	width: 100px;
+	height: 100px;
+	margin-left: 40px;
+	margin-right: 40px;
+	border-radius: 100%;
+	font-family: "GeekbleMalang2WOFF2";
+	text-align: center;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0.5;
+}
+
+.groupBox2 {
+	background-color: lightgray;
+	width: 100px;
+	height: 100px;
+	margin-left: 40px;
+	margin-right: 40px;
+	border-radius: 100%;
+	font-family: "GeekbleMalang2WOFF2";
+	text-align: center;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0.5;
+}
+
+.groupBox3 {
+	background-color: lightgray;
+	width: 100px;
+	height: 100px;
+	margin-left: 40px;
+	margin-right: 40px;
+	border-radius: 100%;
+	font-family: "GeekbleMalang2WOFF2";
+	text-align: center;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0.5;
+}
+
+.groupBox :hover {
+	border: #CC9933;
+	color: #CC9933;
+}
+
+.CateAndRecipe {
+	width: 94%;
+	height: 2040px;
+	margin-left: 35px;
+}
+
+.categoryBox1 {
+	display: flex;
+}
+
+.categoryBox2 {
+	width: 280px;
+	margin: 20px;
+	font-family: "GmarketSansMedium";
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+}
+
+ul {
+	text-align: left;
+	margin-left: 30px;
+}
+
+li {
+	list-style: none;
+	padding-bottom: 10px;
+}
+
+.baseAlcohol {
+	width: 220px;
+	cursor: pointer;
+	text-align: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	border-top: solid 1px black;
+	margin: 0 auto;
+	font-size: 18px;
+}
+
+.menubox1 {
+	width: 220px;
+	height: 20%;
+	/* border-bottom: solid 1px black; */
+	/* position: relative; */
+	/* color:#000000; */
+	z-index: 99999;
+	display: none;
+	margin-left: 20px;
+}
+
+.ingredient {
+	width: 220px;
+	cursor: pointer;
+	text-align: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	border-top: solid 1px black;
+	margin: 0 auto;
+	font-size: 18px;
+}
+
+.menubox2 {
+	width: 220px;
+	height: 20%;
+	/* border-bottom: solid 1px black; */
+	/* position: relative; */
+	/* color:#000000; */
+	z-index: 99999;
+	display: none;
+	margin-left: 20px;
+}
+
+.dangdo {
+	width: 220px;
+	cursor: pointer;
+	text-align: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	padding-left: 30px;
+	border-top: solid 1px black;
+	margin: 0 auto;
+	font-size: 18px;
+}
+
+.menubox3 {
+	width: 220px;
+	height: 20%;
+	/* border-bottom: solid 1px black; */
+	/* position: relative; */
+	/* color:#000000; */
+	z-index: 99999;
+	display: none;
+	margin-left: 20px;
+}
+
+.cocktailsBox {
+	width: 800px;
+	height: 300px;
+	justify-content : center;
+}
+
+.recipe {
+	width: 220px;
+	height: 260px;
+	margin: 0 14px;
+	margin-top: 20px;
+	float: left;
+	/*border: dashed 3px lightgray;
+	border-radius: 15px;*/
+	justify-content : center;
+	position: relative;
+}
+
+.recipediv {
+	width: 170px;
+	height: 200px;
+	margin-top: 10px;
+	justify-content : center;
+	position: absolute;
+  	left: 12%;
+}
+.recipeImg {
+	border-radius: 15px;
+	width: 170px;
+	height: 200px;
+}
+
+
+.recipetitle {
+	width: 170px;
+	height: 45px;
+	text-align: center;
+	position: absolute;
+	top: 83%;
+  	left: 12%;
+}
+
+.recipename1 {
+	font-family: "GmarketSansMedium";
+	font-size: 17px;
+}
+.recipename2 {
+	font-family: "Pretendard-Regular";
+	font-size: 14px;
+	
+}
+
+
+
+
+
+
+
+
+
