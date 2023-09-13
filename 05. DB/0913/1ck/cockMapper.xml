@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.cockMapper">
+	<!-- 전체 레시피 조회 -->
+	<select id="inquiry" resultType="CockVO">
+		SELECT * FROM RECIPE ORDER BY "recipeNum"
+	</select>
+	<!-- 좋아요 순위  -->
+	<select id="like" resultType="LikeVO">
+		SELECT A."recipeNum", COUNT(B."recipeNum") as like_count
+		FROM RECIPE A
+		LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+		GROUP BY A."recipeNum"
+		ORDER BY "recipeNum"
+	</select>
+</mapper>
