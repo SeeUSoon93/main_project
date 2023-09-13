@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.boardMapper">
+
+	<!-- 게시글 작성 -->
+	<insert id="boardWrite" parameterType="BoardVO">
+		INSERT INTO BOARD VALUES('B'||BOARD_SEQ.nextval, '커뮤니티', SYSDATE, 0, #{boardTitle}, #{nickName}, #{boardText}, #{filename})
+	</insert>
+	
+	<insert id="boardWrite2" parameterType="BoardVO">
+		INSERT INTO BOARD VALUES('B'||BOARD_SEQ.nextval, '커뮤니티', SYSDATE, 0, #{boardTitle}, #{nickName}, #{boardText})
+	</insert>
+	
+	<!-- 이미지 테이블에 인설트 -->	
+	<insert id="imgSave" parameterType="ImgVO">
+		INSERT INTO TB_IMG VALUES('IMG'||IMG_SEQ.nextval, #{boardNum}, null, #{path}, SYSDATE);
+	</insert>
+	
+	<!-- 작성자 이름으로 보드 번호 불러오기 -->
+	<select id="selectBoard" parameterType="BoardVO" resultType="BoardVO">
+		 SELECT * FROM BOARD WHERE "nickName" = #{nickName}
+	</select>
+	
+	<!-- 게시글 전체 조회 -->
+	<select id="WebBoard" resultType="BoardVO">
+		 SELECT * FROM BOARD
+	</select>
+	
+	<!-- 게시글 상세페이지 -->
+	
+</mapper>
