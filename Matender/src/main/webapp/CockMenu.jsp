@@ -1,3 +1,6 @@
+<%@page import="com.smhrd.model.CockDAO"%>
+<%@page import="com.smhrd.model.CockVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,6 +15,9 @@
 
 </head>
 <body>
+    <%  List<CockVO> inquiry = new CockDAO().inquiry();
+        System.out.print(inquiry.size());%>
+        
 	<%@ include file="MainHeader.jsp"%>
 
 	<!-- <div class="banner">banner</div> -->
@@ -26,6 +32,7 @@
 		<div class="group">
 
 			<div class="box1">
+
 
 				<div class="groupBox1">
 					<img src="./img/logo1.png" width="50px" height="50px">
@@ -90,7 +97,7 @@
 				</div>
 
 
-				<%for(int i=1; i<=50; i++) { %>
+				<%for(int i=0; i<inquiry.size(); i++) { %>
 				<div>
 					<div class="cocktailsBox">
 
@@ -103,7 +110,7 @@
 
 
 							<div class="recipetitle">
-								<div class="recipename1">블루 하와이안</div>
+								<div class="recipename1"><%=inquiry.get(i).getRecipeName() %></div>
 
 								<div class="recipename2">❤ 30 🏷 50 🗨 30</div>
 							</div>

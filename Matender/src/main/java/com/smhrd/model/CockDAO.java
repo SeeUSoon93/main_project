@@ -11,7 +11,7 @@ public class CockDAO {
 	
 	private SqlSessionFactory sqlSessionFactory = SqlSessionManager.getSqlSession();
 	
-	// 로그인
+	// 전체 메뉴 조회
 		public List<CockVO> inquiry() {
 			SqlSession session = sqlSessionFactory.openSession(true);		
 		    List<CockVO> inquiry = session.selectList("com.smhrd.db.cockMapper.inquiry");		

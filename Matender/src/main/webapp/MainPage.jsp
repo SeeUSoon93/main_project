@@ -6,9 +6,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Docufment</title>
-	<link rel="stylesheet" href="fontstyle.css" />
-    <link rel="stylesheet" href="main.css" />
+    <title>Document</title>
+	<link rel="stylesheet" href="./css/fontstyle.css" />
+    <link rel="stylesheet" href="./css/main.css" />
 </head>
 <body>
     <%@ include file="MainHeader.jsp"%>
@@ -42,7 +42,7 @@
 		<br>
 		
 		
-		<script src="main.js"></script>
+		<script src="./js/main.js"></script>
 	<%@ include file="footer.jsp"%>
 	</div>
 	</body>

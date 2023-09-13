@@ -20,6 +20,7 @@
 	height: 100px;
 	font-family: "GeekbleMalang2WOFF2";
 	position: fixed;
+	z-index: 1;
 }
 
 #logo {
@@ -36,6 +37,7 @@
 	background-color: white;
 	object-fit: fill;
 	justify-content: left;
+	margin: 0;
 }
 
 .headmenu>li {
@@ -204,7 +206,7 @@ body {
 	color: white;
 	font-family: "GmarketSansMedium";
 	position: absolute;
-	top: 15%;
+	top: 22%;
 	left: 15%;
 	text-align: left;
 	animation: slide 1.5s ease-out;

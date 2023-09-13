@@ -8,6 +8,8 @@
 	<typeAliases>
 		<typeAlias type="com.smhrd.model.MemberVO" alias="MemberVO"/>
 		<typeAlias type="com.smhrd.model.BoardVO" alias="BoardVO"/>
+		<typeAlias type="com.smhrd.model.ImgVO" alias="ImgVO"/>
+		<typeAlias type="com.smhrd.model.CockVO" alias="CockVO"/>
 	</typeAliases>	
 	
 	<environments default="development">
@@ -25,5 +27,6 @@
 	<mappers>
 		<mapper resource="com/smhrd/db/memberMapper.xml" />
 		<mapper resource="com/smhrd/db/boardMapper.xml" />
+		<mapper resource="com/smhrd/db/cockMapper.xml" />
 	</mappers>
 </configuration>
