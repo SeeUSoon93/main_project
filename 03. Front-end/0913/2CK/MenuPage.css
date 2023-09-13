@@ -1,0 +1,187 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@import url(./fontstyle.css);
+
+/* 
+------------------
+칵테일 이미지, 정보
+------------------
+*/
+
+.Group {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+/*  	background-color: blue;  */
+}
+
+.Menugroup {
+	width: 100%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+	background-color: yellow;
+}
+
+.cockimg {
+	width: 400px;
+	height: 350px;
+	background-color: white;
+	
+}
+
+.img {
+	width: 250px;
+	height: 270px;
+	top: 50px;
+}
+
+.contents{
+	width: 500px;
+	height: 350px;
+	background-color: gray;
+}
+
+/* 
+------------------
+재료, 레시피 정보
+------------------
+*/
+
+.info {
+	width: 100%;
+	height: 800px;
+	position: relative;
+	background-color: green;
+	margin-top: 80px;
+    align-items: center;
+}
+
+.meterial {
+	width: 900px;
+	height: 350px;
+	background-color: black;
+	margin-bottom: 50px;
+	display: inline-block;
+	margin-top: 23px;
+}
+
+.method {
+	width: 900px;
+	height: 350px;
+	background-color: black;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+} 
+
+/* 
+------------------
+댓글
+------------------
+*/
+
+.re {
+	width: 100%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+	border: dashed 3px lightgray;
+	border-radius: 15px;
+
+}
+
+/* 
+------------------
+비슷한 칵테일 정보
+------------------
+*/
+
+.similar {
+	width: 100%;
+	height: 300px;
+	justify-content : center;
+	display: flex;
+/* 	background-color: gray; */
+}
+
+
+.next {
+	width: 50px;
+	height: 260px;
+	margin: 0 14px;
+	margin-top: 20px;
+	justify-content : center;
+	display: flex;
+/* 	background-color: blue; */
+	
+}
+
+.nextimg {
+	margin-top: 60px;
+    height: 50%;
+}
+.recipe {
+	width: 230px;
+	height: 260px;
+	margin: 0 14px;
+	margin-top: 20px;
+	float: left;
+	/*border: dashed 3px lightgray;
+	border-radius: 15px;*/
+	justify-content : center;
+	position: relative;
+/* 	background-color: red; */
+}
+
+.recipediv {
+	width: 170px;
+	height: 200px;
+	/* border-radius: 15px; */
+	margin-top: 10px;
+	justify-content : center;
+	position: absolute;
+  	left: 12%;
+  	overflow: hidden;
+}
+.recipeImg {
+	border-radius: 15px;
+	width: 170px;
+	height: 200px;
+	transition: all 0.2s linear;
+	
+}
+
+.recipeImg:hover {
+	transform: scale(1.2);
+}
+
+.recipetitle {
+	width: 170px;
+	height: 45px;
+	text-align: center;
+	position: absolute;
+	top: 83%;
+  	left: 12%;
+}
+
+.recipename1 {
+	font-family: "GmarketSansMedium";
+	font-size: 17px;
+	color: black;
+}
+.recipename2 {
+	font-family: "Pretendard-Regular";
+	font-size: 14px;
+	color: black;
+}
