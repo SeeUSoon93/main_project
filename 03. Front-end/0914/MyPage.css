@@ -1,0 +1,255 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@import url(./fontstyle.css);
+
+/* 
+------------------
+프로필 정보
+------------------
+*/
+
+.profile {
+	margin-top: 80px;
+	width: 100%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+	background-color: rgb(230, 251, 255);
+}
+
+.picture {
+	width: 600px;
+	height: 350px;
+/*	background-color: blue;*/
+	position: relative;
+	text-align: center;
+	
+}
+
+.img {
+	width: 200px;
+	height: 200px;
+	margin: 50px;
+	margin-top: 60px;
+	display: inline-block;
+/*	background-color: red;*/
+	
+}
+
+.contents{
+	width: 600px;
+	height: 350px;
+/*	background-color: gray;*/ 
+}
+
+.namebox {
+	width: 600px;
+	height: 80px;
+	margin-bottom: 3px;
+	display: inline-block;
+	margin-top: 60px;
+	padding-left: 5px;
+	/*background-color: rgb(255, 128, 128);*/
+}
+
+.textbox {
+	width: 600px;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	padding-left: 5px;
+/*	background-color: rgb(255, 128, 128);*/
+	text-align: left;
+}
+
+
+h4 {
+	font-family: "Pretendard-Regular";
+	margin-top: 5px;
+}
+
+
+.name {
+	font-size: 30px;
+	text-align: left;
+}
+.text {
+	font-size: 15px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+a:link {
+	text-decoration: none;
+}
+a:visited,a:active {
+	color:black;
+}
+
+.alc {
+	width: 130px;
+	height: 25px;
+	border-radius: 15px;
+	margin-top: 15px;
+	justify-content: center;
+	align-items: center;
+	border: solid 2px rgb(128, 128, 255);
+}
+
+
+
+
+
+
+/* 
+------------------
+내가 업로드한 레시피, 북마크
+------------------
+*/
+
+
+
+.Group {
+	width: 60%;
+/*	height: auto;*/
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 0px;
+/*  	background-color: blue;  */
+}
+
+.upload {
+/*	display: table-row;*/
+padding-top: 50px;
+display: table;
+	width: 100%;
+	height: auto;
+	position: relative;
+/*	background-color: green;*/
+	margin-top: 100px;
+   align-items: center;
+/*    background-color: thistle;*/
+}
+
+
+.uploadtitle {
+	text-align: left;
+	font-family: "GmarketSansMedium";
+	margin-left: 30px;
+    font-size: 1.3em;
+	
+}
+
+.box1 {
+	display: table-row;
+	width: 1100px;
+/*	height: auto;*/
+	margin-bottom: 80px;
+	display: inline-block;
+	margin-top: 30px;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+	border-radius: 15px;
+/*	box-shadow: 1px 1px 20px lightgray;*/
+	padding-left: 60px;
+}
+
+box2 {
+	display: table-row;
+	width: 1100px;
+	height: auto;
+	margin-bottom: 80px;
+	display: inline-block;
+	margin-top: 30px;
+	padding-top: 50px;
+	padding-bottom: 10px;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+	border-radius: 15px;
+/*	box-shadow: 1px 1px 20px lightgray;*/
+	padding-left: 60px;
+}
+/* 내가 올린 레시피 내용물 */
+.cocktailsBox1 {
+   width: 1000px;
+/*   height: auto;*/
+   justify-content : center;
+/*   background-color: blue;*/
+}
+
+.cocktailsBox2{
+   width: 1000px;
+   justify-content : center;
+/*   background-color: blue;*/
+}
+
+.recipe {
+   width: 250px;
+   height: 200px;
+   margin: 0 40px;
+   margin-top: 20px;
+   float: left;
+   /*border: dashed 3px lightgray;
+   border-radius: 15px;*/
+   justify-content : center;
+   position: relative;
+   margin-bottom: 50px;
+}
+
+.recipediv {
+   width: 250px;
+   height: 200px;
+   margin-top: 10px;
+   justify-content : center;
+   position: absolute;
+/*   left: 12%;*/
+}
+.recipeImg {
+   border-radius: 15px;
+   width: 250px;
+   height: 200px;
+}
+
+
+.recipetitle {
+   width: 250px;
+   height: 45px;
+   text-align: left;
+   position: absolute;
+   margin-top: 15px;
+   top: 100%;
+   margin-left: 0px;
+   left: 0%;
+/*   background-color: red;*/
+}
+
+.recipename1 {
+   font-family: "GmarketSansMedium";
+   font-size: 17px;
+}
+.recipename2 {
+   font-family: "Pretendard-Regular";
+   font-size: 14px;
+   
+}
+
+
+
+
+
+
+
+
+
