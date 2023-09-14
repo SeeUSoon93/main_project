@@ -37,8 +37,7 @@
 .box2 {
 	position:absolute;
 	bottom: 20px;
-	margin-right: 47px;
-/* 	background-color: yellow; */
+	margin-right: 37px;
 	
 }
 
@@ -61,7 +60,6 @@
 /* 	background-color: blue; */
 }
 .groupBox1 {
-	background-color: #FFAA28;
 	width: 100px;
 	height: 100px;
 	margin-left: 40x;
@@ -77,7 +75,6 @@
 }
 
 .groupBox2 {
-	background-color: #FFAA28;
 	width: 100px;
 	height: 100px;
 	margin-left: 40px;
@@ -93,7 +90,6 @@
 }
 
 .groupBox3 {
-	background-color: #FFAA28;
 	width: 100px;
 	height: 100px;
 	margin-left: 40px;

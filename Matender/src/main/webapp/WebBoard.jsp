@@ -18,10 +18,10 @@
 	<div class="group">
 		<form>
 			<span class="right"> <select>
+					<option value="작성자" name="nickName">작성자</option>
 					<option value="제 목" name="제 목">제 목</option>
-					<option value="글쓴이" name="글쓴이">작성자</option>
 			</select> <input type="text">
-				<button class="gradient">검 색</button>
+				<button class="gradient" type="submit">검 색</button>
 			</span>
 		</form>
 
@@ -36,32 +36,34 @@
 			</tr>
 			<%
                         List<BoardVO> boardList = new BoardDAO().WebBoard();
-			System.out.print(boardList.size());
+			System.out.println("게시판 리스트 사이즈 : "+boardList.size());
          %>
-			<% for(int i = 0; i < boardList.size(); i++) { %>
+
+			<% for(int i = boardList.size()-1; i >= 0; i--) { %>
 			<tr>
 				<td class="center"><%= i+1 %></td>
 				<td class="left"><a
-					href="BoardDetail.jsp?num=<%=boardList.get(i).getBoardNum() %>">
+					href="WebBoardDetail.jsp?boardNum=<%=boardList.get(i).getBoardNum() %>">
 						<%= boardList.get(i).getBoardTitle() %></a></td>
 				<td class="center"><%= boardList.get(i).getNickName() %></td>
 				<td class="center"><%= boardList.get(i).getBoardDate() %></td>
 				<td class="center"><%= boardList.get(i).getBoardGood() %></td>
-			</tr>
+			</tr> 
 			<% } %>
-			
+
 		</table>
 		</br> <span class="right">
-			<button class="greylist">목 록</button>
 			<button class="gradient">
 				<a href="WebBoardInsertjsp.jsp">글쓰기</a>
 			</button>
 		</span>
 		<ul class="center">
 			<li><a href="#">&lt;</a></li>
-			<li><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
+			<% int paging = boardList.size();
+		for(int i = 1; i<=paging ; i++){
+		%>
+			<li><a href="href="WebBoard.jsp?page=<%=i%>"><%= i %></a></li>
+			<%} %>
 			<li><a href="#">&gt;</a></li>
 		</ul>
 

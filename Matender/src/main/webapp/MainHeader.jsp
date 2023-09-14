@@ -45,16 +45,13 @@
 				<li><a href="CockRank.jsp" data-hover="인기순위"><div>인기순위</div></a></li>
 				<li><a href="WebMagazine.jsp" data-hover="칵테일 이야기"><div>칵테일
 							이야기</div></a></li>
-				<li><a href="ContentsPage.jsp" data-hover="컨텐츠"><div>컨텐츠</div></a></li>
-				<li><a href="ChallBoard.jsp" data-hover="도전! 바텐더"><div>도전!
-							바텐더</div></a></li>
 				<li><a href="WebBoard.jsp" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
 			
 			<div class="pagebarmom">
 				<%
 				MemberVO login = (MemberVO) session.getAttribute("loginInfo");
 				if (login != null) {
-					System.out.println(login.getNickName());
+					System.out.println("현재 로그인한 아이디(메인헤더) : "+login.getNickName());
 				%>
 				<div class="pagebar">
 					<a href="MyPage.jsp">마이페이지</a>

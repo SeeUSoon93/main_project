@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.smhrd.db.boardRepleMapper">
+
+	<!-- 댓글 추가 -->
+	<insert id="repleWrite" parameterType="Boared_RepleVO">
+		INSERT INTO BOARD_REPLE VALUES('RE'||REPLE_SEQ.nextval, #{repleCon}, SYSDATE, #{boardNum},
+		#{nickName})
+	</insert>
+
+	<!-- 댓글 조회 -->
+	<select id="showReple" resultType="Boared_RepleVO">
+		SELECT * FROM BOARD_REPLE WHERE "boardNum" = #{boardNum}
+	</select>
+
+	<!-- 댓글 삭제 -->
+	<delete id="deleteBoardReple">
+		DELETE FROM BOARD_REPLE WHERE "repleNo" = #{repleNo}
+	</delete>
+</mapper>

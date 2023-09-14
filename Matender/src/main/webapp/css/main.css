@@ -8,6 +8,7 @@
 -----------------------------------
 */
 
+
 *{
 	margin: 0;
 	padding: 0;
@@ -201,12 +202,12 @@ body {
 
 
 #ani {		
-	font-size: 2vw;
+	font-size: 1.7vw;
 	width: 350px;
 	color: white;
 	font-family: "GmarketSansMedium";
 	position: absolute;
-	top: 22%;
+	top: 14%;
 	left: 15%;
 	text-align: left;
 	animation: slide 1.5s ease-out;

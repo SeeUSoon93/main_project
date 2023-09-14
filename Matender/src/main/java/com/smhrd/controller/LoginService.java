@@ -18,7 +18,7 @@ public class LoginService extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String nickName = request.getParameter("nickName");
-		System.out.println(nickName);
+		System.out.println("로그인 할 아이디(로그인 서비스)"+nickName);
 
 		MemberVO loginInfo = new MemberDAO().login(nickName);
 

@@ -114,7 +114,7 @@
 
 								<div class="recipename2">
 								
-									<img src="./img/like-check.png" color= "#228b22" width="15px" height="15px"> 30
+									<img src="./img/like-check.png" color= "#228b22" width="15px" height="15px"> <%=like.get(i).getLike() %>
 									<img src="./img/bookmark-check.png" width="15px" height="15px"> 50 
 									<img src="./img/comment.png" width="17px" height="17px">30
 									

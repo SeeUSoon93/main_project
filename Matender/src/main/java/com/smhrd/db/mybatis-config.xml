@@ -10,6 +10,8 @@
 		<typeAlias type="com.smhrd.model.BoardVO" alias="BoardVO"/>
 		<typeAlias type="com.smhrd.model.ImgVO" alias="ImgVO"/>
 		<typeAlias type="com.smhrd.model.CockVO" alias="CockVO"/>
+		<typeAlias type="com.smhrd.model.Boared_RepleVO" alias="Boared_RepleVO"/>
+		<typeAlias type="com.smhrd.model.LikeVO" alias="LikeVO"/>
 	</typeAliases>	
 	
 	<environments default="development">
@@ -28,5 +30,6 @@
 		<mapper resource="com/smhrd/db/memberMapper.xml" />
 		<mapper resource="com/smhrd/db/boardMapper.xml" />
 		<mapper resource="com/smhrd/db/cockMapper.xml" />
+		<mapper resource="com/smhrd/db/boardRepleMapper.xml" />
 	</mappers>
 </configuration>

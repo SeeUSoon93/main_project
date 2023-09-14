@@ -4,14 +4,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
-</head>
 <link rel="stylesheet" href="./css/WebBoardInsert.css">
+<link rel="stylesheet" href="fontstyle.css" />
+</head>
 <body>
+	<%@ include file="MainHeader.jsp"%>
 	<!-- 로그인을 했을 때 닉네임 출력 -->
 	<%
-	MemberVO login = (MemberVO) session.getAttribute("loginInfo");
+	login = (MemberVO) session.getAttribute("loginInfo");
 	String nick;
 	if (login == null) {
 		nick = "로그인하세요";
@@ -19,7 +21,7 @@
 		nick = login.getNickName();
 	}
 	%>
-	<div class="banner">banner</div>
+
 
 	<div class="group">
 		<div class="boardHeader">

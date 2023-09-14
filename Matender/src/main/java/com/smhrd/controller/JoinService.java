@@ -23,7 +23,7 @@ public class JoinService extends HttpServlet {
 		String gender = request.getParameter("gender");
 		String age = request.getParameter("age");
 
-		System.out.println(nickName+email + gender + age);
+		System.out.println("회원가입할 정보 : 이름-"+nickName+"/메일-"+email+"/성별-"+gender+"/연령대-"+age);
 		MemberVO vo = new MemberVO(nickName, email, gender, age);
 		int cnt = new MemberDAO().join(vo);
 		

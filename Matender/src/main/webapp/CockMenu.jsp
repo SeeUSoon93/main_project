@@ -1,3 +1,7 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.smhrd.model.LikeVO"%>
+<%@page import="com.smhrd.model.LikeDAO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
 <%@page import="com.smhrd.model.CockDAO"%>
 <%@page import="com.smhrd.model.CockVO"%>
 <%@page import="java.util.List"%>
@@ -16,8 +20,9 @@
 </head>
 <body>
     <%  List<CockVO> inquiry = new CockDAO().inquiry();
-        System.out.print(inquiry.size());%>
-        
+        List<LikeVO> like = new LikeDAO().like();
+        System.out.print("칵테일 리스트 사이즈 :"+inquiry.size());%>
+
 	<%@ include file="MainHeader.jsp"%>
 
 	<!-- <div class="banner">banner</div> -->
@@ -35,15 +40,15 @@
 
 
 				<div class="groupBox1">
-					<img src="./img/logo1.png" width="50px" height="50px">
+					<img src="./img/logo1.png" width="100px">
 				</div>
 
 				<div class="groupBox2">
-					<img src="./img/logo2.png" width="50px" height="50px">
+					<img src="./img/logo2.png" width="100px">
 				</div>
 
 				<div class="groupBox3">
-					<img src="./img/logo3.png" width="50px" height="50px">
+					<img src="./img/logo3.png" width="100px">
 				</div>
 
 			</div>
@@ -91,7 +96,7 @@
 						<input type="checkbox" name="base" value=""> 10%<br>
 						<input type="checkbox" name="base" value=""> 20%<br>
 						<input type="checkbox" name="base" value=""> 30%<br>
-						<input type="checkbox" name="base" value=""> 40%
+						<input type="checkbox" name="base" value=""> 40%<br>
 					</div>
 
 				</div>
@@ -112,7 +117,11 @@
 							<div class="recipetitle">
 								<div class="recipename1"><%=inquiry.get(i).getRecipeName() %></div>
 
-								<div class="recipename2">❤ 30 🏷 50 🗨 30</div>
+								<div class="recipename2">
+								<img src="./img/like-check.png" color= "#228b22" width="15px" height="15px"> <%=like.get(i).getLike() %>
+									<img src="./img/bookmark-check.png" width="15px" height="15px"> 50 
+									<img src="./img/comment.png" width="17px" height="17px">30
+								</div>
 							</div>
 
 						</div>

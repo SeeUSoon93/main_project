@@ -100,6 +100,36 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.Logout</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>WebBoardDelService</servlet-name>
+  	<display-name>WebBoardDelService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.WebBoardDelService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>WebBoardUpdateService</servlet-name>
+  	<display-name>WebBoardUpdateService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.WebBoardUpdateService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RepleInsertService</servlet-name>
+  	<display-name>RepleInsertService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.RepleInsertService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>boardGoodService</servlet-name>
+  	<display-name>boardGoodService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.boardGoodService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>RepleDelService</servlet-name>
+  	<display-name>RepleDelService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.RepleDelService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogoutService</servlet-name>
   	<url-pattern>/LogoutService</url-pattern>
@@ -163,5 +193,25 @@
   <servlet-mapping>
   	<servlet-name>Logout</servlet-name>
   	<url-pattern>/Logout</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WebBoardDelService</servlet-name>
+  	<url-pattern>/WebBoardDelService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>WebBoardUpdateService</servlet-name>
+  	<url-pattern>/WebBoardUpdateService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RepleInsertService</servlet-name>
+  	<url-pattern>/RepleInsertService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>boardGoodService</servlet-name>
+  	<url-pattern>/boardGoodService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RepleDelService</servlet-name>
+  	<url-pattern>/RepleDelService</url-pattern>
   </servlet-mapping>
 </web-app>

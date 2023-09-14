@@ -1,6 +1,7 @@
 package com.smhrd.model;
 
 import java.math.BigDecimal;
+import java.sql.Timestamp;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,6 +10,10 @@ import lombok.Data;
 @AllArgsConstructor
 
 public class ImgVO {
+	String imgNum;
 	String boardNum;
-	String path;
+	String recipeNum;
+	String filename;
+	Timestamp imgDate;
+	
 }

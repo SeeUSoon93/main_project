@@ -15,6 +15,7 @@ public class BoardDAO {
 	public int boardWrite(BoardVO board) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		int cnt = sqlSession.insert("com.smhrd.db.boardMapper.boardWrite", board);		
+		System.out.println("게시글 작성했냐?");
 		sqlSession.close();
 		return cnt;
 	}
@@ -28,28 +29,64 @@ public class BoardDAO {
 		return board2;
 	}
 	
-	public int boardWriteImg(String boardNum) {
+	public int boardWriteImg(ImgVO imgvo) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
-		int boardNum2 = sqlSession.insert("com.smhrd.db.boardMapper.boardWriteImg", boardNum);
+		int boardNum2 = sqlSession.insert("com.smhrd.db.boardMapper.boardWriteImg", imgvo);
 		System.out.println("이미지 삽입헀냐?");
 		sqlSession.close();
 		return boardNum2;
-	}
-	
-	
-
-	
+	}	
 	
 	// 전체 게시글 조회
 	public List<BoardVO> WebBoard() {		
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		List<BoardVO> boardList = sqlSession.selectList("com.smhrd.db.boardMapper.WebBoard");
+		System.out.println("게시글 전체조회 하냐?");
 		sqlSession.close();
 		return boardList;
 	}
 	
 	
-	// 게시글 상세 페이지
+	// 게시글 상세 조회
+	public BoardVO showText(String boardNum) {
+		SqlSession session = sqlSessionFactory.openSession(true);		
+		BoardVO boardInfo = session.selectOne("com.smhrd.db.boardMapper.showText",boardNum);		
+		System.out.println("게시글 상세조회 하냐?");
+		session.close();		
+		return boardInfo;
+	}
+	
+	// 이미지 조회
+	public ImgVO showImg(String boardNum) {
+		SqlSession session = sqlSessionFactory.openSession(true);		
+		ImgVO imgInfo = session.selectOne("com.smhrd.db.boardMapper.showImg",boardNum);
+		System.out.println("이미지 경로 조회 하냐?");
+		session.close();		
+		return imgInfo;
+	}
+	
+	// 게시글 삭제
+	public int deleteBoard(String boardNum) {
+		SqlSession session = sqlSessionFactory.openSession(true);		
+		int cnt = session.delete("com.smhrd.db.boardMapper.deleteBoard", boardNum);
+		System.out.println("게시글 삭제 했냐?");
+		int cnt2 = session.delete("com.smhrd.db.boardMapper.deleteIMG", boardNum);
+		System.out.println("이미지 삭제 했냐?");
+		session.close();		
+		return cnt;		
+	}
+	
+	// 추천 수 업데이트
+	public int boardGoodPlus(String boardNum) {
+		SqlSession session = sqlSessionFactory.openSession(true);		
+		int cnt = session.update("com.smhrd.db.boardMapper.boardGoodPlus", boardNum);
+		System.out.println("게시글 추천 했냐?");
+		System.out.println(cnt);		
+		session.close();		
+		return cnt;		
+	}
+	
+
 	
 	
 }

@@ -29,24 +29,25 @@ h3 {
 	height: 300px;
 	justify-content : center;
 	display: flex;
-/* 	background-color: gray; */
+/* 	background-color: gray;*/
 }
 
 
 .next {
-	width: 50px;
+	width: 200px;
 	height: 260px;
 	margin: 0 14px;
 	margin-top: 20px;
 	justify-content : center;
+	text-align: center;
 	display: flex;
-/* 	background-color: blue; */
+/*	background-color: blue;*/
 	
 }
 
 .nextimg {
 	margin-top: 60px;
-    height: 50%;
+	height: 100px;
 }
 .recipe {
 	width: 230px;
@@ -54,8 +55,8 @@ h3 {
 	margin: 0 14px;
 	margin-top: 20px;
 	float: left;
-	/*border: dashed 3px lightgray;
-	border-radius: 15px;*/
+	/*border: dashed 3px lightgray;*/
+	border-radius: 15px;
 	justify-content : center;
 	position: relative;
 /* 	background-color: red; */
@@ -64,7 +65,8 @@ h3 {
 .recipediv {
 	width: 170px;
 	height: 200px;
-	/* border-radius: 15px; */
+	border-radius: 15px;
+	/*background-color: red;*/
 	margin-top: 10px;
 	justify-content : center;
 	position: absolute;
@@ -95,9 +97,11 @@ h3 {
 .recipename1 {
 	font-family: "GmarketSansMedium";
 	font-size: 17px;
+	color: black;
 }
 .recipename2 {
 	font-family: "Pretendard-Regular";
 	font-size: 14px;
+	color: black;
 	
 }

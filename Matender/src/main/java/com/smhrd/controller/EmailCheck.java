@@ -19,7 +19,7 @@ public class EmailCheck extends HttpServlet {
 		request.setCharacterEncoding("UTF-8");
 		
 		String email = request.getParameter("email");
-		System.out.println(email);
+		System.out.println("이메일 중복체크 중"+email);
 
 		boolean check = new MemberDAO().emailCheck(email);
 

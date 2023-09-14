@@ -13,6 +13,7 @@ public class MemberDAO {
 	public int join(MemberVO vo) {
 		SqlSession sqlSession = sqlSessionFactory.openSession(true);
 		int cnt = sqlSession.insert("com.smhrd.db.memberMapper.join", vo);
+		System.out.println("회원 가입 했냐?");
 		sqlSession.close();
 		return cnt;
 	}
@@ -20,9 +21,9 @@ public class MemberDAO {
 	// 이메일 중복체크
 	public boolean emailCheck(String email) {
 		SqlSession session = sqlSessionFactory.openSession(true);
-		System.out.println("넘어옴?");
+		System.out.println("이메일 넘어옴?");
 		MemberVO vo = session.selectOne("com.smhrd.db.memberMapper.emailCheck", email);
-		System.out.println("SQL 넘어옴?");
+		System.out.println("가입시킴?");
 		session.close();
 
 		if (vo != null) {
@@ -37,7 +38,8 @@ public class MemberDAO {
 	// 로그인
 	public MemberVO login(String nickName) {
 		SqlSession session = sqlSessionFactory.openSession(true);		
-		MemberVO loginInfo = session.selectOne("com.smhrd.db.memberMapper.login",nickName);		
+		MemberVO loginInfo = session.selectOne("com.smhrd.db.memberMapper.login",nickName);
+		System.out.println("로그인 했냐?");
 		session.close();		
 		return loginInfo;
 	}

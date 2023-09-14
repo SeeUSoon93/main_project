@@ -7,5 +7,14 @@
 	<select id="inquiry" resultType="CockVO">
 		SELECT * FROM RECIPE
 	</select>
+	
+	<!-- 좋아요 순위  -->
+	<select id="like" resultType="LikeVO">
+		SELECT A."recipeNum", COUNT(B."recipeNum") as like_count
+		FROM RECIPE A
+		LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+		GROUP BY A."recipeNum"
+		ORDER BY "recipeNum"
+	</select>
 
 </mapper>

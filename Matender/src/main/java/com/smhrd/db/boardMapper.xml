@@ -16,15 +16,36 @@
 		
 	<!-- 이미지 테이블에 인설트 -->	
 	<insert id="boardWriteImg" parameterType="ImgVO">
-		INSERT INTO TB_IMG VALUES('IMG'||IMG_SEQ.nextval, #{boardNum}, null, #{path}, SYSDATE);
+		INSERT INTO TB_IMG VALUES('IMG'||IMG_SEQ.nextval, #{boardNum}, null, #{filename}, SYSDATE)
 	</insert>	
 
 	
 	<!-- 게시글 전체 조회 -->
 	<select id="WebBoard" resultType="BoardVO">
-		 SELECT * FROM BOARD
+		 SELECT * FROM BOARD WHERE "boardCate" = '커뮤니티' ORDER BY "boardDate"
 	</select>
 	
 	<!-- 게시글 상세페이지 -->
+	<select id="showText" resultType="BoardVO" >
+		SELECT * FROM BOARD WHERE "boardNum" = #{boardNum}
+	</select>
+	
+	<!-- 이미지 조회 -->
+	<select id="showImg" resultType="ImgVO" >
+		SELECT * FROM TB_IMG WHERE "boardNum" = #{boardNum}
+	</select>
+	
+	<!-- 게시글 및 이미지 삭제 -->
+	<delete id="deleteBoard" >
+		DELETE BOARD WHERE "boardNum" = #{boardNum}		
+	</delete>
+	<delete id="deleteIMG" >
+		DELETE TB_IMG WHERE "boardNum" = #{boardNum}
+	</delete>
+	
+	<!-- 추천 수 업데이트 -->
+	<update id="boardGoodPlus">
+		UPDATE BOARD SET "boardGood" = "boardGood" + 1 WHERE "boardNum" = #{boardNum} 
+	</update>
 	
 </mapper>

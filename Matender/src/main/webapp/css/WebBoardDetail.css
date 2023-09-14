@@ -30,10 +30,16 @@
 ------------------------------------
 */
 
-h1 {
+.boardHeader {
+	width: 200px;
+	height: 50px;
+	background-color: red;
+    margin-bottom: 20px;
+}
+
+.boardHeader h1 {
     font-size: 30px;
     font-weight: 600;
-    margin-left: 100px;
     color: #d18247;
 }
 
@@ -201,10 +207,9 @@ p {
 }
 
 /* 댓글 박스 */
-h2 {
+.boardHeader h2 {
     font-size: 24px;
     font-weight: 600;
-    margin-left: 30px;
     margin-bottom: 5px;
     color: #181818;
 }
@@ -216,9 +221,7 @@ h2 {
     margin-left: 68px;
 }
 
-.boardHeader {
-    margin-bottom: 20px;
-}
+
 
 .boardReple textarea {
     min-width: 94%;
