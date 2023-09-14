@@ -185,8 +185,8 @@ REFERENCES "RECIPE" (
 
 commit;
 
-select*from member_like;
-
+select*from TB_IMG where "recipeNum" is null;
+delete ;
 ---------------------------------------
 -- 테스트 값
 -- MEMBER
@@ -241,7 +241,7 @@ INSERT INTO RECIPE_REPLE VALUES('RE'||REPLE_SEQ.nextval, 'test', sysdate, 'R1', 
 
 -- TB_IMG
 CREATE SEQUENCE IMG_SEQ
-START WITH 1
+START WITH 500
 INCREMENT BY 1;
 
 INSERT INTO TB_IMG VALUES('IMG'||IMG_SEQ.nextval, null, 'R1', 'test', sysdate);
