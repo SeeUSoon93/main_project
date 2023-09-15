@@ -64,15 +64,12 @@
 <div class="box1">
 	
 	<div class="tailname">
+	
 		<!-- 이름 -->
 		<p class="challtitle">칵테일 이름∨</p>
 		<input placeholder="이름을 지어주세요." type="text"> 
 		
 		<br>
-		
-		<!-- 영문이름 -->
-		<p class="challtitle">칵테일 영문 이름∨</p>
-		<input placeholder="영문이름을 지어주세요" type="text">
 	</div>
 	
 	<div class="explain">
@@ -81,10 +78,7 @@
 		<p class="challtitle">칵테일 설명∨</p>
 		<textarea placeholder="칵테일 소개를 적어주세요" name="text2"></textarea>
 	</div>
-		
-		
-		
-		
+	
 	 <div class="imgredient">
 
 		<!-- 재료 -->
@@ -96,9 +90,6 @@
 	</div>	
 	
 	<div class="report">
-	
-	
-	
 	
 		<!-- 레시피 정보 -->
 		<p class="challtitle">레시피 정보∨</p>

@@ -57,7 +57,7 @@
 
 			<div class="Alcbox">
 				<div class="alc">
-					<h4 class="alctext">도수 : <%=recipeInfo.getCockAlc()%>°</h4>
+					<h4 class="alctext">도수 : <%=recipeInfo.getCockAlc()%>%</h4>
 				</div>
 
 			</div>
