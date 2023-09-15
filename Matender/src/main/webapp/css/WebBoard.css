@@ -18,6 +18,7 @@
     margin-left: auto;
     margin-right: auto;
     padding: 30px 10px 0 10px;
+    font-family: 'GmarketSansMedium';
 }
 
 select {
@@ -56,6 +57,10 @@ th, td {
     padding: 10px;
 }
 
+form {
+	margin-top: 90px;
+}
+
 .greylist {
     width: 50px;
     height: 30px;
@@ -70,10 +75,13 @@ th, td {
     width: 80px;
     height: 30px;
     font-weight: 900;
-    color: white;
     text-align: center;
-    background: linear-gradient(to bottom, #d18247, #d18247);
     border-radius: 8px;
+    margin: 10px 30px 20px 0;
+    color: white;
+    background-color: #d18247;
+    cursor: pointer;
+    border: none;
 }
 
 .left {
@@ -84,9 +92,11 @@ th, td {
     float: right;
 }
 
+
 .center {
     text-align: center;
-    padding: 10px
+    padding: 10px;
+    margin-top: 30px;
 }
 
 a {
@@ -110,4 +120,10 @@ li {
     margin: 23px 3px 3px 3px;
     box-shadow: 0 5px 10px #e4e4e4;
     background-color: #fffcf5;
+}
+
+.underline {
+	width: 99%;
+	height: 1px;
+	background-color: #000000;
 }

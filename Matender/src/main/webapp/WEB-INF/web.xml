@@ -130,6 +130,18 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.RepleDelService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>BoardSerchService</servlet-name>
+  	<display-name>BoardSerchService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.BoardSerchService</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>filterService</servlet-name>
+  	<display-name>filterService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.filterService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogoutService</servlet-name>
   	<url-pattern>/LogoutService</url-pattern>
@@ -213,5 +225,13 @@
   <servlet-mapping>
   	<servlet-name>RepleDelService</servlet-name>
   	<url-pattern>/RepleDelService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>BoardSerchService</servlet-name>
+  	<url-pattern>/BoardSerchService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>filterService</servlet-name>
+  	<url-pattern>/filterService</url-pattern>
   </servlet-mapping>
 </web-app>

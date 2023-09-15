@@ -45,32 +45,32 @@
 					<div class="boardTitle2" align="left"><%=boardInfo.getBoardTitle()%></div>
 				</div>
 				<div class="boardGood1" align="center">
-					<button id="good">추천수 :</button>
+					<input type="button" value="추천수 :" id="good">
 					<div class="boardGood2"><%=boardInfo.getBoardGood()%></div>
 
 				</div>
 
 				<!-- /* 추천하기 */ -->
 				<script type="text/javascript">
-	/* 추천 수 늘리기 */		
-	$('#good').on('click', function(){
-			var boardNum = "<%=boardInfo.getBoardNum()%>";
-			console.log(boardNum);
-			$.ajax({
-				url : "boardGoodService", /* 어디로 보낼지 */
-				data : {"boardNum" : boardNum}, /* 어떤 데이터를 보낼지 */
-				datatype : "text", /* 어떤 데이터 타입으로 받아올지 */
-				success : (data)=>{
-					if(data != null){
-						$('.boardGood2').html(data)
-					}
-				}, /* 성공 시 */
-				error : ()=>{
-					alert('추천 실패');
-				}, /* 실패 시 */
-			})
-		});	
-		</script>
+					/* 추천 수 늘리기 */		
+					$('#good').on('click', function(){
+						var boardNum = "<%=boardInfo.getBoardNum()%>";
+						console.log(boardNum);
+						$.ajax({
+							url : "boardGoodService", /* 어디로 보낼지 */
+							data : {"boardNum" : boardNum}, /* 어떤 데이터를 보낼지 */
+							datatype : "text", /* 어떤 데이터 타입으로 받아올지 */
+							success : (data)=>{
+								if(data != null){
+									$('.boardGood2').html(data)
+								}
+							}, /* 성공 시 */
+							error : ()=>{
+								alert('추천 실패');
+							}, /* 실패 시 */
+						})
+					});	
+				</script>
 
 			</div>
 			<div class="nickAndDate">
@@ -85,20 +85,21 @@
 			</div>
 			<div class="boardText1">
 				<p>내 &nbsp;&nbsp;용</p>
-				<div class="boardText2" align="left">
+				<div class="boardText2">
 					<%
 					if (imgInfo != null) {
 					%>
-					<img src="./boardFile/<%=imgInfo.getFilename()%>" width="400px"><br>
+					<img src="./boardFile/<%=imgInfo.getFilename()%>" align="center"><br>
 					<%
 					}
 					%>
-					<%=boardInfo.getBoardText()%></div>
+					<p align="left"><%=boardInfo.getBoardText()%></p>
+				</div>
 			</div>
 		</div>
 		<div class="button">
 			<button class="btn1">
-				<a href="WebBoard.jsp">목 록</a>
+				<a href="javascript:history.back();" style="color: white">목 록</a>
 			</button>
 			<%-- <button class="btn2"><a href="WebBoardUpdateService?boardNum=<%=boardInfo.getBoardNum()%>">수 정</a></button> --%>
 			<%
@@ -106,10 +107,6 @@
 				if (boardInfo.getNickName().equals(login.getNickName())) {
 					System.out.println("같은 작성자입니다.");
 			%>
-			<button class="btn2">
-				<a href="WebBoardDelService?boardNum=<%=boardInfo.getBoardNum()%>">삭
-					제</a>
-			</button>
 			<%
 			} else {
 			System.out.println("다른 작성자입니다.");
@@ -133,15 +130,15 @@
 
 
 		<div class="boardRepleBox">
-			<div class="boardHeader">
+			<div class="boardHeader2">
 				<h2>COMMANT</h2>
 			</div>
 			<div class="boardReple">
 				<textarea placeholder="댓글을 입력하세요" name="repleCon"></textarea>
 			</div>
 			<div class="inputAndBtn">
-				<input type="text" value=<%=nick%> name="nickName">
-				<button id="repleSubmit" class="btn3">작 성</button>
+				<input type="text" value=<%=nick%> name="nickName" class="writerinput">
+				<input type="submit" value="작 성" id="repleSubmit" class="replebtn">
 			</div>
 			<div class="contour"></div>
 			<div class="RepleListBox">
@@ -155,68 +152,77 @@
 							System.out.println("댓글 리스트 사이즈 : " + repleList.size());
 
 							for (int i = repleList.size() - 1; i >= 0; i--) {
+								%>
+								<div class="replebox1">
+									<div class="repleNick">
+										<p><%=repleList.get(i).getNickName()%></p>
+										<%
+										if (login != null) {
+											if (repleList.get(i).getNickName().equals(login.getNickName())) {
+												System.out.println("같은 댓글 작성자입니다.");
+										%>
+										<input type="button" onClick="location.href='RepleDelService?repleNo=<%=repleList.get(i).getRepleNo()%>&boardNum=<%=boardInfo.getBoardNum()%>'" value="&times;" class="btn4">
+										
+										<%
+											} else {
+												System.out.println("다른 작성자입니다.");
+											}
+										} else {
+											System.out.println("로그아웃 상태입니다.");
+										}
+										%>
+									
+									</div>
+									<div class="repleCon"><%=repleList.get(i).getRepleCon()%></div>
+								</div>
+								<%
+							}
+						}
 						%>
-						<div class="repleNick"><%=repleList.get(i).getNickName()%></div>
-						<div class="repleCon"><%=repleList.get(i).getRepleCon()%></div>
-						<%
-			if (login != null) {
-				if (repleList.get(i).getNickName().equals(login.getNickName())) {
-					System.out.println("같은 댓글 작성자입니다.");
-			%>
-						<button class="btn4">
-							<a href="RepleDelService?repleNo=<%=repleList.get(i).getRepleNo()%>&boardNum=<%=boardInfo.getBoardNum() %>">삭 제</a>
-						</button>
-						<%
-			} else {
-			System.out.println("다른 작성자입니다.");
-			}
-			} else {
-			System.out.println("로그아웃 상태입니다.");
-			}
-			
-						} } %>
 					</div>
 				</div>
 			</div>
 		</div>
+
 
 		<%
 		if (login != null) {
 		%>
 		<!-- 댓글 쓰기 -->
 		<script type="text/javascript">	
-$('#repleSubmit').on('click', function(){
-    var boardNum = "<%=boardInfo.getBoardNum()%>";			
-    var nickName = "<%=nick%>";
-    var repleCon = $('textarea[name=repleCon]').val();
-    console.log(boardNum);
-    $.ajax({
-        url : "RepleInsertService", /* 어디로 보낼지 */
-        data : {
-            "boardNum" : boardNum,
-            "nickName" : nickName,
-            "repleCon" : repleCon
-        }, /* 어떤 데이터를 보낼지 */
-        datatype : "text", /* 어떤 데이터 타입으로 받아올지 */
-        success : (data)=>{
-            if(data != null){
-                location.reload();
-            }
-        }, /* 성공 시 */
-        error : ()=>{
-            alert('댓글 실패');
-        }, /* 실패 시 */
-    });
-});
-	
-</script>
-		<%
-		}
-		%>
-
+			$('#repleSubmit').on('click', function(){
+			    var boardNum = "<%=boardInfo.getBoardNum()%>";			
+			    var nickName = "<%=nick%>";
+			    var repleCon = $('textarea[name=repleCon]').val();
+			    console.log(boardNum);
+			    $.ajax({
+			        url : "RepleInsertService", /* 어디로 보낼지 */
+			        data : {
+			            "boardNum" : boardNum,
+			            "nickName" : nickName,
+			            "repleCon" : repleCon
+			        }, /* 어떤 데이터를 보낼지 */
+			        datatype : "text", /* 어떤 데이터 타입으로 받아올지 */
+			        success : (data)=>{
+			            if(data != null){
+			                location.reload();
+			            }
+			        }, /* 성공 시 */
+			        error : ()=>{
+			            alert('댓글 실패');
+			        }, /* 실패 시 */
+			    });
+			});
+		</script>
+		<% } %>
 
 	</div>
 
+	<br>
+	<br>
+	<br>
+
 
 </body>
+	<%@ include file="footer.jsp"%>
 </html>

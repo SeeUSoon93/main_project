@@ -65,8 +65,6 @@
 					<img src="./img/도전 레시피.png" height="25px"> 나의 도전 레시피
 				</h2>
 
-
-
 				<%
 				for (int i = 1; i <= 5; i++) {
 				%>
@@ -167,6 +165,10 @@
 
 
 
-	<%-- <%@ include file="footer.jsp"%> --%>
+		<br>
+	<br>
+	<br>
+
 </body>
+<%@ include file="footer.jsp"%>
 </html>

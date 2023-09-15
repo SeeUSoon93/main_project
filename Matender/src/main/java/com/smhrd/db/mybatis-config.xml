@@ -12,6 +12,7 @@
 		<typeAlias type="com.smhrd.model.CockVO" alias="CockVO"/>
 		<typeAlias type="com.smhrd.model.Boared_RepleVO" alias="Boared_RepleVO"/>
 		<typeAlias type="com.smhrd.model.LikeVO" alias="LikeVO"/>
+		<typeAlias type="com.smhrd.model.AllVO" alias="AllVO"/>
 	</typeAliases>	
 	
 	<environments default="development">

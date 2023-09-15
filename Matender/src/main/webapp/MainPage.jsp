@@ -43,7 +43,7 @@
 		
 		
 		<script src="./js/main.js"></script>
-	<%@ include file="footer.jsp"%>
 	</div>
 	</body>
+	<%@ include file="footer.jsp"%>
 </html>

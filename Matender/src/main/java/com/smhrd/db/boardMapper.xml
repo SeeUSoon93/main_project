@@ -25,6 +25,11 @@
 		 SELECT * FROM BOARD WHERE "boardCate" = '커뮤니티' ORDER BY "boardDate"
 	</select>
 	
+	<!-- 게시글 작성자 조회 -->
+	<select id="boardSerch" resultType="BoardVO">
+		 SELECT * FROM BOARD WHERE "boardCate" = '커뮤니티' AND "nickName" = #{nickName} ORDER BY "boardDate"
+	</select>
+	
 	<!-- 게시글 상세페이지 -->
 	<select id="showText" resultType="BoardVO" >
 		SELECT * FROM BOARD WHERE "boardNum" = #{boardNum}

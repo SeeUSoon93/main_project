@@ -46,6 +46,14 @@ public class BoardDAO {
 		return boardList;
 	}
 	
+	// 검색 작성자 게시글 조회
+	public List<BoardVO> boardSerch(String nickName) {		
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		List<BoardVO> boardList = sqlSession.selectList("com.smhrd.db.boardMapper.boardSerch",nickName);
+		System.out.println("작성자 조회 하냐?");
+		sqlSession.close();
+		return boardList;
+	}
 	
 	// 게시글 상세 조회
 	public BoardVO showText(String boardNum) {

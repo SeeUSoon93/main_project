@@ -20,4 +20,15 @@ public class CockDAO {
 			return inquiry;
 		}
 
+	// 전체 조인 메뉴 조회
+		public List<AllVO> joinInquiry() {
+			SqlSession session = sqlSessionFactory.openSession(true);		
+		    List<AllVO> joinInquiry = session.selectList("com.smhrd.db.cockMapper.joinInquiry");	
+		    System.out.println("전체 조인 칵테일 메뉴 조회 했냐?");
+			session.close();		
+			return joinInquiry;					
+			
+		}
+		
+		
 }

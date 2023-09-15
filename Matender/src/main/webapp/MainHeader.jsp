@@ -43,9 +43,9 @@
 				</li>
 				<li><a href="CockMenu.jsp" data-hover="전체메뉴"><div>전체메뉴</div></a></li>
 				<li><a href="CockRank.jsp" data-hover="인기순위"><div>인기순위</div></a></li>
-				<li><a href="WebMagazine.jsp" data-hover="칵테일 이야기"><div>칵테일
-							이야기</div></a></li>
-				<li><a href="WebBoard.jsp" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
+				<li><a href="WebMagazine.jsp" data-hover="칵테일 웹진"><div>칵테일
+							웹진</div></a></li>
+				<li><a href="WebBoard.jsp?page=1" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
 			
 			<div class="pagebarmom">
 				<%
@@ -75,9 +75,9 @@
 	</header>
 	<div id="banner">
 		<div id="ani">
-			<h1 id="mainsize">
+			<div id="mainsize">
 				PICK<br>YOUR COCKTAIL
-			</h1>
+			</div>
 		</div>
 	</div>
 	<script src="https://t1.kakaocdn.net/kakao_js_sdk/2.3.0/kakao.min.js"

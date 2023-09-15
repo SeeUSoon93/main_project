@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Webzine001</title>
+<title>K-pop 속의 칵테일</title>
 <link rel="stylesheet" href="./font_style/main.css">
 
 </head>
@@ -58,7 +58,7 @@
 				</div>
 			</ul>
 		</div>
-<!--여기--><div id="webzinebanner" style="background-image: url(../img/배너1.jpg);">
+<!--여기--><div id="webzinebanner" style="background-image: url(./img/Webzine/webzineBanner01.png);">
 			<div id="ani">
 				<h1 id="mainsize">					
 				</h1>
@@ -127,7 +127,7 @@
 				<p>TWICE라는 걸그룹, 많이들 알고 계실거라고 믿어 의심치 않는데요,</p>
 				<p>저 역시 제 망태기 속 수많은 그룹 중 하나로 노래도, 무대도 좋아하는 편입니다.</p>
 				<br><img
-					src="https://blog.kakaocdn.net/dn/Q2PlU/btstzww3MjU/R8mryY1b6twsRPLfR3YX6k/img.webp"
+					src="./img/Webzine/webzine01.png"
 					width="100%"> <br>
 				<P>TWICE는 2015년 10월 20일에 데뷔한 JYP엔터테인먼트 소속의 9인조 다국적 걸그룹으로 다양한 컨셉과
 					노래들을 소화하면서 대중들의 많은 사랑을 받고 있습니다.</P>
@@ -158,9 +158,9 @@
 				<hr id="rnqnstjs" width="100px" size="6px" color="#474747">
 				<br> <br>
 				<h3>첫 번째, 마가리타</h3><br>
-				<img
+				<img 
 					src="https://blog.kakaocdn.net/dn/dgFd6b/btstG4UhvaP/F5APEi8NkjdkkdFBr6LZCK/img.png"
-					class="cockStoryIMG">
+					class="cockStoryIMG"><br>
 				<P>마가리타는 스페인어로 데이지(Daisy)를 뜻하는 말로 칵테일 종류인 '데이지'를 변형시켜 브랜디 대신
 					데킬라를 사용했다는 것에서 유래한 칵테일 입니다. 리밍 소금(잔의 테두리에 소금을 묻히는 것)이 특징적인 칵테일로, 이
 					소금은 데킬라의 쓴 맛을 완화 시키면서 달고 상큼한 향을 극대화 시켜주는 역할을 합니다.</P>
@@ -170,7 +170,7 @@
 				<h3>두 번째, 모히또</h3><br>
 				<img
 					src="https://blog.kakaocdn.net/dn/bnXqPs/btstyiTenkU/6KnfiWKKmxIt4GL7QfopQ1/img.png"
-					class="cockStoryIMG">
+					class="cockStoryIMG"><br>
 				<P>모히또의 유래에는 다양한 가설이 있지만, 영국의 탐험가 프란시스 드레이크의 이름을 본따 만들어진 칵테일,
 					"Draque"를 모히또의 원조 레시피로 보는 경우가 많습니다. 화이트럼, 스피어민트, 얼음, 탄산수, 설탕(또는
 					시럽), 라임즙으로 만들어지는 칵테일로 미국의 소설가이자 저널리스트였던 어니스트 헤밍웨이가 즐겨 마셨던 것으로도
@@ -181,7 +181,7 @@
 				<h3>세 번째, 스윗미모사</h3><br>
 				<img
 					src="https://blog.kakaocdn.net/dn/ATmY2/btstzv51i9S/uGH7qtuuNksZZIgGIBYng1/img.png"
-					class="cockStoryIMG">
+					class="cockStoryIMG"><br>
 				<P>청초하고 가련한 미모사 꽃과 같이 싱싱하면서도 부드러운 칵테일 미모사는, 글라스에 따랐을 때의 색깔이 미모사
 					꽃과 비슷하다고 하여 ‘미모사’란 애칭으로 불리게 된 칵테일입니다. 오렌지 주스의 향기에 품위 있는 샴페인이 곁들여져
 					분위기를 한층 살려주는 음료라고 할 수 있습니다.</P>
@@ -191,7 +191,7 @@
 				<h3>네 번째, 피나콜라다</h3><br>
 				<img
 					src="https://blog.kakaocdn.net/dn/KcYjA/btstKXHjHvM/YlBPW6AC8UkJdgj81GBdJ0/img.png"
-					class="cockStoryIMG">
+					class="cockStoryIMG"><br>
 				<P>"삐냐(piña)"는 스페인어로 파인애플을 의미합니다. 피냐콜라다는 이름 그대로 새콤달콤한 파인애플과 진한
 					코코넛 향이 어우러진 열대 칵테일을 말하는 셈이죠. 이러한 피나콜라다는 푸에르토리코의 공식음료로 지정되어 많은 사랑을
 					받고 있는 칵테일이기도 합니다.</P>
