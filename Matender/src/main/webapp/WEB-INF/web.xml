@@ -142,6 +142,12 @@
   	<description></description>
   	<servlet-class>com.smhrd.controller.filterService</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>RecipeLikeService</servlet-name>
+  	<display-name>RecipeLikeService</display-name>
+  	<description></description>
+  	<servlet-class>com.smhrd.controller.RecipeLikeService</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>LogoutService</servlet-name>
   	<url-pattern>/LogoutService</url-pattern>
@@ -233,5 +239,9 @@
   <servlet-mapping>
   	<servlet-name>filterService</servlet-name>
   	<url-pattern>/filterService</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>RecipeLikeService</servlet-name>
+  	<url-pattern>/RecipeLikeService</url-pattern>
   </servlet-mapping>
 </web-app>

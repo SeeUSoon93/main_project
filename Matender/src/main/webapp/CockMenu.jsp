@@ -153,10 +153,10 @@
 						            resultHTML += "<div class='cocktailsBox'>";
 						            resultHTML += "<div class='recipe'>";
 						            resultHTML += "<div class='recipediv'>";
-						            resultHTML += "<img class='recipeImg'src='"+ result[i].imgPath +"'>";
+						            resultHTML += "<a href=MenuPage.jsp?recipeNum="+result[i].recipeNum+"><img class='recipeImg'src='"+ result[i].imgPath +">';
 						            resultHTML += "</div>";
 						            resultHTML += "<div class='recipetitle''>";
-						            resultHTML += "<div class='recipename1'>" + result[i].recipeName + "</div>";
+						            resultHTML += "<div class='recipename1'>" + result[i].recipeName + "</div></a>";
 						            resultHTML += "<div class='recipename2'>";
 						            resultHTML += "<img src='./img/like-check.png' color= '#228b22' width='15px' height='15px'>"+result[i].LIKE_COUNT
 						            resultHTML += "&nbsp&nbsp<img src='./img/bookmark-check.png' width='15px' height='15px'>"+result[i].BOOKMARK_COUNT
@@ -182,10 +182,10 @@
 					<div class="cocktailsBox">
 						<div class="recipe">
 							<div class="recipediv">
-								<img class="recipeImg" src="<%=inquiry.get(i).getImgPath() %>">
+								<a href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img class="recipeImg" src="<%=inquiry.get(i).getImgPath() %>">
 							</div>
 							<div class="recipetitle">
-								<div class="recipename1"><%=inquiry.get(i).getRecipeName() %></div>
+								<div class="recipename1"><%=inquiry.get(i).getRecipeName() %></div></a>
 								<div class="recipename2">
 								<img src="./img/like-check.png" color= "#228b22" width="15px" height="15px"> <%=inquiry.get(i).getLIKE_COUNT() %>
 									<img src="./img/bookmark-check.png" width="15px" height="15px"> <%=inquiry.get(i).getBOOKMARK_COUNT() %> 

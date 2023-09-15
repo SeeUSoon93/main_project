@@ -31,7 +31,7 @@
 				<li><a href="../CockRank.jsp" data-hover="인기순위"><div>인기순위</div></a></li>
 				<li><a href="../WebMagazine.jsp" data-hover="칵테일 이야기"><div>칵테일
 							이야기</div></a></li>
-				<li><a href="../WebBoard.jsp" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
+				<li><a href="../WebBoard.jsp?page=1" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
 
 				<div class="pagebarmom">
 					<%

@@ -13,6 +13,8 @@
 		<typeAlias type="com.smhrd.model.Boared_RepleVO" alias="Boared_RepleVO"/>
 		<typeAlias type="com.smhrd.model.LikeVO" alias="LikeVO"/>
 		<typeAlias type="com.smhrd.model.AllVO" alias="AllVO"/>
+		<typeAlias type="com.smhrd.model.Member_likeVO" alias="Member_likeVO"/>
+		<typeAlias type="com.smhrd.model.IngredientVO" alias="IngredientVO"/>
 	</typeAliases>	
 	
 	<environments default="development">
@@ -32,5 +34,6 @@
 		<mapper resource="com/smhrd/db/boardMapper.xml" />
 		<mapper resource="com/smhrd/db/cockMapper.xml" />
 		<mapper resource="com/smhrd/db/boardRepleMapper.xml" />
+		<mapper resource="com/smhrd/db/ingredientMapper.xml" />
 	</mappers>
 </configuration>

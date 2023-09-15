@@ -80,3 +80,32 @@ LEFT JOIN (
 ) E ON A."recipeNum" = E."recipeNum"
 ORDER BY A."recipeNum";
 
+---------------상세 조회
+SELECT A."recipeNum", A."recipeCode", A."recipeName", A."cockAlc", A."cockBase", A."cockInfo", A."cockRec", A."nickName",
+       B."imgPath", C.LIKE_COUNT, D.BOOKMARK_COUNT, E.REPLE_COUNT
+FROM RECIPE A
+LEFT JOIN (
+    SELECT "recipeNum", MIN("imgPath") AS "imgPath"
+    FROM TB_IMG
+    GROUP BY "recipeNum"
+) B ON A."recipeNum" = B."recipeNum"
+LEFT JOIN (
+    SELECT A."recipeNum", COUNT(B."recipeNum") AS like_count
+    FROM RECIPE A
+    LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+    GROUP BY A."recipeNum"
+) C ON A."recipeNum" = C."recipeNum"
+LEFT JOIN (
+    SELECT A."recipeNum", COUNT(B."recipeNum") AS BOOKMARK_COUNT
+    FROM RECIPE A
+    LEFT JOIN BOOKMARK B ON A."recipeNum" = B."recipeNum"
+    GROUP BY A."recipeNum"
+) D ON A."recipeNum" = D."recipeNum"
+LEFT JOIN (
+    SELECT A."recipeNum", COUNT(B."recipeNum") AS REPLE_COUNT
+    FROM RECIPE A
+    LEFT JOIN RECIPE_REPLE B ON A."recipeNum" = B."recipeNum"
+    GROUP BY A."recipeNum"
+) E ON A."recipeNum" = E."recipeNum"
+WHERE A."recipeNum" = 'R1'
+ORDER BY A."recipeNum";
