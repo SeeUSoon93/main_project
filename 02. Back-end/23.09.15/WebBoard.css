@@ -1,0 +1,129 @@
+@charset "UTF-8";
+@import url(./fontstyle.css);
+
+* {
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+.banner {
+    height: 250px;
+    background-color: #ffff80;
+}
+
+.group {
+    width: 60%;
+    height: 540px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px 10px 0 10px;
+    font-family: 'GmarketSansMedium';
+}
+
+select {
+    width: 60px;
+    height: 26px;
+    border: solid 1px black;
+}
+
+input {
+    width: 180px;
+    height: 25px;
+    border: solid 1px black;
+}
+
+.hr1 {
+    border: 0;
+    height: 2px;
+}
+
+#strong {
+    font-weight: 900;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th {
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+}
+
+th, td {
+    padding: 10px;
+}
+
+form {
+	margin-top: 90px;
+}
+
+.greylist {
+    width: 50px;
+    height: 30px;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    background: #daa53b;
+    border-radius: 8px;
+}
+
+.gradient {
+    width: 80px;
+    height: 30px;
+    font-weight: 900;
+    text-align: center;
+    border-radius: 8px;
+    margin: 10px 30px 20px 0;
+    color: white;
+    background-color: #d18247;
+    cursor: pointer;
+    border: none;
+}
+
+.left {
+    text-align: left;
+}
+
+.right {
+    float: right;
+}
+
+
+.center {
+    text-align: center;
+    padding: 10px;
+    margin-top: 30px;
+}
+
+a {
+    color: black;
+    text-decoration-line: none;
+}
+
+li {
+    list-style-type: none;
+}
+
+.center li {
+    display: inline-block;
+}
+
+.center li a {
+    display: block;
+    width: 40px;
+    line-height: 40px;
+    border-radius: 10px;
+    margin: 23px 3px 3px 3px;
+    box-shadow: 0 5px 10px #e4e4e4;
+    background-color: #fffcf5;
+}
+
+.underline {
+	width: 99%;
+	height: 1px;
+	background-color: #000000;
+}
