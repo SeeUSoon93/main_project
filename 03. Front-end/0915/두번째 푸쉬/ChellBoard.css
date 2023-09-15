@@ -1,0 +1,221 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@import url(./fontstyle.css);
+/* 
+------------------
+프로필 정보
+------------------
+*/
+
+.profile {
+	margin-top: 100px;
+	width: 100%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+	background-color: rgb(230, 251, 255);
+}
+
+.picture {
+	width: 600px;
+	height: 350px;
+/*	background-color: blue;*/
+	position: relative;
+	text-align: center;
+	
+}
+
+.img {
+	width: 200px;
+	height: 200px;
+	margin: 50px;
+	margin-top: 60px;
+	display: inline-block;
+/*	background-color: red;*/
+	
+}
+
+.contents{
+	width: 600px;
+	height: 350px;
+/*	background-color: gray;*/ 
+}
+
+.namebox {
+	width: 600px;
+	height: 80px;
+	margin-bottom: 3px;
+	display: inline-block;
+	margin-top: 60px;
+	padding-left: 5px;
+	/*background-color: rgb(255, 128, 128);*/
+}
+
+.textbox {
+	width: 600px;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	padding-left: 5px;
+/*	background-color: rgb(255, 128, 128);*/
+	text-align: left;
+}
+
+
+h4 {
+	font-family: "Pretendard-Regular";
+	margin-top: 5px;
+}
+
+
+.name {
+	font-size: 30px;
+	text-align: left;
+	padding-left: 10px;
+
+}
+.text1 {
+	font-size: 18px;
+	text-align: left;
+	padding-left: 10px;
+}
+
+.text2 {
+	font-size: 15px;
+	text-align: left;
+	padding-left: 10px;
+	color: gray;
+	line-height: 25px;
+	
+}
+
+
+/* 
+------------------
+작성글
+------------------
+*/
+
+.box1{
+	width: 50%;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;;
+	padding-top: 50px;
+/*	background-color: cadetblue;*/
+	border-radius: 15px;
+	box-shadow: 1px 1px 20px lightgray;
+
+}
+
+.tailname {
+	width: 90%;
+	height: auto;
+	margin: auto;
+/*	background-color: cornflowerblue;	*/
+}
+
+.explain {
+	width: 90%;
+	height: auto;
+	margin: auto;
+/*	background-color: darkmagenta;*/
+}
+
+.imgredient {
+	width: 90%;
+	height: auto;
+	margin: auto;
+/*	background-color: darkorange;	*/
+}
+.report {
+	width: 90%;
+	height: 250px;
+	margin: auto;
+/*	background-color: salmon;	*/
+}
+
+.challfile {
+	width: 90%;
+	height: 100px;
+	margin: auto;
+/*	background-color: skyblue;	*/
+}
+
+.challsubmit {
+	width: 90%;
+	height: 25px;
+	margin: auto;
+	text-align: right;
+
+}
+
+
+input[type=text] {
+	font-family: "GmarketSansMedium";
+	width: 90%;
+	height: 40px;
+	font-size: 15px;
+	border-radius: 10px;
+	padding-left: 15px;
+	margin-bottom: 30px;
+	border: none;
+	border: solid 1px lightgray;
+	color: gray;
+}
+
+textarea {
+	font-family: "GmarketSansMedium";
+    width: 90%;
+	height: 9em;
+	font-size: 15px;
+	border-radius: 10px;
+	padding-left: 15px;
+	margin-bottom: 15px;
+	
+	border: none;
+	resize: none;
+	border: solid 1px lightgray;
+	color: gray;
+}
+
+input[name=text3] {
+	font-family: "GmarketSansMedium";
+	width: 85%;
+	height: 40px;
+	font-size: 15px;
+	border-radius: 10px;
+	padding-left: 15px;
+	margin-bottom: 30px;
+	border: none;
+	border: solid 1px lightgray;
+	color: gray;
+}
+.challtitle {
+	font-family: "GmarketSansMedium";
+	font-size: 15px;
+	text-align: left;
+	margin-left: 35px;
+	padding-top: 30px;
+	padding-bottom: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
