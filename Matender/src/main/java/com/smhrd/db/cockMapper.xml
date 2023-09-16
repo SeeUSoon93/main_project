@@ -149,4 +149,78 @@
 	</insert>
 		
 	
+	<!-- 인기 순위 조회 -->
+	<select id="joinRank" resultType="AllVO">
+		SELECT *
+		FROM (
+		    SELECT A."recipeNum", A."recipeCode", A."recipeName", A."cockAlc", A."cockBase", A."cockInfo", A."cockRec", A."nickName",
+		           B."imgPath", C.LIKE_COUNT, D.BOOKMARK_COUNT, E.REPLE_COUNT
+		    FROM RECIPE A
+		    LEFT JOIN (
+		        SELECT "recipeNum", MIN("imgPath") AS "imgPath"
+		        FROM TB_IMG
+		        GROUP BY "recipeNum"
+		    ) B ON A."recipeNum" = B."recipeNum"
+		    LEFT JOIN (
+		        SELECT A."recipeNum", COUNT(B."recipeNum") AS like_count
+		        FROM RECIPE A
+		        LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+		        GROUP BY A."recipeNum"
+		    ) C ON A."recipeNum" = C."recipeNum"
+		    LEFT JOIN (
+		        SELECT A."recipeNum", COUNT(B."recipeNum") AS BOOKMARK_COUNT
+		        FROM RECIPE A
+		        LEFT JOIN BOOKMARK B ON A."recipeNum" = B."recipeNum"
+		        GROUP BY A."recipeNum"
+		    ) D ON A."recipeNum" = D."recipeNum"
+		    LEFT JOIN (
+		        SELECT A."recipeNum", COUNT(B."recipeNum") AS REPLE_COUNT
+		        FROM RECIPE A
+		        LEFT JOIN RECIPE_REPLE B ON A."recipeNum" = B."recipeNum"
+		        GROUP BY A."recipeNum"
+		    ) E ON A."recipeNum" = E."recipeNum"
+		    WHERE "recipeCode" = 'CH001'
+		    ORDER BY C.LIKE_COUNT DESC
+		)
+		WHERE ROWNUM &#60;= 10
+	</select>
+	
+	<select id="joinRank2" resultType="AllVO">
+		SELECT *
+		FROM (
+		    SELECT A."recipeNum", A."recipeCode", A."recipeName", A."cockAlc", A."cockBase", A."cockInfo", A."cockRec", A."nickName",
+		           B."imgPath", C.LIKE_COUNT, D.BOOKMARK_COUNT, E.REPLE_COUNT
+		    FROM RECIPE A
+		    LEFT JOIN (
+		        SELECT "recipeNum", MIN("imgPath") AS "imgPath"
+		        FROM TB_IMG
+		        GROUP BY "recipeNum"
+		    ) B ON A."recipeNum" = B."recipeNum"
+		    LEFT JOIN (
+		        SELECT A."recipeNum", COUNT(B."recipeNum") AS like_count
+		        FROM RECIPE A
+		        LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+		        GROUP BY A."recipeNum"
+		    ) C ON A."recipeNum" = C."recipeNum"
+		    LEFT JOIN (
+		        SELECT A."recipeNum", COUNT(B."recipeNum") AS BOOKMARK_COUNT
+		        FROM RECIPE A
+		        LEFT JOIN BOOKMARK B ON A."recipeNum" = B."recipeNum"
+		        GROUP BY A."recipeNum"
+		    ) D ON A."recipeNum" = D."recipeNum"
+		    LEFT JOIN (
+		        SELECT A."recipeNum", COUNT(B."recipeNum") AS REPLE_COUNT
+		        FROM RECIPE A
+		        LEFT JOIN RECIPE_REPLE B ON A."recipeNum" = B."recipeNum"
+		        GROUP BY A."recipeNum"
+		    ) E ON A."recipeNum" = E."recipeNum"
+		    WHERE "recipeCode" = 'CH002'
+		    ORDER BY C.LIKE_COUNT DESC
+		)
+		WHERE ROWNUM &#60;= 10
+	</select>
+	
+	
+	
+	
 </mapper>

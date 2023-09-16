@@ -49,6 +49,27 @@ public class CockDAO {
 	}
 	
 	
+	// 인기 순위 조회
+	public List<AllVO> joinRank() {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<AllVO> joinInquiry = session.selectList("com.smhrd.db.cockMapper.joinRank");
+		System.out.println("일반 인기순위 칵테일 메뉴 조회 했냐?");
+		session.close();
+		return joinInquiry;
+
+	}
+	
+	public List<AllVO> joinRank2() {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<AllVO> joinInquiry = session.selectList("com.smhrd.db.cockMapper.joinRank2");
+		System.out.println("도전 인기순위 칵테일 메뉴 조회 했냐?");
+		session.close();
+		return joinInquiry;
+
+	}
+	
+	
+	
 	
 	
 	
