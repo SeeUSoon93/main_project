@@ -12,7 +12,7 @@
 	width: 80%;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;;
+	margin-top: 50px;	
 	padding-top: 50px;
 }
 
@@ -23,7 +23,7 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	position:relative;
+	position: relative;
 }
 
 .box1 {
@@ -31,37 +31,11 @@
 	height: 110px;
 	display: flex;
 	position: absolute;
-	bottom:70px;
+	bottom: 70px;
 	float: left;
 }
 
-.box2 {
-
-	width: 550px;
-	height: 50px;
-	float: left;
-	margin-top: 80px;
-/*	justify-content: center;*/
-}
-
-.titlemom {
-	position:center;
-}
-
-.boxtitle {
-	width: auto;
-	height: 50px;
-/*	margin-right: 10px;*/
-	font-family: "GeekbleMalang2WOFF2";
-	text-align: center;
-	font-size: 20px;
-	display: flex;
-/*	justify-content: center;*/
-	align-items: center;
-	float: left;
-/* 	background-color: blue; */
-}
-.groupBox1 {
+.groupBox {
 	width: 100px;
 	height: 100px;
 	margin-left: 40x;
@@ -74,36 +48,11 @@
 	justify-content: center;
 	align-items: center;
 	flex: 0.5;
+	flex-direction: column;
 }
 
-.groupBox2 {
-	width: 100px;
+.boxtitle {
 	height: 100px;
-	margin-left: 40px;
-	margin-right: 40px;
-	border-radius: 100%;
-	font-family: "GeekbleMalang2WOFF2";
-	text-align: center;
-	font-size: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 0.5;
-}
-
-.groupBox3 {
-	width: 100px;
-	height: 100px;
-	margin-left: 40px;
-	margin-right: 40px;
-	border-radius: 100%;
-	font-family: "GeekbleMalang2WOFF2";
-	text-align: center;
-	font-size: 20px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 0.5;
 }
 
 .groupBox :hover {
@@ -137,60 +86,27 @@
 
 }
 
-ul {
-	text-align: left;
-	margin-left: 30px;
-}
-
-li {
-	list-style: none;
-	padding-bottom: 10px;
-}
-
 .baseAlcohol {
 	width: 220px;
 	cursor: pointer;
 	text-align: left;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	padding-left: 30px;
 	border-top: solid 1px black;
 	margin: 0 auto;
 	font-size: 18px;
 }
 
-.menubox1 {
+.menubox {
 	width: 220px;
-	height: 20%;
-	/* border-bottom: solid 1px black; */
-	/* position: relative; */
-	/* color:#000000; */
-	z-index: 99999;
-	display: none;
+	height: 150px;
+	padding-left: 30px;
+	z-index: 10;
+	/*display: none;*/
 	margin-left: 20px;
-}
-
-.ingredient {
-	width: 220px;
-	cursor: pointer;
 	text-align: left;
-	padding-top: 20px;
-	padding-bottom: 20px;
-	padding-left: 30px;
-	border-top: solid 1px black;
-	margin: 0 auto;
-	font-size: 18px;
-}
-
-.menubox2 {
-	width: 220px;
-	height: 20%;
-	/* border-bottom: solid 1px black; */
-	/* position: relative; */
-	/* color:#000000; */
-	z-index: 99999;
-	display: none;
-	margin-left: 20px;
+	align-items: left;
+	display: block;
 }
 
 .dangdo {
@@ -199,27 +115,36 @@ li {
 	text-align: left;
 	padding-top: 20px;
 	padding-bottom: 20px;
-	padding-left: 30px;
 	border-top: solid 1px black;
 	margin: 0 auto;
 	font-size: 18px;
 }
 
-.menubox3 {
-	width: 220px;
-	height: 20%;
-	/* border-bottom: solid 1px black; */
-	/* position: relative; */
-	/* color:#000000; */
-	z-index: 99999;
-	display: none;
-	margin-left: 20px;
+/* 버튼 css 갓순이*/
+.godSoonE {
+	width: 80%;
+	background-color:#CC9933;
+	border-radius:42px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: "GmarketSansMedium";
+	font-size:20px;
+	padding:10px 42px;
+	text-decoration:none;
+	transition: all 0.2s ;
 }
+
+.godSoonE:hover {
+  background: rgb(244, 221, 11);
+}
+
+/**/
 
 .cocktailsBox {
 	width: 1000px;
 	height: 300px;
-	justify-content : center;
+	justify-content: center;
 }
 
 .recipe {
@@ -230,7 +155,7 @@ li {
 	margin-bottom: 80px;
 	float: left;
 	border-radius: 15px;
-	justify-content : center;
+	justify-content: center;
 	position: relative;
 }
 
@@ -239,11 +164,12 @@ li {
 	height: 240px;
 	margin-top: 10px;
 	border-radius: 15px;
-	justify-content : center;
+	justify-content: center;
 	position: absolute;
-  	left: 12%;
-  	overflow: hidden;
+	left: 12%;
+	overflow: hidden;
 }
+
 .recipeImg {
 	border-radius: 15px;
 	width: 210px;
@@ -254,6 +180,7 @@ li {
 .recipeImg:hover {
 	transform: scale(1.2);
 }
+
 .recipetitle {
 	width: 170px;
 	height: 45px;
@@ -266,25 +193,18 @@ li {
 
 .recipename1 {
 	font-family: "GmarketSansMedium";
+	font-size: 19px;
+	color: black;
+	width: 210px;
+	/*	background-color: blue;*/
+
+}
+
+.recipename2 {
+	margin-top: 10px;
+	font-family: "Pretendard-Regular";
 	font-size: 17px;
 	color: black;
 	width: 210px;
-/*	background-color: blue;*/
-
+	/*	background-color: blue;*/
 }
-.recipename2 {
-	font-family: "Pretendard-Regular";
-	font-size: 14px;
-	color: black;
-	width: 210px;
-/*	background-color: blue;*/
-}
-
-
-
-
-
-
-
-
-

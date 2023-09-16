@@ -1,4 +1,7 @@
 
+<%@page import="com.smhrd.model.IngredientDAO"%>
+<%@page import="com.smhrd.model.IngredientVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,8 +28,15 @@
 
 <%@ include file="MainHeader.jsp"%>
 
-
-
+<!-- 로그인 안하면 이용 못하는 기능 -->
+<%	login = (MemberVO) session.getAttribute("loginInfo");
+	if (login == null) { %>
+		<script type="text/javascript">
+		alert('로그인 해주세요!');		
+		window.location.href="login.jsp"
+		</script>
+	<% }
+	%>
 
 <!-- 도전레시피 소개 -->
 	<div class="profile">
@@ -66,8 +76,8 @@
 	<div class="tailname">
 	
 		<!-- 이름 -->
-		<p class="challtitle">칵테일 이름∨</p>
-		<input placeholder="이름을 지어주세요." type="text"> 
+		<p class="challtitle">칵테일 이름</p>
+		<input placeholder="이름을 지어주세요." type="text" name="recipeName"> 
 		
 		<br>
 	</div>
@@ -75,30 +85,39 @@
 	<div class="explain">
 		
 		<!-- 칵테일 간단한 설명 -->
-		<p class="challtitle">칵테일 설명∨</p>
-		<textarea placeholder="칵테일 소개를 적어주세요" name="text2"></textarea>
+		<p class="challtitle">칵테일 설명</p>
+		<textarea placeholder="칵테일 소개를 적어주세요" name="cockInfo"></textarea>
 	</div>
 	
 	 <div class="imgredient">
 
 		<!-- 재료 -->
-		<p class="challtitle">칵테일 재료∨</p> 
+		<p class="challtitle">칵테일 재료</p> 
 		<div id="box">
 		<input type="text" name="text3">
-		<input type="button" value="추가" onclick="add_textbox()"><br>
+		<%-- 재료 목록 불러오기 --%>
+		<%-- 		<% 
+		List<IngredientVO> ingreAll = new IngredientDAO().ingreAll();
+		System.out.print("칵테일 리스트 사이즈 :"+ingreAll.size());
+		
+		for(int i = 0; i< ingreAll.size();i++){
+		%>
+		<input type="checkbox" name="ingreName" value="<%=ingreAll.get(i).getIngreName() %>"onclick="getCheckboxValue()"/><%=ingreAll.get(i).getIngreName() %>&nbsp;&nbsp;	
+		<%} %> --%>
+		
 		</div>
 	</div>	
 	
 	<div class="report">
 	
 		<!-- 레시피 정보 -->
-		<p class="challtitle">레시피 정보∨</p>
+		<p class="challtitle">레시피 정보</p>
 		<textarea placeholder="내용을 입력하세요" name="text2"></textarea>
 	</div>
 	
 	<div class="challfile">
 		<!-- 칵테일 사진 -->
-		<p class="challtitle">칵테일 사진∨</p>
+		<p class="challtitle">칵테일 사진</p>
 		<input type="file" name="filename">
 	</div>
 	

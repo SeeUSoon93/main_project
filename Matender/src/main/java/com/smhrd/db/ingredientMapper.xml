@@ -5,9 +5,11 @@
 <mapper namespace="com.smhrd.db.ingredientMapper">
 
 	<select id="ingredientList" resultType="IngredientVO">
-		select * from INGREDIENT WHERE "recipeNum" = #{recipeNum} ORDER BY 'ingreNum'
+		select * from INGREDIENT WHERE "recipeNum" = #{recipeNum} ORDER BY "ingreNum"
 	</select>
 
-
+	<select id="ingreAll" resultType="IngredientVO">
+		select distinct "ingreName" from INGREDIENT
+	</select>
 
 </mapper>

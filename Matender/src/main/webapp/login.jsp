@@ -74,11 +74,10 @@
                                             },                           		
                                             success : function(result) {
                                                 console.log(result);
-                                                location.href="MainPage.jsp";
+                                                history.back();
                                             },
                                             error : function(error) {
                                                 console.log(error);
-                                                location.href="MainPage.jsp";
                                             }                          		
                                     	})
                                 	}else{

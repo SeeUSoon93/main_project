@@ -38,7 +38,7 @@
 				enctype="multipart/form-data">
 				<div class="writeRight">
 					<div class="nickName2">
-						<input type="text" value=<%=nick%> name="nickName">
+						<input type="text" value=<%=nick%> name="nickName" readonly>
 					</div>
 					<div class="boardTitle2">
 						<input type="text" placeholder="제목을 입력하세요" name="boardTitle">

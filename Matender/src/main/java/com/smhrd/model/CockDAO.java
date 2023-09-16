@@ -29,6 +29,33 @@ public class CockDAO {
 		return joinInquiry;
 
 	}
+	
+	public List<AllVO> joinInquiry2() {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<AllVO> joinInquiry = session.selectList("com.smhrd.db.cockMapper.joinInquiry2");
+		System.out.println("일반 조인 칵테일 메뉴 조회 했냐?");
+		session.close();
+		return joinInquiry;
+
+	}
+	
+	public List<AllVO> joinInquiry3() {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<AllVO> joinInquiry = session.selectList("com.smhrd.db.cockMapper.joinInquiry3");
+		System.out.println("챌린지 조인 칵테일 메뉴 조회 했냐?");
+		session.close();
+		return joinInquiry;
+
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 
 	// 레시피 상세 조회
 	public AllVO recipeInfo(String recipeNum) {

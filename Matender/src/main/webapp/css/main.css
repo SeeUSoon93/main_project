@@ -13,8 +13,8 @@
 	margin: 0;
 	padding: 0;
 }
-a{
-	text-decoration: none;
+a{	
+	text-decoration: none !important;
 }
 #menu {
 	display: flex;

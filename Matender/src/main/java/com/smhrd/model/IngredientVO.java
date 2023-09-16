@@ -1,9 +1,8 @@
 package com.smhrd.model;
 
-import java.sql.Timestamp;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NonNull;
 
 @Data
 @AllArgsConstructor
@@ -13,5 +12,10 @@ public class IngredientVO {
 	String recipeNum;
 	String ingreName;
 	String volume;
+	
+	public IngredientVO(String ingreName) {
+		super();
+		this.ingreName = ingreName;
+	}
 	
 }

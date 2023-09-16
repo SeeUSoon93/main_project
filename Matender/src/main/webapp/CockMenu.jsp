@@ -17,9 +17,18 @@
 </head>
 <body>
 	<%@ include file="MainHeader.jsp"%>
-	
-    <%  List<AllVO> inquiry = new CockDAO().joinInquiry();
-        System.out.print("칵테일 리스트 사이즈 :"+inquiry.size());%>
+				<!-- 어떤 레시피인지 불러오기 -->
+			<% 	request.setCharacterEncoding("UTF-8");
+			String menu = request.getParameter("menu");
+			List<AllVO> inquiry = new ArrayList<AllVO>();
+			if(menu.equals("main")){
+				inquiry = new CockDAO().joinInquiry();
+			}else if(menu.equals("matender")){
+				inquiry = new CockDAO().joinInquiry2();
+			}else if(menu.equals("challenge")){
+			    inquiry = new CockDAO().joinInquiry3();
+			}		
+			System.out.print("칵테일 리스트 사이즈 :"+inquiry.size());%>
 
 	<!-- <div class="banner">banner</div> -->
 	<!--
@@ -33,66 +42,55 @@
 
 			<div class="box1">
 
-				<div class="groupBox1">
-					<img src="./img/logo1.png" width="100px">
-				</div>
-
-				<div class="groupBox2">
-					<img src="./img/logo2.png" width="100px">
-				</div>
-
-				<div class="groupBox3">
-					<img src="./img/logo3.png" width="100px">
-				</div>
-
-			</div>
-
-
-			<div class="box2">
-				<div class="titlemom">
+				<div class="groupBox">
+				<a href="CockMenu.jsp?menu=main">
+					<div class="boximg"><img src="./img/logo1.png" width="100px"></div>
 					<div class="boxtitle">전체 레시피</div>
-					<div class="boxtitle">기존 레시피</div>
-					<div class="boxtitle">도전 레시피</div>
+					</a>
 				</div>
-			</div>
 
+				<div class="groupBox">
+				<a href="CockMenu.jsp?menu=matender">
+					<div class="boximg"><img src="./img/logo2.png" width="100px"></div>
+					<div class="boxtitle">기존 레시피</div>
+					</a>
+				</div>
+
+				<div class="groupBox">
+				<a href="CockMenu.jsp?menu=challenge">
+					<div class="boximg"><img src="./img/logo3.png" width="100px"></div>
+					<div class="boxtitle">도전 레시피</div>
+					</a>
+				</div>
+
+			</div>
+			
 		</div>
 
-		<br>
-		<br>
 		<div class="CateAndRecipe">
 			<div class="categoryBox1">
 				<div class="categoryBox2">
-					<div class="title">🍹 칵테일 찾기 🍹</div>
+					<div class="title"><a class="godSoonE">칵테일 찾기</a></div>
 
 					<div class="baseAlcohol">베이스 ▼</div>
-					<div class="menubox1">
-						<input type="checkbox" name="base" value="보드카"onclick="getCheckboxValue()"/>보드카<br>
-						<input type="checkbox" name="base" value="진" onclick="getCheckboxValue()"/>진<br>
-						<input type="checkbox" name="base" value="위스키" onclick="getCheckboxValue()"/>위스키<br>
-						<input type="checkbox" name="base" value="럼" onclick="getCheckboxValue()"/>럼<br>
-						<input type="checkbox" name="base" value="리큐르" onclick="getCheckboxValue()"/>리큐르<br>
-						<input type="checkbox" name="base" value="데킬라" onclick="getCheckboxValue()"/>데킬라<br>
-						<input type="checkbox" name="base" value="와인" onclick="getCheckboxValue()"/>와인<br>
-						<input type="checkbox" name="base" value="브랜디" onclick="getCheckboxValue()"/>브랜디<br>
-						<input type="checkbox" name="base" value="소주" onclick="getCheckboxValue()"/>소주<br>
-						<input type="checkbox" name="base" value="맥주" onclick="getCheckboxValue()"/>맥주<br>
-						<input type="checkbox" name="base" value="논알콜" onclick="getCheckboxValue()"/>논알콜<br>
+					<div class="menubox">
+						<input type="checkbox" name="base" value="보드카"onclick="getCheckboxValue()"/>보드카&nbsp;&nbsp;
+						<input type="checkbox" name="base" value="진" onclick="getCheckboxValue()"/>진&nbsp;&nbsp;
+						<input type="checkbox" name="base" value="위스키" onclick="getCheckboxValue()"/>위스키&nbsp;&nbsp;<br>
+						<input type="checkbox" name="base" value="와인" onclick="getCheckboxValue()"/>와인&nbsp;&nbsp;
+						<input type="checkbox" name="base" value="맥주" onclick="getCheckboxValue()"/>맥주&nbsp;&nbsp;
+						<input type="checkbox" name="base" value="소주" onclick="getCheckboxValue()"/>소주&nbsp;&nbsp;<br>
+						<input type="checkbox" name="base" value="리큐르" onclick="getCheckboxValue()"/>리큐르&nbsp;&nbsp;
+						<input type="checkbox" name="base" value="럼" onclick="getCheckboxValue()"/>럼&nbsp;&nbsp;
+						<input type="checkbox" name="base" value="데킬라" onclick="getCheckboxValue()"/>데킬라&nbsp;&nbsp;<br>
+						<input type="checkbox" name="base" value="브랜디" onclick="getCheckboxValue()"/>브랜디&nbsp;&nbsp;
+						<input type="checkbox" name="base" value="논알콜" onclick="getCheckboxValue()"/>논 알콜
 					</div>
-
-<!-- 					<div class="ingredient">재 료 ▼</div>
-					<div class="menubox2">
-						<input type="checkbox" name="ingredient" value="시럽" onclick="getCheckboxValue()"> 시럽<br> <input
-							type="checkbox" name="ingredient" value="주스" onclick="getCheckboxValue()"> 주스<br> <input
-							type="checkbox" name="ingredient" value="탄산수" onclick="getCheckboxValue()"> 탄산수<br> <input
-							type="checkbox" name="ingredient" value="토닉워터" onclick="getCheckboxValue()"> 토닉워터<br> <input
-							type="checkbox" name="ingredient" value="에너지드링크" onclick="getCheckboxValue()"> 에너지드링크
-					</div> -->
-
+					
 					<div class="dangdo">
 						도 수 ▼<br>
 					</div>
-					<div class="menubox3">
+					<div class="menubox">
 						<input type="checkbox" name="dosu" value="10" onclick="getCheckboxValue()"> 0%~10%<br>
 						<input type="checkbox" name="dosu" value="20" onclick="getCheckboxValue()"> 11%~20%<br>
 						<input type="checkbox" name="dosu" value="30" onclick="getCheckboxValue()"> 21%~30%<br>
@@ -112,8 +110,8 @@
 							<div class="recipetitle">
 								<div class="recipename1"><%=inquiry.get(i).getRecipeName() %></div></a>
 								<div class="recipename2">
-								<img src="./img/like-check.png" color= "#228b22" width="15px" height="15px"> <%=inquiry.get(i).getLIKE_COUNT() %>
-									<img src="./img/bookmark-check.png" width="15px" height="15px"> <%=inquiry.get(i).getBOOKMARK_COUNT() %> 
+								<img src="./img/like-check.png" color= "#228b22" width="15px" height="15px"> <%=inquiry.get(i).getLIKE_COUNT() %>&nbsp;&nbsp;&nbsp;&nbsp;
+									<img src="./img/bookmark-check.png" width="15px" height="15px"> <%=inquiry.get(i).getBOOKMARK_COUNT() %>&nbsp;&nbsp;&nbsp;&nbsp;
 									<img src="./img/comment.png" width="17px" height="17px"> <%=inquiry.get(i).getREPLE_COUNT() %>
 								</div>
 							</div>
@@ -174,9 +172,9 @@
 						            resultHTML += "<div class='recipetitle''>";
 						            resultHTML += "<div class='recipename1'>" + result[i].recipeName + "</div></a>";
 						            resultHTML += "<div class='recipename2'>";
-						            resultHTML += "<img src='./img/like-check.png' color= '#228b22' width='15px' height='15px'>"+result[i].LIKE_COUNT
-						            resultHTML += "&nbsp&nbsp<img src='./img/bookmark-check.png' width='15px' height='15px'>"+result[i].BOOKMARK_COUNT
-						            resultHTML += "&nbsp&nbsp<img src='./img/comment.png' width='17px' height='17px'>"+result[i].REPLE_COUNT
+						            resultHTML += "<img src='./img/like-check.png' color= '#228b22' width='15px' height='15px'>"+result[i].LIKE_COUNT+"&nbsp;&nbsp;&nbsp;&nbsp;"
+						            resultHTML += "<img src='./img/bookmark-check.png' width='15px' height='15px'>"+result[i].BOOKMARK_COUNT+"&nbsp;&nbsp;&nbsp;&nbsp;"
+						            resultHTML += "<img src='./img/comment.png' width='17px' height='17px'>"+result[i].REPLE_COUNT
 						            resultHTML += "</div>";
 						            resultHTML += "</div>";
 						            resultHTML += "</div>";

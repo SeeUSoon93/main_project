@@ -1,8 +1,13 @@
-select * from RECIPE;
+select * from INGREDIENT WHERE "recipeNum" = 'R1' ORDER BY 'ingreNum';
 select * from TB_IMG;
+select * from RECIPE;
 select * from MEMBER_LIKE;
+select * from MEMBER;
+select distinct "ingreName" from INGREDIENT;
+select * from INGREDIENT;
         
-        
+INSERT INTO MEMBER_LIKE VALUES('¼øÀÌ', 'R1');
+commit;
         
 		SELECT A."recipeNum", COUNT(B."recipeNum") as like_count
 		FROM RECIPE A

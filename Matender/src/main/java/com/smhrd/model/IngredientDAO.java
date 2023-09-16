@@ -20,4 +20,12 @@ public class IngredientDAO {
 		return ingredientList;
 	}
 
+	// 재료 전체 불러오기
+	public List<IngredientVO> ingreAll() {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<IngredientVO> ingreAll = session.selectList("com.smhrd.db.ingredientMapper.ingreAll");
+		System.out.println("전체 재료 조회 했냐?");
+		session.close();
+		return ingreAll;
+	}
 }

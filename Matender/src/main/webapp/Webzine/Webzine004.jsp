@@ -27,7 +27,7 @@
 							width="170px"></a>
 					</div>
 				</li>
-				<li><a href="../CockMenu.jsp" data-hover="전체메뉴"><div>전체메뉴</div></a></li>
+				<li><a href="../CockMenu.jsp?menu=main" data-hover="전체메뉴"><div>전체메뉴</div></a></li>
 				<li><a href="../CockRank.jsp" data-hover="인기순위"><div>인기순위</div></a></li>
 				<li><a href="../WebMagazine.jsp" data-hover="칵테일 이야기"><div>칵테일
 							이야기</div></a></li>
