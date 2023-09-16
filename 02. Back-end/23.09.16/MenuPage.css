@@ -1,0 +1,327 @@
+@charset "UTF-8";
+@import url(./fontstyle.css);
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+
+/* 
+------------------
+칵테일 이미지, 정보
+------------------
+*/
+
+.Group {
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 50px;
+	font-family: "Pretendard-Regular";
+/*  	background-color: blue;  */
+}
+
+.Menugroup {
+	margin-top: 80px;
+	width: 100%;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position:relative;
+	background-color: #fff8ef;
+	font-family: "GmarketSansMedium";
+}
+
+.cockimg {
+	width: 500px;
+	height: 350px;
+/*	background-color: white;*/
+	position: relative;
+	text-align: center;
+	
+}
+
+.img {
+	width: 270px;
+	height: 290px;
+	margin: 45px;
+	display: inline-block;
+	
+}
+
+.contents{
+	width: 600px;
+	height: 350px;
+/*	background-color: gray; */
+}
+
+.namebox {
+	width: 600px;
+	height: 60px;
+	margin-bottom: 3px;
+	display: inline-block;
+	margin-top: 60px;
+	padding-left: 5px;
+/*	background-color: rgb(255, 128, 128);*/
+}
+
+.textbox {
+	width: 600px;
+	height: 40px;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	padding-left: 5px;
+/*	background-color: rgb(255, 128, 128);*/
+}
+
+.Alcbox {
+	width: 600px;
+	height: 50px;
+	margin-top: 5px;
+	margin-bottom: 3px;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	/*background-color: rgb(255, 255, 128);*/
+	padding-left: 5px;
+}
+
+.alc {
+	width: 85px;
+	height: 28px;
+	border-radius: 15px;
+	margin-top: 15px;
+	border: solid 2px gray;
+}
+
+.alctext {
+	font-size: 15px;
+	text-align: center;
+}
+
+
+.likebox {
+	width: 600px;
+	height: 40px;
+	/*background-color: rgb(255, 128, 128);*/
+	margin-top: 10px;
+	justify-content: center;
+	align-items: center;
+	display: inline-block;
+	padding-left: 5px;
+}
+
+h4 {
+	font-family: "GmarketSansMedium";
+	margin-top: 5px;
+}
+
+.likeIcon {
+	padding-top: 3px;
+}
+
+.bookIcon {
+	padding-top: 3px;
+}
+
+td > p {
+	margin-left: 8px;	
+}
+
+.name {
+	font-size: 30px;
+	text-align: left;
+	
+}
+.text {
+	font-size: 15px;
+	text-align: left;
+	font-family: "Pretendard-Regular";
+}
+
+.like {
+	text-align: left;
+}
+
+
+/* 
+------------------
+재료, 레시피 정보
+------------------
+*/
+
+.info {
+	width: 100%;
+	height: auto;
+	position: relative;
+/*	background-color: green;*/
+	margin-top: 90px;
+/*    align-items: center;*/
+/*    background-color: gray;*/
+}
+
+.infotitle {
+	text-align: left;
+	font-family: "GmarketSansMedium";
+	margin-left: 30px;
+    font-size: 2em;
+	
+}
+.meterial {
+	width: 1100px;
+	height: auto;
+	margin-bottom: 140px;
+	display: inline-block;
+	margin-top: 10px;
+	padding-bottom: 30px;
+/*	justify-content: center;
+	align-items: center;*/
+	position:relative;
+/*border: solid 2px gray ;*/
+	border-radius: 15px;
+	box-shadow: 1px 1px 20px #ebebeb;
+}
+
+.display {
+	/* 부모 요소 지정하려고 div 겉에 박스 만듦*/
+	display: flex;
+	justify-content: center;
+	margin-top: 30px;
+	height: auto;
+}
+
+.metname {
+	width: 500px;
+	height: auto;
+	position: relative;
+	text-align: left;
+	float: left;
+	font-size: 15px;
+	padding-left: 250px;
+}
+
+.amount {
+	width: 500px;
+	height: auto;
+	position: relative;
+	float: right;
+	text-align: right;
+	font-size: 15px;
+	padding-right: 250px;
+}
+
+.method {
+	width: 1100px;
+	height: 350px;
+	margin-top: 10px;
+	align-items: center;
+	position: relative;
+	display: inline-block;
+	text-align: left;
+/*	border: solid 2px gray ;*/
+	border-radius: 15px;
+	box-shadow: 1px 1px 15px #ebebeb;
+} 
+
+.methinfo {
+	font-size: 16px;
+	line-height: 200%;
+	padding-top: 40px;
+	width: 80%;
+	margin: 0 auto;
+}
+
+
+/* 
+------------------
+비슷한 칵테일 정보
+------------------
+*/
+.yousaCock {
+	font-size: 26px;
+}
+
+
+.similar {
+	width: 100%;
+	height: 300px;
+	justify-content : center;
+	display: flex;
+/* 	background-color: gray; */
+}
+
+
+.next {
+	width: 50px;
+	height: 260px;
+	margin: 0 14px;
+	margin-top: 20px;
+	justify-content : center;
+	display: flex;
+/* 	background-color: blue; */
+	
+}
+
+.nextimg {
+	margin-top: 60px;
+    height: 140px;
+    width: 38px;
+}
+.recipe {
+	width: 230px;
+	height: 260px;
+	margin: 0 14px;
+	margin-top: 20px;
+	float: left;
+	/*border: dashed 3px lightgray;
+	border-radius: 15px;*/
+	justify-content : center;
+	position: relative;
+/* 	background-color: red; */
+}
+
+.recipediv {
+	width: 170px;
+	height: 200px;
+	/* border-radius: 15px; */
+	margin-top: 10px;
+	justify-content : center;
+	position: absolute;
+  	left: 12%;
+  	overflow: hidden;
+  	border-radius: 15px;
+}
+.recipeImg {
+	border-radius: 15px;
+	width: 170px;
+	height: 200px;
+	transition: all 0.2s linear;
+	
+}
+
+.recipeImg:hover {
+	transform: scale(1.2);
+}
+
+.recipetitle {
+	width: 170px;
+	height: 45px;
+	text-align: center;
+	position: absolute;
+	top: 83%;
+  	left: 12%;
+}
+
+.recipename1 {
+	font-family: "GmarketSansMedium";
+	font-size: 17px;
+	color: black;
+}
+.recipename2 {
+	font-family: "Pretendard-Regular";
+	font-size: 14px;
+	color: black;
+}

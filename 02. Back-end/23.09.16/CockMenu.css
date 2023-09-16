@@ -1,0 +1,234 @@
+@charset "UTF-8";
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+@import url(./fontstyle.css);
+
+
+.CateAndGroup {
+	width: 80%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 90px;	
+	padding-top: 50px;
+}
+
+.group {
+	/*background-color: aliceblue;*/
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	background-color: maroon;
+}
+
+.box1 {
+	width: 550px;
+	height: 110px;
+	display: flex;
+	margin: 0 auto;
+	float: left;
+	margin-bottom: 40px;
+	background-color: gold;
+}
+
+.groupBox {
+	width: 100px;
+	height: 100px;
+	margin-left: 40x;
+	margin-right: 40px;
+	font-family: "GeekbleMalang2WOFF2";
+	text-align: center;
+	font-size: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex: 0.5;
+	flex-direction: column;
+}
+
+.groupBox > a {
+	color: black;
+}
+
+.groupBox :hover {
+	border: #CC9933;
+	color: #CC9933;
+}
+
+.sibalBox {
+	width: auto;
+	height: auto;
+}
+
+.CateAndRecipe {
+	width: 100%;
+	height: auto;
+	margin-left: 0px;
+	background-color: khaki;
+}
+
+.categoryBox1 {
+	display: flex;
+	width: 85%;
+	height: auto;
+	background-color: dodgerblue;
+}
+
+.categoryBox2 {
+	width: 280px;
+	margin: 50px;
+	font-family: "GmarketSansMedium";
+	background-color: darkseagreen;
+}
+
+.title {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 24px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+
+}
+
+.baseAlcohol {
+	width: 220px;
+	cursor: pointer;
+	text-align: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: solid 1px black;
+	margin: 0 auto;
+	font-size: 18px;
+}
+
+.menubox {
+	width: 220px;
+	height: 150px;
+	padding-left: 30px;
+	z-index: 10;
+	/*display: none;*/
+	margin-left: 20px;
+	text-align: left;
+	align-items: left;
+	display: block;
+}
+
+.dangdo {
+	width: 220px;
+	cursor: pointer;
+	text-align: left;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: solid 1px black;
+	margin: 0 auto;
+	font-size: 18px;
+}
+
+/* 버튼 css 갓순이*/
+.godSoonE {
+	width: 80%;
+	background-color:#CC9933;
+	border-radius:42px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: "GmarketSansMedium";
+	font-size:20px;
+	padding:10px 42px;
+	text-decoration:none;
+	transition: all 0.2s ;
+}
+
+.godSoonE:hover {
+  background: rgb(244, 221, 11);
+}
+
+/**/
+
+#cocktailsibal {
+	width: 100%;
+	height: auto;
+	background-color: blue;
+}
+
+.cocktailsBox {
+	width: 940px;
+	height: auto;
+	background-color: red;
+}
+
+.recipe {
+	width: 210px;
+	height: 240px;
+	margin: 0 40px;
+	margin-top: 40px;
+	margin-bottom: 80px;
+	float: left;
+	border-radius: 15px;
+	justify-content: center;
+	position: relative;
+}
+
+.recipediv {
+	width: 210px;
+	height: 240px;
+	margin-top: 10px;
+	border-radius: 15px;
+	justify-content: center;
+	position: absolute;
+	left: 12%;
+	overflow: hidden;
+}
+
+.recipeImg {
+	border-radius: 15px;
+	width: 210px;
+	height: 240px;
+	transition: all 0.3s linear;
+}
+
+.recipeImg:hover {
+	transform: scale(1.2);
+}
+
+.recipetitle {
+	width: 170px;
+	height: 45px;
+	text-align: center;
+	justify-content: center;
+	position: absolute;
+	top: 110%;
+	left: 25px;
+}
+
+.recipename1 {
+	font-family: "GmarketSansMedium";
+	font-size: 19px;
+	color: black;
+	width: 210px;
+	/*	background-color: blue;*/
+
+}
+
+.recipename2 {
+	margin-top: 10px;
+	font-family: "Pretendard-Regular";
+	font-size: 17px;
+	color: black;
+	width: 210px;
+	/*	background-color: blue;*/
+}
+
+
+.test {
+	width: 100%;
+	height: 200px;
+	background-color: cadetblue;
+}
