@@ -65,13 +65,14 @@
 			<div class="likebox">
 				<h4 class="like">
 					<table>
-					<tr>
-					<td><img src="./img/like.png" width="20px" height="20px" id="sibalLike"></td>
-					<td><div id="sibalLike2"><%=recipeInfo.getLIKE_COUNT()%></div></td>
-					</tr>
-					<tr>
-					<td><img src="./img/bookmark.png" width="20px" height="20px" id="sibalBookmark"></td>
-					<td><%=recipeInfo.getBOOKMARK_COUNT()%></td>
+						<tr>
+							<td class="likeIcon"><img src="./img/like-check.png" width="20px" height="20px" id="sibalLike"></td>
+							<td ><p id="sibalLike2"><%=recipeInfo.getLIKE_COUNT()%></p></td>
+						</tr>
+						<tr>
+							<td class="bookIcon"><img src="./img/bookmark-check.png" width="20px" height="20px" id="sibalBookmark"></td>
+							<td ><p id="sibalBookmark2"><%=recipeInfo.getBOOKMARK_COUNT()%></p></td>
+						</tr>
 					</table>
 				</h4>
 			</div>
@@ -99,6 +100,34 @@
 							}, /* 실패 시 */
 						})
 					});	
+					
+					/* 북마크 */
+					$('#sibalBookmark').on('click', function(){
+						var recipeNum = "<%=recipeInfo.getRecipeNum()%>";
+						var nickName = "<%=login.getNickName() %>";
+						console.log(recipeNum);
+						$.ajax({
+							url : "RecipeBMService", /* 어디로 보낼지 */
+							data : {"recipeNum" : recipeNum,
+									"nickName" : nickName	
+							}, /* 어떤 데이터를 보낼지 */
+							datatype : "text", /* 어떤 데이터 타입으로 받아올지 */
+							success : (data)=>{
+								if(data != null){
+									$('#sibalBookmark2').html(data)
+								}
+							}, /* 성공 시 */
+							error : ()=>{
+								alert('북마크 실패');
+							}, /* 실패 시 */
+						})
+					});	
+					
+					
+					
+					
+					
+					
 				</script>
 				<%}%>
 			
@@ -114,75 +143,44 @@
 			<h2 class="infotitle">재료 정보</h2>
 			<div class="meterial">
 
-
 				<div class="display">
 					<!-- 재료 설명 넣기 -->
 
 					<div class="metname">
 						<h3 class="metinfo1">
-						<%for(int i = 0; i<ingredientList.size();i++){ %>
-						<%= ingredientList.get(i).getIngreName() %><br>							
-						<%} %>
+							<%for(int i = 0; i<ingredientList.size();i++){ %>
+							<%= ingredientList.get(i).getIngreName() %><br>
+							<%} %>
 						</h3>
 					</div>
 					<div class="amount">
 						<h3 class="metinfo2">
-						<%for(int i = 0; i<ingredientList.size();i++){ %>
-						<%= ingredientList.get(i).getVolume() %><br>							
-						<%} %>
-
+							<%for(int i = 0; i<ingredientList.size();i++){ %>
+							<%= ingredientList.get(i).getVolume() %><br>
+							<%} %>
 						</h3>
 					</div>
-
-
 				</div>
-
-
-
 			</div>
+
+
 
 			<h2 class="infotitle">레시피 설명</h2>
 			<div class="method">
 				<h3 class="methinfo">
-					<%= recipeInfo.getCockRec() %>
-					
+					<%					
+			        // 문자열을 숫자와 내용으로 분리하여 배열로 저장
+			        String[] parts = recipeInfo.getCockRec().split("\\d+\\.");
+			        for (int i = 1; i < parts.length; i++) {
+			        	
+			            String part = parts[i].trim(); // 문자열 앞뒤의 공백 제거 	 %>
+			        <%= i+". "+ part %><br>
+			        <%} %>
 				</h3>
 
 			</div>
 
 		</div>
-
-
-		<!-- 댓글 -->
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<br>
-		<h2 class="infotitle">댓글</h2>
-		<div class="re">
-
-			<div class="write">
-
-				<div class="human">
-					<img src="./img/칵테일 일러스트.png" width="40px" height="50px">
-				</div>
-
-				<div class="message"></div>
-
-				<div class="posts">
-					<img class="send" src="./img/send.png" width="40px" height="40px">
-				</div>
-
-			</div>
-
-		</div>
-
-
 
 
 		<!-- 비슷한 칵테일 -->
@@ -195,43 +193,74 @@
 		<br>
 		<br>
 		<br>
-		<h3>유사한 칵테일</h3>
+		<h3 class="yousaCock">유사한 칵테일</h3>
 		<div class="similar">
+		<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 
+    <script>
+        $(document).ready(function () {
 
-			<div class="next">
-				<img class="nextimg" src="./img/next1.png">
-			</div>
+            $('.godSoonSival').slick({
+                centerMode: true,
+                centerPadding: '60px',
+                slidesToShow: 3,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 3
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            arrows: false,
+                            centerMode: true,
+                            centerPadding: '40px',
+                            slidesToShow: 1
+                        }
+                    }
+                ]
+            });
 
-
-
-			<%for(int i=1; i<=4; i++) { %>
+        });
+    </script>
+	
+	
+	
+	
+			<div class="godSoonSival">
+			<%
+			List<AllVO> similRecipe = new CockDAO().similRecipe(recipeInfo.getCockBase());
+			System.out.print("유사레시피 리스트 사이즈 :"+similRecipe.size());
+			
+			
+			for(int i=0; i<similRecipe.size(); i++) { %>
 			<div class="recipe">
 				<a href="MenuPage.jsp">
 					<div class="recipediv">
-						<img class="recipeImg" src="./img/블루하와이안.PNG">
+						<img class="recipeImg" src="<%=similRecipe.get(i).getImgPath() %>">
 					</div>
 
 
 					<div class="recipetitle">
-						<div class="recipename1">블루 하와이안</div>
+						<div class="recipename1"><%=similRecipe.get(i).getRecipeName() %></div>
 
 						<div class="recipename2">
-													<img src="./img/like-check.png" color="#228b22" width="15px" height="15px">30							
-							<img src="./img/bookmark-check.png" width="15px" height="15px">50
-							<img src="./img/comment.png" width="17px" height="17px">30
+							<img src="./img/like-check.png" color="#228b22" width="15px" height="15px"> <%=similRecipe.get(i).getLIKE_COUNT() %>							
+							<img src="./img/bookmark-check.png" width="15px" height="15px"> <%=similRecipe.get(i).getBOOKMARK_COUNT() %>
 						</div>
 					</div>
 				</a>
 			</div>
 			<% } %>
-
-
-
-			<div class="next">
-				<img class="nextimg" src="./img/next2.png">
 			</div>
+
 
 		</div>
 

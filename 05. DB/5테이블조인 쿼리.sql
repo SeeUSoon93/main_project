@@ -1,10 +1,13 @@
 select * from INGREDIENT WHERE "recipeNum" = 'R1' ORDER BY 'ingreNum';
 select * from TB_IMG;
-select * from RECIPE;
+select "cockRec" from RECIPE;
 select * from MEMBER_LIKE;
+select * from BOOKMARK;
 select * from MEMBER;
 select distinct "ingreName" from INGREDIENT;
 select * from INGREDIENT;
+
+DELETE BOOKMARK WHERE "nickName" ='순이' AND "recipeNum" ='R24';
         
 INSERT INTO MEMBER_LIKE VALUES('순이', 'R1');
 commit;
@@ -114,3 +117,107 @@ LEFT JOIN (
 ) E ON A."recipeNum" = E."recipeNum"
 WHERE A."recipeNum" = 'R1'
 ORDER BY A."recipeNum";
+
+
+
+
+
+
+
+-- 인기순위
+		SELECT A."recipeNum", A."recipeCode", A."recipeName", A."cockAlc", A."cockBase", A."cockInfo", A."cockRec", A."nickName",
+		       B."imgPath", C.LIKE_COUNT, D.BOOKMARK_COUNT, E.REPLE_COUNT
+        FROM(
+            SELECT A."recipeNum", A."recipeCode", A."recipeName", A."cockAlc", A."cockBase", A."cockInfo", A."cockRec", A."nickName",
+               B."imgPath", C.LIKE_COUNT, D.BOOKMARK_COUNT, E.REPLE_COUNT
+            FROM RECIPE A
+            LEFT JOIN (
+                SELECT "recipeNum", MIN("imgPath") AS "imgPath"
+                FROM TB_IMG
+                GROUP BY "recipeNum"
+            ) B ON A."recipeNum" = B."recipeNum"
+            LEFT JOIN (
+                SELECT A."recipeNum", COUNT(B."recipeNum") AS like_count
+                FROM RECIPE A
+                LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+                GROUP BY A."recipeNum"
+            ) C ON A."recipeNum" = C."recipeNum"
+            LEFT JOIN (
+                SELECT A."recipeNum", COUNT(B."recipeNum") AS BOOKMARK_COUNT
+                FROM RECIPE A
+                LEFT JOIN BOOKMARK B ON A."recipeNum" = B."recipeNum"
+                GROUP BY A."recipeNum"
+            ) D ON A."recipeNum" = D."recipeNum"
+            LEFT JOIN (
+                SELECT A."recipeNum", COUNT(B."recipeNum") AS REPLE_COUNT
+                FROM RECIPE A
+                LEFT JOIN RECIPE_REPLE B ON A."recipeNum" = B."recipeNum"
+                GROUP BY A."recipeNum"
+            ) E ON A."recipeNum" = E."recipeNum"
+            ORDER BY C.LIKE_COUNT DESC
+        )        
+        WHERE ROWNUM <= 10;
+        
+        
+        
+SELECT *
+FROM (
+    SELECT A."recipeNum", A."recipeCode", A."recipeName", A."cockAlc", A."cockBase", A."cockInfo", A."cockRec", A."nickName",
+           B."imgPath", C.LIKE_COUNT, D.BOOKMARK_COUNT, E.REPLE_COUNT
+    FROM RECIPE A
+    LEFT JOIN (
+        SELECT "recipeNum", MIN("imgPath") AS "imgPath"
+        FROM TB_IMG
+        GROUP BY "recipeNum"
+    ) B ON A."recipeNum" = B."recipeNum"
+    LEFT JOIN (
+        SELECT A."recipeNum", COUNT(B."recipeNum") AS like_count
+        FROM RECIPE A
+        LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+        GROUP BY A."recipeNum"
+    ) C ON A."recipeNum" = C."recipeNum"
+    LEFT JOIN (
+        SELECT A."recipeNum", COUNT(B."recipeNum") AS BOOKMARK_COUNT
+        FROM RECIPE A
+        LEFT JOIN BOOKMARK B ON A."recipeNum" = B."recipeNum"
+        GROUP BY A."recipeNum"
+    ) D ON A."recipeNum" = D."recipeNum"
+    LEFT JOIN (
+        SELECT A."recipeNum", COUNT(B."recipeNum") AS REPLE_COUNT
+        FROM RECIPE A
+        LEFT JOIN RECIPE_REPLE B ON A."recipeNum" = B."recipeNum"
+        GROUP BY A."recipeNum"
+    ) E ON A."recipeNum" = E."recipeNum"
+    WHERE "recipeCode" = 'CH001'
+    ORDER BY C.LIKE_COUNT DESC
+)
+WHERE ROWNUM <= 10;
+
+
+
+		SELECT A."recipeNum", A."recipeCode", A."recipeName", A."cockAlc",
+		A."cockBase", A."cockInfo", A."cockRec", A."nickName",
+		B."imgPath", C.LIKE_COUNT,E.REPLE_COUNT
+		FROM RECIPE A
+		LEFT JOIN (
+		SELECT "recipeNum", MIN("imgPath") AS "imgPath"
+		FROM TB_IMG
+		GROUP BY "recipeNum"
+		) B ON A."recipeNum" = B."recipeNum"
+		LEFT JOIN (
+		SELECT A."recipeNum", COUNT(B."recipeNum") AS like_count
+		FROM RECIPE A
+		LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+		GROUP BY A."recipeNum"
+		) C ON A."recipeNum" = C."recipeNum"				
+		LEFT JOIN (
+		SELECT A."recipeNum", COUNT(B."recipeNum") AS REPLE_COUNT
+		FROM RECIPE A
+		LEFT JOIN RECIPE_REPLE B ON A."recipeNum" = B."recipeNum"
+		GROUP BY A."recipeNum"
+		) E ON A."recipeNum" = E."recipeNum"
+		WHERE
+		A."nickName" = (SELECT "recipeNum"
+        FROM BOOKMARK
+        WHERE A."nickName" = '순이')
+		ORDER BY A."recipeNum"

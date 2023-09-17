@@ -8,16 +8,15 @@
 <html>
 <head>
 <meta charset="UTF-8">
-
 <title>마텐더 - 인기순위</title>
-<link rel="stylesheet" href="./css/fontstyle.css" />
 <link rel="stylesheet" href="./css/CockRank.css"/>
+</head>
+<body>
+	<%@ include file="MainHeader.jsp"%>
 
-    <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
 
     <script>
         $(document).ready(function () {
@@ -50,10 +49,6 @@
 
         });
     </script>
-
-</head>
-<body>
-	<%@ include file="MainHeader.jsp"%>
 
 	<!-- 어떤 레시피인지 불러오기 -->
 	<%
@@ -155,7 +150,6 @@
 	<br>
 
 </body>
-	<%@ include file="footer.jsp"%>
 </html>
 
 

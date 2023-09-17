@@ -1,3 +1,8 @@
+<%@page import="com.smhrd.model.AllVO"%>
+<%@page import="java.util.List"%>
+<%@page import="com.smhrd.model.CockDAO"%>
+<%@page import="org.apache.ibatis.reflection.SystemMetaObject"%>
+<%@page import="com.smhrd.model.MemberDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -9,7 +14,14 @@
 </head>
 <body>
 	<%@ include file="MainHeader.jsp"%>
+	<%
+	int challengeRecipe = new MemberDAO().challengeRecipe(login.getNickName());
+	int bookMark = new MemberDAO().bookMark(login.getNickName());
 
+	List<AllVO> inquiry = new MemberDAO().memberInquiry(login.getNickName());
+
+	List<AllVO> memberBookmark = new MemberDAO().memberBookmark(login.getNickName());
+	%>
 
 	<!-- 프로필 -->
 	<div class="profile">
@@ -21,28 +33,35 @@
 		<div class="contents">
 
 			<div class="namebox">
-				<h4 class="name">화정동 다람쥐</h4>
+				<h4 class="name"><%=login.getNickName()%></h4>
 			</div>
-
-			<div class="textbox">
-				<h4 class="text">나의 도전 레시피 5개</h4>
-			</div>
-
-
-			<div class="textbox">
-				<h4 class="text">북마크 5개</h4>
-			</div>
-
+			
 			<div class="textbox">
 
 				<div class="alc">
 
-					<h4 class="text">
-						<a href="MyPageSub.jsp"> 나의 좋아요 / 댓글 </a>
+					<h4 class="text" ><%=login.getEmail()%>
 					</h4>
 
 				</div>
 			</div>
+
+			<div class="textbox">
+				<h4 class="text">
+					나의 도전 레시피
+					<%=challengeRecipe%>개
+				</h4>
+			</div>
+
+
+			<div class="textbox">
+				<h4 class="text">
+					북마크
+					<%=bookMark%>개
+				</h4>
+			</div>
+
+
 		</div>
 
 	</div>
@@ -52,7 +71,7 @@
 
 
 
-	<!-- 내가 올린레시피, 북마크 -->
+	<!-- 내가 올린레시피 -->
 
 
 	<div class="Group">
@@ -66,7 +85,8 @@
 				</h2>
 
 				<%
-				for (int i = 1; i <= 5; i++) {
+				if (inquiry != null) {
+					for (int i = 0; i < inquiry.size(); i++) {
 				%>
 
 				<div class="cocktailsBox1">
@@ -76,19 +96,22 @@
 
 						<div class="recipediv">
 
-							<img class="recipeImg" src="./img/깔루아밀크.PNG">
-
+							<a
+								href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img
+								class="recipeImg" src="<%=inquiry.get(i).getImgPath()%>">
 						</div>
 
 
 						<div class="recipetitle">
 
-							<div class="recipename1">깔루아밀크</div>
+							<div class="recipename1"><%=inquiry.get(i).getRecipeName()%></div>
+							</a>
 
 						</div>
 
 					</div>
 					<%
+					}
 					}
 					%>
 
@@ -107,7 +130,7 @@
 	</div>
 
 
-	<!-- 내가 올린레시피, 북마크 -->
+	<!--  북마크 -->
 
 
 
@@ -121,7 +144,8 @@
 		<div class="box2">
 
 			<%
-			for (int i = 1; i <= 8; i++) {
+			if (memberBookmark != null) {
+				for (int i = 0; i < memberBookmark.size(); i++) {
 			%>
 
 			<div class="cocktailsBox2">
@@ -131,19 +155,22 @@
 
 					<div class="recipediv">
 
-						<img class="recipeImg" src="./img/깔루아밀크.PNG">
-
+						<a
+							href="MenuPage.jsp?recipeNum=<%=memberBookmark.get(i).getRecipeNum()%>"><img
+							class="recipeImg" src="<%=memberBookmark.get(i).getImgPath()%>">
 					</div>
 
 
 					<div class="recipetitle">
 
-						<div class="recipename1">깔루아밀크</div>
+						<div class="recipename1"><%=memberBookmark.get(i).getRecipeName()%></div>
+						</a>
 
 					</div>
 
 				</div>
 				<%
+				}
 				}
 				%>
 
@@ -165,7 +192,7 @@
 
 
 
-		<br>
+	<br>
 	<br>
 	<br>
 

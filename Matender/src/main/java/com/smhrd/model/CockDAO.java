@@ -68,6 +68,16 @@ public class CockDAO {
 
 	}
 	
+	// 유사레시피 조회
+	public List<AllVO> similRecipe(String base) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<AllVO> similRecipe = session.selectList("com.smhrd.db.cockMapper.similRecipe",base);
+		System.out.println("유사한 칵테일 메뉴 조회 했냐?");
+		session.close();
+		return similRecipe;
+
+	}
+	
 	
 	
 	

@@ -1,5 +1,10 @@
 package com.smhrd.model;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 
@@ -34,15 +39,71 @@ public class MemberDAO {
 			return true;
 		}
 	}
-	
+
 	// 로그인
 	public MemberVO login(String nickName) {
-		SqlSession session = sqlSessionFactory.openSession(true);		
-		MemberVO loginInfo = session.selectOne("com.smhrd.db.memberMapper.login",nickName);
+		SqlSession session = sqlSessionFactory.openSession(true);
+		MemberVO loginInfo = session.selectOne("com.smhrd.db.memberMapper.login", nickName);
 		System.out.println("로그인 했냐?");
-		session.close();		
+		session.close();
 		return loginInfo;
 	}
-	
-	
+
+	// 내가 올린 도전 레시피 갯수 체크
+	public int challengeRecipe(String nickName) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int challengeNum = session.selectOne("com.smhrd.db.memberMapper.challengeRecipe", nickName);
+		session.close();
+		return challengeNum;
+	}
+
+	// 북마크 갯수 체크
+	public int bookMark(String nickName) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		int bookMark = session.selectOne("com.smhrd.db.memberMapper.bookMark", nickName);
+		session.close();
+		return bookMark;
+	}
+
+	// 내가 올린 도전 레시피 갯수 출력
+	public List<AllVO> memberInquiry(String nickName) {
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<AllVO> memberInquiry = session.selectList("com.smhrd.db.memberMapper.memberInquiry", nickName);
+		System.out.println("회원의 도전레시피 메뉴 조회 했냐?");
+		session.close();
+		return memberInquiry;
+	}
+
+	// 내가 북마크한 레시피 갯수 출력
+	public List<AllVO> memberBookmark(String nickName) {
+		Map<String, Object> paramMap = new HashMap<>();
+		SqlSession session = sqlSessionFactory.openSession(true);
+		List<Member_likeVO> memberBookmark = session.selectList("com.smhrd.db.memberMapper.memberBookmark", nickName);
+		System.out.println("회원의 북마크 메뉴 조회 했냐?");
+
+		List<String> valuesList = new ArrayList<>();
+		for (int i = 0; i < memberBookmark.size(); i++) {
+			valuesList.add(memberBookmark.get(i).getRecipeNum());
+			System.out.println(memberBookmark.get(i).getRecipeNum());
+		}
+		
+		String sql = "(";
+		// VALUES_LIST_SIZE는 valuesList의 크기입니다.
+		for (int i = 0; i < valuesList.size(); i++) {
+			System.out.println(valuesList.get(i));
+		    sql += "'"+valuesList.get(i)+"'";
+		    if (i < valuesList.size() - 1) {
+		        sql += ","; // 마지막 요소가 아닌 경우 쉼표 추가
+		    }
+		}
+		sql += ")";				
+		
+		paramMap.put("valuesList", valuesList);
+		
+		List<AllVO> memberBookmark2 = session.selectList("com.smhrd.db.memberMapper.memberBookmark2", paramMap);
+		System.out.println(memberBookmark2.size());
+		session.close();
+		return memberBookmark2;
+	}
+
 }

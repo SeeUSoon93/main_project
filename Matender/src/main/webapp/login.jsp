@@ -132,5 +132,4 @@
 		} */
 	</script>
 </body>
-	<%@ include file="footer.jsp"%>
 </html>

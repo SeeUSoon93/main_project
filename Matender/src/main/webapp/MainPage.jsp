@@ -45,5 +45,4 @@
 		<script src="./js/main.js"></script>
 	</div>
 	</body>
-	<%@ include file="footer.jsp"%>
 </html>

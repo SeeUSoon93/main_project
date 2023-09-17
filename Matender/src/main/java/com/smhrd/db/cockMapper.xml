@@ -220,7 +220,50 @@
 		WHERE ROWNUM &#60;= 10
 	</select>
 	
+	<!-- similRecipe -->
+		<!-- 전체 레시피 및 이미지, 댓글, 좋아요, 북마크 조회 -->
+	<select id="similRecipe" resultType="AllVO">
+		SELECT A."recipeNum", A."recipeCode", A."recipeName", A."cockAlc", A."cockBase", A."cockInfo", A."cockRec", A."nickName",
+		       B."imgPath", C.LIKE_COUNT, D.BOOKMARK_COUNT, E.REPLE_COUNT
+		FROM RECIPE A
+		LEFT JOIN (
+		    SELECT "recipeNum", MIN("imgPath") AS "imgPath"
+		    FROM TB_IMG
+		    GROUP BY "recipeNum"
+		) B ON A."recipeNum" = B."recipeNum"
+		LEFT JOIN (
+		    SELECT A."recipeNum", COUNT(B."recipeNum") AS like_count
+		    FROM RECIPE A
+		    LEFT JOIN MEMBER_LIKE B ON A."recipeNum" = B."recipeNum"
+		    GROUP BY A."recipeNum"
+		) C ON A."recipeNum" = C."recipeNum"
+		LEFT JOIN (
+		    SELECT A."recipeNum", COUNT(B."recipeNum") AS BOOKMARK_COUNT
+		    FROM RECIPE A
+		    LEFT JOIN BOOKMARK B ON A."recipeNum" = B."recipeNum"
+		    GROUP BY A."recipeNum"
+		) D ON A."recipeNum" = D."recipeNum"
+		LEFT JOIN (
+		    SELECT A."recipeNum", COUNT(B."recipeNum") AS REPLE_COUNT
+		    FROM RECIPE A
+		    LEFT JOIN RECIPE_REPLE B ON A."recipeNum" = B."recipeNum"
+		    GROUP BY A."recipeNum"
+		) E ON A."recipeNum" = E."recipeNum"
+		WHERE A."cockBase" = #{base}
+		ORDER BY C.LIKE_COUNT
+	</select>
 	
 	
+	<!-- bookmark -->
+	<select id="nickNameCheck" parameterType="Member_likeVO" resultType="Member_likeVO">
+		select * from BOOKMARK WHERE "nickName" = #{nickName} AND "recipeNum" = #{recipeNum}
+	</select>
 	
+	<delete id="delBookmark" parameterType="Member_likeVO">
+		DELETE BOOKMARK WHERE "nickName" = #{nickName} AND "recipeNum" = #{recipeNum}
+	</delete>
+			
+	<insert id="insertBookmark" parameterType="Member_likeVO">
+		INSERT INTO BOOKMARK VALUES(#{nickName}, #{recipeNum})
+	</insert>
 </mapper>
