@@ -39,6 +39,10 @@
 	<select id="showImg" resultType="ImgVO" >
 		SELECT * FROM TB_IMG WHERE "boardNum" = #{boardNum}
 	</select>
+	<!-- 이미지 조회2 -->
+	<select id="showImgRecipe" resultType="ImgVO" >
+		SELECT * FROM TB_IMG WHERE "recipeNum" = #{recipeNum}
+	</select>
 	
 	<!-- 게시글 및 이미지 삭제 -->
 	<delete id="deleteBoard" >

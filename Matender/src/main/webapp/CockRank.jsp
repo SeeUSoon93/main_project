@@ -47,6 +47,16 @@
                 ]
             });
 
+         // 이전 화살표 클릭 시 슬라이드 이동
+            $('.prevArrow').on('click', function() {
+                $('.godSoonSival').slick('slickPrev');
+            });
+
+            // 다음 화살표 클릭 시 슬라이드 이동
+            $('.nextArrow').on('click', function() {
+                $('.godSoonSival').slick('slickNext');
+            });
+            
         });
     </script>
 
@@ -67,6 +77,10 @@
 
 		<div class="cocktailsBox">
 
+	<div class="godSoonSival-container">
+	
+			<div class="prevArrow"><img class="next1" src="./img/next1.png"></div>
+			
 			<div class="godSoonSival">
 				<%for (int i = 0; i < matenderRank.size(); i++) {%>
 				<div class="recipe">
@@ -94,6 +108,9 @@
 				</div>
 				<%}	%>
 			</div>
+				<div class="nextArrow"><img class="next2" src="./img/next2.png"></div>
+		</div>
+	</div>
 
 		</div>
 

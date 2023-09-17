@@ -80,30 +80,33 @@ public class MemberDAO {
 		SqlSession session = sqlSessionFactory.openSession(true);
 		List<Member_likeVO> memberBookmark = session.selectList("com.smhrd.db.memberMapper.memberBookmark", nickName);
 		System.out.println("회원의 북마크 메뉴 조회 했냐?");
+		
+		if (memberBookmark.size() != 0) {
+			List<String> valuesList = new ArrayList<>();
+			for (int i = 0; i < memberBookmark.size(); i++) {
+				valuesList.add(memberBookmark.get(i).getRecipeNum());
+				System.out.println(memberBookmark.get(i).getRecipeNum());
+			}
 
-		List<String> valuesList = new ArrayList<>();
-		for (int i = 0; i < memberBookmark.size(); i++) {
-			valuesList.add(memberBookmark.get(i).getRecipeNum());
-			System.out.println(memberBookmark.get(i).getRecipeNum());
+			String sql = "(";
+			// VALUES_LIST_SIZE는 valuesList의 크기입니다.
+			for (int i = 0; i < valuesList.size(); i++) {
+				System.out.println(valuesList.get(i));
+				sql += "'" + valuesList.get(i) + "'";
+				if (i < valuesList.size() - 1) {
+					sql += ","; // 마지막 요소가 아닌 경우 쉼표 추가
+				}
+			}
+			sql += ")";
+
+			paramMap.put("valuesList", valuesList);
+
+			List<AllVO> memberBookmark2 = session.selectList("com.smhrd.db.memberMapper.memberBookmark2", paramMap);
+			System.out.println(memberBookmark2.size());
+			return memberBookmark2;
 		}
-		
-		String sql = "(";
-		// VALUES_LIST_SIZE는 valuesList의 크기입니다.
-		for (int i = 0; i < valuesList.size(); i++) {
-			System.out.println(valuesList.get(i));
-		    sql += "'"+valuesList.get(i)+"'";
-		    if (i < valuesList.size() - 1) {
-		        sql += ","; // 마지막 요소가 아닌 경우 쉼표 추가
-		    }
-		}
-		sql += ")";				
-		
-		paramMap.put("valuesList", valuesList);
-		
-		List<AllVO> memberBookmark2 = session.selectList("com.smhrd.db.memberMapper.memberBookmark2", paramMap);
-		System.out.println(memberBookmark2.size());
 		session.close();
-		return memberBookmark2;
+		return null;
 	}
 
 }

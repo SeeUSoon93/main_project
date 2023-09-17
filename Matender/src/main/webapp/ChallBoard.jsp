@@ -31,13 +31,17 @@
 	<!-- 로그인 안하면 이용 못하는 기능 -->
 	<%
 	login = (MemberVO) session.getAttribute("loginInfo");
+	String nick = "";
 	if (login == null) {
 	%>
 	<script type="text/javascript">
 		alert('로그인 해주세요!');		
 		window.location.href="login.jsp"
+		nick = null;
 		</script>
 	<%
+	} else {
+	nick = login.getNickName();
 	}
 	%>
 
@@ -72,7 +76,15 @@
 
 
 	<!-- 작성글 -->
-	<form>
+	<form action="ChallBoardInsertService" method="post"
+		enctype="multipart/form-data">
+		<%
+		if (nick != null) {
+		%>
+		<input type="hidden" value="<%=nick%>" name="nickName" readonly>
+		<%
+		}
+		%>
 
 		<div class="box1">
 
@@ -91,13 +103,54 @@
 				<p class="challtitle">칵테일 설명</p>
 				<textarea placeholder="칵테일 소개를 적어주세요" name="cockInfo"></textarea>
 			</div>
+			
+						<div class="sibaslbase">
+
+				<!-- 칵테일 베이스 선ㅌ개 -->
+				<p class="challtitle">칵테일 베이스 선택해주세요</p>
+						<input type="checkbox" name="cockBase" value="보드카"onclick="getCheckboxValue()"/>보드카&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="진" onclick="getCheckboxValue()"/>진&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="위스키" onclick="getCheckboxValue()"/>위스키&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="와인" onclick="getCheckboxValue()"/>와인&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="맥주" onclick="getCheckboxValue()"/>맥주&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="소주" onclick="getCheckboxValue()"/>소주&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="리큐르" onclick="getCheckboxValue()"/>리큐르&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="럼" onclick="getCheckboxValue()"/>럼&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="데킬라" onclick="getCheckboxValue()"/>데킬라&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="브랜디" onclick="getCheckboxValue()"/>브랜디&nbsp;&nbsp;
+						<input type="checkbox" name="cockBase" value="논알콜" onclick="getCheckboxValue()"/>논 알콜
+			</div>
+			
+						<div class="cockAlc">
+
+				<!-- 재료 -->
+				<p class="challtitle">칵테일 도수</p>
+				<div id="box">
+					<input type="text" name="cockAlc">
+
+				</div>
+			</div>
+			
+			
+			
 
 			<div class="imgredient">
 
-				<!-- 재료 -->
-				<p class="challtitle">칵테일 재료</p>
-				<div id="box">
-					<input type="text" name="text3">
+<!-- 재료 -->
+				<p class="challtitle">재료 / 용량</p>
+				<div id="ingredient-container">
+				 
+				 
+				 <!-- input 태그 그룹 -->
+                <div class="ingredient-group">
+                  	<input type="text" name="ingreName" id="ingreName" value="ex)보드카" onfocus="clearValue(this)">
+                    <input type="text" name="volume" id="volume" value="ex)30ml" onfocus="clearValue(this)">
+                </div>
+	                
+	                
+				</div>
+				<button type="button" onclick="addIngredientGroup()">추가</button>
+            	<button type="button" onclick="removeIngredientGroup()">삭제</button>
 					<%-- 재료 목록 불러오기 --%>
 					<%-- 		<% 
 		List<IngredientVO> ingreAll = new IngredientDAO().ingreAll();
@@ -108,14 +161,18 @@
 		<input type="checkbox" name="ingreName" value="<%=ingreAll.get(i).getIngreName() %>"onclick="getCheckboxValue()"/><%=ingreAll.get(i).getIngreName() %>&nbsp;&nbsp;	
 		<%} %> --%>
 
-				</div>
 			</div>
 
 			<div class="report">
 
 				<!-- 레시피 정보 -->
-				<p class="challtitle">레시피 정보</p>
-				<textarea placeholder="내용을 입력하세요" name="text2"></textarea>
+				<p class="challtitle">레시피 순서</p>
+				<textarea
+					placeholder="번호를 매겨 내용을 입력하세요
+예시)
+1. 소주를 붓는다
+2. 맥주를 붓는다"
+					name="cockRec"></textarea>
 			</div>
 
 			<div class="challfile">
@@ -134,7 +191,43 @@
 
 	</form>
 
+<script>
+	// 재료 그룹 추가 버튼을 클릭할 때 호출되는 함수
+	function addIngredientGroup() {
+	    const ingredientContainer = document.getElementById("ingredient-container");
+	    const newIngredientGroup = document.createElement("div");
+	    newIngredientGroup.className = "ingredient-group";
 
+	    // 첫 번째 input 태그
+	    const newIngredientInput1 = document.createElement("input");
+	    newIngredientInput1.type = "text";
+	    newIngredientInput1.name = "ingreName";
+
+	    // 두 번째 input 태그
+	    const newIngredientInput2 = document.createElement("input");
+	    newIngredientInput2.type = "text";
+	    newIngredientInput2.name = "volume";
+
+	    // div에 input 태그 추가
+	    newIngredientGroup.appendChild(newIngredientInput1);
+	    newIngredientGroup.appendChild(newIngredientInput2);
+
+	    // container에 새로운 그룹 추가
+	    ingredientContainer.appendChild(newIngredientGroup);
+	}
+
+	// 재료 그룹 삭제 버튼을 클릭할 때 호출되는 함수
+	function removeIngredientGroup() {
+	    const ingredientContainer = document.getElementById("ingredient-container");
+	    const ingredientGroups = ingredientContainer.getElementsByClassName("ingredient-group");
+	    
+	    if (ingredientGroups.length > 0) {
+	        // 가장 마지막으로 추가된 재료 그룹 삭제
+	        ingredientContainer.removeChild(ingredientGroups[ingredientGroups.length - 1]);
+	    }
+	}
+
+</script>
 
 
 </body>

@@ -1,3 +1,5 @@
+<%@page import="com.smhrd.model.BoardDAO"%>
+<%@page import="com.smhrd.model.ImgVO"%>
 <%@page import="com.smhrd.model.AllVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.smhrd.model.LikeVO"%>
@@ -101,23 +103,40 @@
 				</div>
 				
 				<div id="cocktailsibal">
-				<%for(int i=0; i<inquiry.size(); i++) { %>
+				<%					
+					ImgVO imgInfo = new BoardDAO().showImgRecipe(inquiry.get(0).getRecipeNum());
+				System.out.println(imgInfo);
+						
+				for(int i=0; i<inquiry.size(); i++) {
+						System.out.println("이미지파일 조회함???????");
+						System.out.println(inquiry.get(i).getImgPath());
+						System.out.println("이미지 파일 이름 : " + inquiry.get(i).getImgPath());
+						
+				%>
 					<div class="cocktailsBox">
 						<div class="recipe">
 							<div class="recipediv">
+							<%								
+							if(menu.equals("challenge")){
+								if (imgInfo != null) {								
+								%>
+								<a href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img class="recipeImg" src="./boardFile/<%=inquiry.get(i).getImgPath()%>">
+								<%}
+								}else{%>
 								<a href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img class="recipeImg" src="<%=inquiry.get(i).getImgPath() %>">
+								<%} %>
 							</div>
 							<div class="recipetitle">
 								<div class="recipename1"><%=inquiry.get(i).getRecipeName() %></div></a>
 								<div class="recipename2">
 								<img src="./img/like-check.png" color= "#228b22" width="15px" height="15px"> <%=inquiry.get(i).getLIKE_COUNT() %>&nbsp;&nbsp;&nbsp;&nbsp;
 									<img src="./img/bookmark-check.png" width="15px" height="15px"> <%=inquiry.get(i).getBOOKMARK_COUNT() %>&nbsp;&nbsp;&nbsp;&nbsp;
-									<img src="./img/comment.png" width="17px" height="17px"> <%=inquiry.get(i).getREPLE_COUNT() %>
 								</div>
 							</div>
 						</div>
 						<%
-						} %>
+						
+						}%>
 					</div>
 				</div>
 				
@@ -173,8 +192,7 @@
 						            resultHTML += "<div class='recipename1'>" + result[i].recipeName + "</div></a>";
 						            resultHTML += "<div class='recipename2'>";
 						            resultHTML += "<img src='./img/like-check.png' color= '#228b22' width='15px' height='15px'>"+result[i].LIKE_COUNT+"&nbsp;&nbsp;&nbsp;&nbsp;"
-						            resultHTML += "<img src='./img/bookmark-check.png' width='15px' height='15px'>"+result[i].BOOKMARK_COUNT+"&nbsp;&nbsp;&nbsp;&nbsp;"
-						            resultHTML += "<img src='./img/comment.png' width='17px' height='17px'>"+result[i].REPLE_COUNT
+						            resultHTML += "<img src='./img/bookmark-check.png' width='15px' height='15px'>"+result[i].BOOKMARK_COUNT
 						            resultHTML += "</div>";
 						            resultHTML += "</div>";
 						            resultHTML += "</div>";

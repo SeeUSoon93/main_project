@@ -22,6 +22,17 @@
 
 	List<AllVO> memberBookmark = new MemberDAO().memberBookmark(login.getNickName());
 	%>
+	<%
+	login = (MemberVO) session.getAttribute("loginInfo");
+	if (login == null) {
+	%>
+	<script type="text/javascript">
+		alert('로그인 해주세요!');		
+		window.location.href="login.jsp"
+		</script>
+	<%
+	}
+	%>
 
 	<!-- 프로필 -->
 	<div class="profile">

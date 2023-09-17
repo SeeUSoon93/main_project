@@ -28,4 +28,13 @@ public class IngredientDAO {
 		session.close();
 		return ingreAll;
 	}
+	
+	public int ingreWrite(IngredientVO ingvo) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		System.out.println("재료 durldhkTsi...?");
+		int ingreWrite = sqlSession.insert("com.smhrd.db.ingredientMapper.ingreWrite", ingvo);
+		System.out.println("재료 삽입헀냐?");
+		sqlSession.close();
+		return ingreWrite;
+	}
 }

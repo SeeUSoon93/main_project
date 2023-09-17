@@ -72,6 +72,14 @@ public class BoardDAO {
 		session.close();		
 		return imgInfo;
 	}
+	// 이미지 조회2
+	public ImgVO showImgRecipe(String recipeNum) {
+		SqlSession session = sqlSessionFactory.openSession(true);		
+		ImgVO imgInfo = session.selectOne("com.smhrd.db.boardMapper.showImgRecipe", recipeNum);
+		System.out.println("이미지 경로 조회 하냐?22");
+		session.close();		
+		return imgInfo;
+	}
 	
 	// 게시글 삭제
 	public int deleteBoard(String boardNum) {
@@ -93,8 +101,35 @@ public class BoardDAO {
 		session.close();		
 		return cnt;		
 	}
-	
 
 	
+	
+	
+	// 레시피 작성
+	public int recipeWrite(CockVO cocktail) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int cnt = sqlSession.insert("com.smhrd.db.cockMapper.recipeWrite", cocktail);		
+		System.out.println("레시피 작성했냐?");
+		sqlSession.close();
+		return cnt;
+	}
+
+	// 레시피 번호 가져오기
+	public CockVO recipeBoard(CockVO cocktail) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		System.out.println("여기는 왔니...?");
+		CockVO cocktailInfo = sqlSession.selectOne("com.smhrd.db.cockMapper.selectRecipe",cocktail);
+		System.out.println("레시피 번호 가져오냐? : "+cocktailInfo.getRecipeNum());
+		sqlSession.close();
+		return cocktailInfo;
+	}
+	
+	public int recipeWriteImg(ImgVO imgvo) {
+		SqlSession sqlSession = sqlSessionFactory.openSession(true);
+		int cocktail2 = sqlSession.insert("com.smhrd.db.cockMapper.recipeWriteImg", imgvo);
+		System.out.println("레시피 이미지 삽입헀냐?");
+		sqlSession.close();
+		return cocktail2;
+	}	
 	
 }

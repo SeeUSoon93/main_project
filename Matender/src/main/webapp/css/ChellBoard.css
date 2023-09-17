@@ -211,9 +211,27 @@ input[name=text3] {
 
 
 
+/* .ingredient-group {
+    display: inline-block;
+    margin-right: 5px; 각 그룹 사이의 간격을 조절할 수 있습니다.
+	width: 45%;
+	box-sizing: border-box;
+	height: auto;
+	margin: auto;
+} */
 
+.ingredient-group {
+    display: inline-block; /* 가로로 배열 */
+    width: 100%; /* 그룹의 전체 너비를 사용 */
+    box-sizing: border-box; /* 너비에 padding과 border를 포함시킵니다. */
+}
 
-
+/* input 태그를 각각 반으로 나누기 위한 스타일 */
+.ingredient-group input {
+    width: 40%; /* input 태그의 너비를 48%로 설정하여 간격을 주고 나머지 공간을 사용 */
+    margin-right: 5%; /* input 태그 사이의 간격을 조절 */
+	box-sizing: border-box;
+}
 
 
 

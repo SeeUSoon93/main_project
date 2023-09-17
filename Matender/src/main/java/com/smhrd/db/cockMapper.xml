@@ -266,4 +266,19 @@
 	<insert id="insertBookmark" parameterType="Member_likeVO">
 		INSERT INTO BOOKMARK VALUES(#{nickName}, #{recipeNum})
 	</insert>
+	
+	<!-- 레시피 작성 -->
+	<insert id="recipeWrite" parameterType="CockVO">
+		INSERT INTO RECIPE VALUES('R'||RECIPE_SEQ.nextval, 'CH002', #{recipeName}, #{cockAlc}, #{cockBase}, #{cockInfo}, #{cockRec}, #{nickName})
+	</insert>
+		
+	<!-- 레시피 번호 불러오기 -->
+	<select id="selectRecipe" parameterType="CockVO" resultType="CockVO">
+		 SELECT * FROM RECIPE WHERE "nickName" = #{nickName} AND "recipeName" = #{recipeName} AND "recipeCode" = 'CH002' AND "cockInfo"=#{cockInfo}
+	</select>
+	
+		<!-- 이미지 테이블에 인설트 -->	
+	<insert id="recipeWriteImg" parameterType="ImgVO">
+		INSERT INTO TB_IMG VALUES('IMG'||IMG_SEQ.nextval, null, #{recipeNum}, #{filename}, SYSDATE)
+	</insert>	
 </mapper>

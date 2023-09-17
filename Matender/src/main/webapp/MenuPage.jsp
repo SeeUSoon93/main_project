@@ -195,8 +195,11 @@
 		<br>
 		<h3 class="yousaCock">유사한 칵테일</h3>
 		<div class="similar">
-		<script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- jQuery 로드 -->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+<!-- 슬라이더 -->
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 
     <script>
@@ -228,10 +231,26 @@
                 ]
             });
 
+            
+         // 이전 화살표 클릭 시 슬라이드 이동
+            $('.prevArrow').on('click', function() {
+                $('.godSoonSival').slick('slickPrev');
+            });
+
+            // 다음 화살표 클릭 시 슬라이드 이동
+            $('.nextArrow').on('click', function() {
+                $('.godSoonSival').slick('slickNext');
+            });
+            
         });
     </script>
 	
 	
+	
+	
+	<div class="godSoonSival-container">
+	
+			<div class="prevArrow"><img class="next1" src="./img/next1.png"></div>
 	
 	
 			<div class="godSoonSival">
@@ -261,8 +280,10 @@
 			<% } %>
 			</div>
 
+			<div class="nextArrow"><img class="next2" src="./img/next2.png"></div>
 
-		</div>
+	</div>
+</div>
 
 
 

@@ -12,4 +12,10 @@
 		select distinct "ingreName" from INGREDIENT
 	</select>
 
+
+	<!-- 재료 테이블에 인설트 -->	
+	<insert id="ingreWrite" parameterType="IngredientVO">
+		INSERT INTO INGREDIENT VALUES('IN'||INGREDIENT_SEQ.nextval, #{recipeNum} , #{ingreName}, #{volume})
+	</insert>	
+
 </mapper>
