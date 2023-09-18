@@ -27,9 +27,9 @@
 	if (login == null) {
 	%>
 	<script type="text/javascript">
-		alert('로그인 해주세요!');		
-		window.location.href="login.jsp"
-		</script>
+		alert('로그인 해주세요!');
+		window.location.href = "login.jsp"
+	</script>
 	<%
 	}
 	%>
@@ -46,12 +46,12 @@
 			<div class="namebox">
 				<h4 class="name"><%=login.getNickName()%></h4>
 			</div>
-			
+
 			<div class="textbox">
 
 				<div class="alc">
 
-					<h4 class="text" ><%=login.getEmail()%>
+					<h4 class="text"><%=login.getEmail()%>
 					</h4>
 
 				</div>
@@ -108,13 +108,17 @@
 						<div class="recipediv">
 
 							<a
-								href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img
-								class="recipeImg" src="<%=inquiry.get(i).getImgPath()%>">
+								href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>">
+								<%
+								if (inquiry.get(i).getRecipeCode().equals("CH001")) {
+								%> <img class="recipeImg" src="<%=inquiry.get(i).getImgPath()%>">
+								<%
+								} else {
+								%> <img class="recipeImg"
+								src="./boardFile/<%=inquiry.get(i).getImgPath()%>"> <%}%>
+							
 						</div>
-
-
 						<div class="recipetitle">
-
 							<div class="recipename1"><%=inquiry.get(i).getRecipeName()%></div>
 							</a>
 
@@ -167,15 +171,20 @@
 					<div class="recipediv">
 
 						<a
-							href="MenuPage.jsp?recipeNum=<%=memberBookmark.get(i).getRecipeNum()%>"><img
-							class="recipeImg" src="<%=memberBookmark.get(i).getImgPath()%>">
+							href="MenuPage.jsp?recipeNum=<%=memberBookmark.get(i).getRecipeNum()%>">
+							<%if (memberBookmark.get(i).getRecipeCode().equals("CH001")) {
+								%> <img class="recipeImg" src="<%=memberBookmark.get(i).getImgPath()%>">
+							<%
+								} else {
+								%> <img class="recipeImg"
+							src="./boardFile/<%=memberBookmark.get(i).getImgPath()%>"> <%}%>
 					</div>
-
-
 					<div class="recipetitle">
 
 						<div class="recipename1"><%=memberBookmark.get(i).getRecipeName()%></div>
 						</a>
+
+
 
 					</div>
 
@@ -208,5 +217,4 @@
 	<br>
 
 </body>
-<%@ include file="footer.jsp"%>
 </html>

@@ -125,10 +125,8 @@
 
 				<!-- 재료 -->
 				<p class="challtitle">칵테일 도수</p>
-				<div id="box">
-					<input type="text" name="cockAlc">
+					<input type="text" name="cockAlc" value="ex) 16">
 
-				</div>
 			</div>
 			
 			
@@ -143,14 +141,14 @@
 				 
 				 <!-- input 태그 그룹 -->
                 <div class="ingredient-group">
-                  	<input type="text" name="ingreName" id="ingreName" value="ex)보드카" onfocus="clearValue(this)">
-                    <input type="text" name="volume" id="volume" value="ex)30ml" onfocus="clearValue(this)">
+                  	<input type="text" name="ingreName" id="ingreName" placeholder="ex) 보드카" onfocus="clearValue(this)">
+                    <input type="text" name="volume" id="volume" placeholder="ex) 30ml" onfocus="clearValue(this)">
                 </div>
 	                
 	                
 				</div>
-				<button type="button" onclick="addIngredientGroup()">추가</button>
-            	<button type="button" onclick="removeIngredientGroup()">삭제</button>
+            <button class="add-button" type="button" onclick="addIngredientGroup()">추가</button>
+               <button class="remove-button" type="button" onclick="removeIngredientGroup()">삭제</button>
 					<%-- 재료 목록 불러오기 --%>
 					<%-- 		<% 
 		List<IngredientVO> ingreAll = new IngredientDAO().ingreAll();
@@ -169,7 +167,7 @@
 				<p class="challtitle">레시피 순서</p>
 				<textarea
 					placeholder="번호를 매겨 내용을 입력하세요
-예시)
+ex)
 1. 소주를 붓는다
 2. 맥주를 붓는다"
 					name="cockRec"></textarea>
@@ -183,7 +181,7 @@
 
 			<div class="challsubmit">
 
-				<input type="submit" value=" 제출">
+				<input id="submitbutton" type="submit" value=" 제출">
 
 			</div>
 		</div>
@@ -231,5 +229,4 @@
 
 
 </body>
-<%@ include file="footer.jsp"%>
 </html>

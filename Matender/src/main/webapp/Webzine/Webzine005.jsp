@@ -19,44 +19,45 @@
 	</script>
 	<header>
 		<div id="menu">
-			<ul class="headmenu">
+<ul class="headmenu">
 				<!-- <ul class='headmenu'> -->
 				<li>
 					<div id="logo">
-						<a href="../MainPage.jsp"><img src="./img/logo.png" alt=""
+						<a href="MainPage.jsp"><img src="./img/logo.png" alt=""
 							width="170px"></a>
 					</div>
 				</li>
-				<li><a href="../CockMenu.jsp?menu=main" data-hover="전체메뉴"><div>전체메뉴</div></a></li>
-				<li><a href="../CockRank.jsp" data-hover="인기순위"><div>인기순위</div></a></li>
-				<li><a href="../WebMagazine.jsp" data-hover="칵테일 이야기"><div>칵테일
-							이야기</div></a></li>
-				<li><a href="../WebBoard.jsp?page=1" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
-
-				<div class="pagebarmom">
-					<%
-					MemberVO login = (MemberVO) session.getAttribute("loginInfo");
-					if (login != null) {
-						System.out.println("현재 로그인한 아이디(메인헤더) : " + login.getNickName());
-					%>
-					<div class="pagebar">
-						<a href="../MyPage.jsp">마이페이지</a>
-					</div>
-					<div onclick="kakaoLogout();" class="pagebar">
-						<a href="Logout">로그아웃</a>
-					</div>
-					<%
-					} else {
-					%>
-
-					<div class="pagebar" class="joinBtn">
-						<a href="../login.jsp">로그인/회원가입</a>
-					</div>
-					<%
-					}
-					%>
+				<li><a href="CockMenu.jsp?menu=main" data-hover="전체메뉴"><div>전체메뉴</div></a></li>
+				<li><a href="CockRank.jsp" data-hover="인기순위"><div>인기순위</div></a></li>
+				<li><a href="WebMagazine.jsp" data-hover="칵테일 웹진"><div>칵테일
+							웹진</div></a></li>
+				<li><a href="ChallBoard.jsp" data-hover="도전!마텐더"><div>도전! 마텐더</div></a></li>
+				<li><a href="WebBoard.jsp?page=1" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
+			
+			<div class="pagebarmom">
+				<%
+				MemberVO login = (MemberVO) session.getAttribute("loginInfo");
+				if (login != null) {
+					System.out.println("현재 로그인한 아이디(메인헤더) : "+login.getNickName());
+				%>
+				<div class="pagebar">
+					<a href="MyPage.jsp">마이페이지</a>
 				</div>
-			</ul>
+				<div onclick="kakaoLogout();" class="pagebar">
+					<a href="Logout">로그아웃</a>
+				</div>
+				<%
+				} else {
+				%>
+
+				<div class="pagebar" class="joinBtn">
+					<a href="login.jsp">로그인/회원가입</a>
+				</div>
+				<%
+				}
+				%>
+			</div>
+</ul>
 		</div>
 		<!--여기-->
 		<div id="webzinebanner"
@@ -252,15 +253,6 @@
 	<!--  -->
 	<!--  -->
 	<!--  -->
-	<footer>
-		<hr>
-		<br>
-		<div class="footer">
-			<img src="./img/logo.png" class="footerlogo"> <br> (주)순이 <br>
-			광주광역시 동구 SMHRD <br> 대표이사 : 순이 <br> <a
-				href="https://open.kakao.com/me/matender">카톡으로 상담하기</a>
-		</div>
-		<br>
-	</footer>
+
 </body>
 </html>

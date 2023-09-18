@@ -117,14 +117,20 @@
 						<div class="recipe">
 							<div class="recipediv">
 							<%								
-							if(menu.equals("challenge")){
-								if (imgInfo != null) {								
-								%>
+							if(menu.equals("main")){
+								if(inquiry.get(i).getRecipeCode().equals("CH002")){%>
 								<a href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img class="recipeImg" src="./boardFile/<%=inquiry.get(i).getImgPath()%>">
-								<%}
+								<%
 								}else{%>
 								<a href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img class="recipeImg" src="<%=inquiry.get(i).getImgPath() %>">
-								<%} %>
+								<%}
+								
+							}else if(menu.equals("matender")){%>
+							<a href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img class="recipeImg" src="<%=inquiry.get(i).getImgPath() %>">
+							
+							<%}else{ %>
+							<a href="MenuPage.jsp?recipeNum=<%=inquiry.get(i).getRecipeNum()%>"><img class="recipeImg" src="./boardFile/<%=inquiry.get(i).getImgPath()%>">
+							<%} %>
 							</div>
 							<div class="recipetitle">
 								<div class="recipename1"><%=inquiry.get(i).getRecipeName() %></div></a>
@@ -186,7 +192,12 @@
 						            resultHTML += "<div class='cocktailsBox'>";
 						            resultHTML += "<div class='recipe'>";
 						            resultHTML += "<div class='recipediv'>";
-						            resultHTML += "<a href=MenuPage.jsp?recipeNum="+result[i].recipeNum+"><img class='recipeImg'src='"+ result[i].imgPath +"'>";
+						            resultHTML += "<a href=MenuPage.jsp?recipeNum="+result[i].recipeNum+">";
+						            if(result[i].recipeCode === "CH001"){
+						            resultHTML += "<img class='recipeImg'src='"+ result[i].imgPath +"'>";						            	
+						            }else{
+						            	resultHTML += "<img class='recipeImg'src='./boardFile/"+ result[i].imgPath +"'>";
+						            }
 						            resultHTML += "</div>";
 						            resultHTML += "<div class='recipetitle''>";
 						            resultHTML += "<div class='recipename1'>" + result[i].recipeName + "</div></a>";

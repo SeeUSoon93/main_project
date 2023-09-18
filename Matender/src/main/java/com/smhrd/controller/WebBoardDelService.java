@@ -17,10 +17,10 @@ public class WebBoardDelService extends HttpServlet {
 
 		if (del != 0) {
 			System.out.println("삭제 성공!");
-			response.sendRedirect("WebBoard2.jsp?page=1");
+			response.sendRedirect("WebBoard.jsp?page=1");
 		} else {
 			System.out.println("삭제 실패...");
-			response.sendRedirect("WebBoard2.jsp?page=1");
+			response.sendRedirect("WebBoard.jsp?page=1");
 		}
 	
 	

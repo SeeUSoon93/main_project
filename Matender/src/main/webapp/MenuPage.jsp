@@ -41,7 +41,11 @@
 	<div class="Menugroup">
 
 		<div class="cockimg">
+		    <%if(recipeInfo.getRecipeCode().equals("CH001")){ %>
 			<img src="<%=recipeInfo.getImgPath()%>" class="img">
+			<%} else{%>
+			<img src="./boardFile/<%=recipeInfo.getImgPath()%>" class="img">
+			<%} %>
 		</div>
 
 		<div class="contents">
@@ -261,9 +265,13 @@
 			
 			for(int i=0; i<similRecipe.size(); i++) { %>
 			<div class="recipe">
-				<a href="MenuPage.jsp">
+				<a href="MenuPage.jsp?recipeNum=<%=similRecipe.get(i).getRecipeNum()%>">
 					<div class="recipediv">
-						<img class="recipeImg" src="<%=similRecipe.get(i).getImgPath() %>">
+						<%if(similRecipe.get(i).getRecipeCode().equals("CH001")){ %>
+			            <img src="<%=similRecipe.get(i).getImgPath()%>" class="img">
+			            <%} else{%>
+			            <img src="./boardFile/<%=similRecipe.get(i).getImgPath()%>" class="img">
+			            <%} %>
 					</div>
 
 
@@ -294,5 +302,4 @@
 	<br>
 	<br>
 </body>
-	<%@ include file="footer.jsp"%>
 </html>

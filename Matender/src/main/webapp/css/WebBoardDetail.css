@@ -72,6 +72,9 @@ p {
     font-weight: bolder;
 }
 
+#good{
+	cursor: pointer;
+}
 
 /* 제목 줄 */
 .boardTitle1 {
