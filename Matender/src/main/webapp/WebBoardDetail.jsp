@@ -107,7 +107,7 @@
 				if (boardInfo.getNickName().equals(login.getNickName())) {
 					System.out.println("같은 작성자입니다.");
 			%>
-			<button class="btn2"><a href="WebBoardDelService?boardNum=<%=boardInfo.getBoardNum()%>">삭 제</a></button>
+			<button class="btn1"><a href="WebBoardDelService?boardNum=<%=boardInfo.getBoardNum()%>">삭 제</a></button>
 			<%
 			} else {
 			System.out.println("다른 작성자입니다.");

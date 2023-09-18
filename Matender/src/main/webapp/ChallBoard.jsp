@@ -107,7 +107,7 @@
 						<div class="sibaslbase">
 
 				<!-- 칵테일 베이스 선ㅌ개 -->
-				<p class="challtitle">칵테일 베이스 선택해주세요</p>
+				<p class="challtitle2">칵테일 베이스 선택해주세요</p>
 						<input type="checkbox" name="cockBase" value="보드카"onclick="getCheckboxValue()"/>보드카&nbsp;&nbsp;
 						<input type="checkbox" name="cockBase" value="진" onclick="getCheckboxValue()"/>진&nbsp;&nbsp;
 						<input type="checkbox" name="cockBase" value="위스키" onclick="getCheckboxValue()"/>위스키&nbsp;&nbsp;
@@ -124,9 +124,10 @@
 						<div class="cockAlc">
 
 				<!-- 재료 -->
-				<p class="challtitle">칵테일 도수</p>
-					<input type="text" name="cockAlc" value="ex) 16">
-
+				<p class="challtitle2">칵테일 도수</p>
+				<div id="box">
+					<input type="text" name="cockAlc" placeholder="ex) 16">
+				</div>
 			</div>
 			
 			
@@ -141,14 +142,14 @@
 				 
 				 <!-- input 태그 그룹 -->
                 <div class="ingredient-group">
-                  	<input type="text" name="ingreName" id="ingreName" placeholder="ex) 보드카" onfocus="clearValue(this)">
-                    <input type="text" name="volume" id="volume" placeholder="ex) 30ml" onfocus="clearValue(this)">
+                  	<input type="text" name="ingreName" placeholder="ex) 보드카" onfocus="clearValue(this)">
+                    <input type="text" name="volume" class="volume" placeholder="ex) 30ml" onfocus="clearValue(this)">
                 </div>
 	                
 	                
 				</div>
-            <button class="add-button" type="button" onclick="addIngredientGroup()">추가</button>
-               <button class="remove-button" type="button" onclick="removeIngredientGroup()">삭제</button>
+            <button type="button" onclick="addIngredientGroup()">추 가</button>
+               <button type="button" onclick="removeIngredientGroup()">삭 제</button>
 					<%-- 재료 목록 불러오기 --%>
 					<%-- 		<% 
 		List<IngredientVO> ingreAll = new IngredientDAO().ingreAll();
@@ -181,7 +182,7 @@ ex)
 
 			<div class="challsubmit">
 
-				<input id="submitbutton" type="submit" value=" 제출">
+				<input id="submitbutton" type="submit" value="제 출">
 
 			</div>
 		</div>

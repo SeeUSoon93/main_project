@@ -87,8 +87,6 @@
 
 	<div class="Group">
 
-
-
 		<div class="upload">
 			<div class="box1">
 				<h2 class="uploadtitle">
@@ -150,21 +148,20 @@
 
 
 
-	<div class="upload">
+	<div class="upload2">
 
-		<h2 class="uploadtitle">
-			<img src="./img/bookmark-check.png" height="25px"> 북마크
-		</h2>
 
 		<div class="box2">
 
+			<h2 class="uploadtitle2">
+				<img src="./img/bookmark-check.png" height="25px"> 북마크
+			</h2>
 			<%
 			if (memberBookmark != null) {
 				for (int i = 0; i < memberBookmark.size(); i++) {
 			%>
 
 			<div class="cocktailsBox2">
-
 
 				<div class="recipe">
 

@@ -6,16 +6,6 @@
 	padding: 0;
 }
 
-#sibalLike{
-	cursor: pointer;
-}
-
-#sibalBookmark{
-	cursor: pointer;
-}
-
-
-
 
 /* 
 ------------------
@@ -53,12 +43,19 @@
 	
 }
 
-.img {
+.detailImg {
 	width: 270px;
-	height: 290px;
-	margin: 45px;
+    height: 290px;
+    margin: 45px;
+	margin-top: 60px;
 	display: inline-block;
-	
+}
+
+.img {
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	object-fit: cover;
 }
 
 .contents{
@@ -225,8 +222,9 @@ td > p {
 
 .method {
 	width: 1100px;
-	height: 350px;
+	height: auto;
 	margin-top: 10px;
+	padding-bottom: 35px;
 	align-items: center;
 	position: relative;
 	display: inline-block;
@@ -256,17 +254,20 @@ td > p {
 
 
 .similar {
-	width: 90%;
-	height: 350px;
-	/* justify-content : center;
-	display: flex; */
+	width: 100%;
+	height: 400px;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 50px;
-	padding-top: 50px;
-/* 	background-color: gray; */
 }
 
+.yousaCocktailsBox {
+	width: 100%;
+	height: 330px;
+	margin: 0 auto;
+	margin-top: 15px;
+	position: relative;
+	display: flex;
+}
 
 .next {
 	width: 50px;
@@ -280,31 +281,32 @@ td > p {
 }
 .godSoonSival-container {
     overflow: hidden; /* 슬라이드 내용이 넘치지 않게 */
-    width: 100%; /* 화면 너비에 맞게 설정 */
-}
-
-.godSoonSival{
-		height: 350px;
+    width: 80%; /* 화면 너비에 맞게 설정 */
+ 	height: 320px;
+ 	float: left;
+ 	margin: 0 10px;
 }
 
 /* 이전 화살표 스타일 */
 .prevArrow {
-    position: absolute;
-    top: 320%;
-    left: 10px; 
-    transform: translateY(-50%);
-    cursor: pointer;
-
+    width: 100px;
+	height: 320px;
+	cursor: pointer;
+	margin-left: 4px;
 }
 
 /* 다음 화살표 스타일 */
 .nextArrow {
-    position: absolute;
-    top: 320%;
-    right: 10px; 
-    transform: translateY(-50%);
-    cursor: pointer;
+	width: 100px;
+	height: 320px;
+	cursor: pointer;
+    float: right;
+}
 
+.next1 {
+	width: 80px;
+	height: 80px;
+	margin-top: 90px;
 }
 
 /* 이전 화살표 숨기기 */
@@ -317,47 +319,28 @@ td > p {
     display: none !important;
 }
 
-/* 이전버튼 위치 */
-.next1 {
-	
-	width: px;
-	height: 70px;
-	margin-left: 230px;
-/* 	background-color: blue; */
-}
-
-/* 다음버튼 위치 */
-.next2 {
-	
-	width: 70px;
-	height: 70px;
-	margin-right: 230px;
-/* 	background-color: blue; */
-}
 
 .recipe {
-	width: 230px;
+	width: 200px;
 	height: 260px;
-	margin: 0 14px;
+	margin: 0 24px;
 	margin-top: 20px;
 	float: left;
 	/*border: dashed 3px lightgray;
 	border-radius: 15px;*/
 	justify-content : center;
 	position: relative;
-/* 	background-color: red; */
 }
 
 .recipediv {
 	width: 170px;
 	height: 200px;
-	/* border-radius: 15px; */
-	margin-top: 10px;
 	justify-content : center;
 	position: absolute;
-  	left: 12%;
   	overflow: hidden;
   	border-radius: 15px;
+  	margin-left: 24px;
+  	margin-top: 8px;
 }
 .recipeImg {
 	border-radius: 15px;
@@ -385,8 +368,19 @@ td > p {
 	font-size: 17px;
 	color: black;
 }
+
 .recipename2 {
 	font-family: "Pretendard-Regular";
 	font-size: 14px;
 	color: black;
+}
+
+.like {
+	float: left;
+	margin-left: 50px;
+	margin-right: 14px;
+}
+
+.bookmark {
+	float: left;
 }

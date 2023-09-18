@@ -106,15 +106,11 @@ a:visited,a:active {
 */
 
 
-
-
-
-/* 
-------------------
-내가 업로드한 레시피, 북마크
-------------------
+/*
+-------------------------------------
+내가 업로드한 레시피
+-------------------------------------
 */
-
 
 
 .Group {
@@ -123,64 +119,36 @@ a:visited,a:active {
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 0px;
-/*  	background-color: blue;  */
 }
 
 .upload {
 /*	display: table-row;*/
-padding-top: 50px;
-display: table;
+	display: table;
 	width: 100%;
 	height: auto;
 	position: relative;
-/*	background-color: green;*/
+	margin: 0 auto;
 	margin-top: 100px;
-   align-items: center;
-/*    background-color: thistle;*/
+	align-items: center;
 }
 
 
 .uploadtitle {
+	width: 95%;
+	margin: 0 auto;
 	text-align: left;
 	font-family: "GmarketSansMedium";
-	margin-left: 30px;
     font-size: 1.3em;
-	
 }
 
 .box1 {
-	display: table-row;
-	width: 1100px;
-/*	height: auto;*/
-	margin-bottom: 80px;
-	display: inline-block;
-	margin-top: 30px;
-	padding-top: 50px;
-	padding-bottom: 50px;
-	justify-content: center;
-	align-items: center;
+	width: auto;
+	height: 300px;
+	margin-top: 50px;
 	position:relative;
-	border-radius: 15px;
-/*	box-shadow: 1px 1px 20px lightgray;*/
-	padding-left: 60px;
 }
 
-box2 {
-	display: table-row;
-	width: 1100px;
-	height: auto;
-	margin-bottom: 80px;
-	display: inline-block;
-	margin-top: 30px;
-	padding-top: 50px;
-	padding-bottom: 10px;
-	justify-content: center;
-	align-items: center;
-	position:relative;
-	border-radius: 15px;
-/*	box-shadow: 1px 1px 20px lightgray;*/
-	padding-left: 60px;
-}
+
 /* 내가 올린 레시피 내용물 */
 .cocktailsBox1 {
    width: 1000px;
@@ -216,10 +184,12 @@ box2 {
    position: absolute;
 /*   left: 12%;*/
 }
+
 .recipeImg {
    border-radius: 15px;
    width: 250px;
    height: 200px;
+   object-fit: cover;
 }
 
 
@@ -246,10 +216,38 @@ box2 {
 }
 
 
+/*
+-------------------------------------
+북마크
+-------------------------------------
+*/
 
 
+.upload2 {
+/*	display: table-row;*/
+	display: table;
+	width: 100%;
+	height: auto;
+	position: relative;
+	margin: 0 auto;
+	margin-top: 60px;
+	align-items: center;
+}
 
 
+.uploadtitle2 {
+	width: 95%;
+	margin: 0 auto;
+	text-align: left;
+	font-family: "GmarketSansMedium";
+    font-size: 1.3em;
+    }
 
+.box2 {
+	width: 100%;
+	height: 300px;
+	margin-top: 50px;
+	position:relative;
+}
 
 

@@ -57,6 +57,45 @@
 
 		});
 	</script>
+	
+	<script>
+		$(document).ready(function() {
+
+			$('.godSoonSival2').slick({
+				centerMode : true,
+				centerPadding : '40px',
+				slidesToShow : 3,
+				responsive : [ {
+					breakpoint : 768,
+					settings : {
+						arrows : false,
+						centerMode : true,
+						centerPadding : '40px',
+						slidesToShow : 3
+					}
+				}, {
+					breakpoint : 480,
+					settings : {
+						arrows : false,
+						centerMode : true,
+						centerPadding : '40px',
+						slidesToShow : 1
+					}
+				} ]
+			});
+
+			// 이전 화살표 클릭 시 슬라이드 이동
+			$('.prevArrow2').on('click', function() {
+				$('.godSoonSival2').slick('slickPrev');
+			});
+
+			// 다음 화살표 클릭 시 슬라이드 이동
+			$('.nextArrow2').on('click', function() {
+				$('.godSoonSival2').slick('slickNext');
+			});
+
+		});
+	</script>
 
 	<!-- 어떤 레시피인지 불러오기 -->
 	<%
@@ -139,7 +178,7 @@
 				<img class="next1" src="./img/next1.png">
 			</div>
 			<div class="godSoonSival-container">
-				<div class="godSoonSival">
+				<div class="godSoonSival2">
 					<%
 					for (int i = 0; i < challengeRank.size(); i++) {
 					%>

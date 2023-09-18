@@ -56,6 +56,7 @@ h3 {
 /* 이전 화살표 스타일 */
 .prevArrow {
 	width: 140px;
+	height: 400px;
 	cursor: pointer;
 	margin-left: 26px;
 }
@@ -63,12 +64,14 @@ h3 {
 /* 다음 화살표 스타일 */
 .nextArrow {
 	width: 140px;
+	height: 400px;
 	cursor: pointer;
     float: right;
 }
 
 .next1 {
-	width: 50px;
+	width: 80px;
+	height: 80px;
 	margin-top: 140px;
 }
 
@@ -110,12 +113,12 @@ h3 {
   	left: 12%;
   	overflow: hidden;
 }
+
 .recipeImg {
 	border-radius: 15px;
 	width: 170px;
 	height: 200px;
 	transition: all 0.2s linear;
-	
 }
 
 .recipeImg:hover {
@@ -181,6 +184,7 @@ h3 {
 /* 이전 화살표 스타일 */
 .prevArrow2 {
 	width: 140px;
+	height: 400px;
 	cursor: pointer;
 	margin-left: 26px;
 }
@@ -188,13 +192,14 @@ h3 {
 /* 다음 화살표 스타일 */
 .nextArrow2 {
 	width: 140px;
+	height: 400px;
 	cursor: pointer;
     float: right;
 }
 
 .next1 {
-	width: 50px;
-	height: 130px;
+	width: 80px;
+	height: 80px;
 	margin-top: 140px;
 }
 
