@@ -132,7 +132,7 @@
 				for (int i = 0; i < challengeRank.size(); i++) {
 				%>
 				<div class="recipe"><a
-						href="MenuPage.jsp?recipeNum=<%=matenderRank.get(i).getRecipeNum()%>">
+						href="MenuPage.jsp?recipeNum=<%=challengeRank.get(i).getRecipeNum()%>">
 						<p style="font-family:'GmarketSansMedium'; font-size='16px';"><%=i + 1%>위
 						</p>
 					<div class="recipediv">

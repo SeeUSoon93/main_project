@@ -70,10 +70,10 @@ public class WebBoardInsertService extends HttpServlet {
 					if (cnt > 0) {
 						System.out.println("글작성 성공!");
 
-						response.sendRedirect("WebBoard.jsp");
+						response.sendRedirect("WebBoard.jsp?page=1");
 					} else {
 						System.out.println("글작성 실패...");
-						response.sendRedirect("WebBoard.jsp");
+						response.sendRedirect("WebBoard.jsp?page=1");
 					}
 
 				} else {
