@@ -26,6 +26,9 @@ public class ChallBoardInsertService extends HttpServlet {
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		
+		
+		
 
 		String imgPath = "C:\\Users\\SMHRD\\Desktop\\Project\\Matender\\src\\main\\webapp\\boardFile";
 		System.out.println("이미지가 저장될 경로 : "+imgPath);
@@ -57,6 +60,10 @@ public class ChallBoardInsertService extends HttpServlet {
 			String[] ingreName = multi.getParameterValues("ingreName");
 			String[] volume = multi.getParameterValues("volume");
 
+			
+			
+			
+			
 			// 잘 넘어왔는지 확인
 
 			// -> 콘솔창에 잘 뜨는지, file폴더에 사진이 들어가 있는지, 똑같은 file업로드 시 중복제거가 되는지
@@ -73,7 +80,20 @@ public class ChallBoardInsertService extends HttpServlet {
 			cnt = new BoardDAO().recipeWrite(cocktail);
 
 //			filename이 널이 아닐때 이미지 테이블에 파일 네임, 게시글 번호 저장
-			if (filename != null) {
+			
+			if (filename == null) {
+				response.setContentType("text/html; charset=UTF-8");
+
+					PrintWriter out = response.getWriter();
+
+					out.println("<script>");
+					out.println("alert('이미지를 등록하세요!')");
+
+					out.println("history.back()");
+					out.println("</script>");
+					}			
+			
+			else{
 				CockVO cocktail2 = new BoardDAO().recipeBoard(cocktail);
 				String recipeNum = cocktail2.getRecipeNum();
 				System.out.println("방금 작성한 레시피 번호 : " +recipeNum);
@@ -105,24 +125,7 @@ public class ChallBoardInsertService extends HttpServlet {
 				} else {
 					System.out.println("파일저장 실패...");
 				}
-			}else {
-				if (cnt > 0) {
-					System.out.println("글작성 성공!");
-					response.setContentType("text/html; charset=UTF-8");
-					PrintWriter writer = response.getWriter();
-					writer.println("<script>alert('레시피 등록 완료!'); location.href='CockMenu.jsp?menu=challenge';</script>"); 
-					writer.close();
-				} else {
-					System.out.println("글작성 실패!");
-					response.setContentType("text/html; charset=UTF-8");
-					PrintWriter writer = response.getWriter();
-					writer.println("<script>alert('레시피 등록 실패...'); location.href='CockMenu.jsp?menu=challenge';</script>"); 
-					writer.close();
-				}
-				
 			}
-
-
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

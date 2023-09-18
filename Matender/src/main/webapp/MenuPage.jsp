@@ -33,7 +33,6 @@
 
 	List<IngredientVO> ingredientList = new IngredientDAO().ingredientList(recipeNum);
 	System.out.println("재료 리스트 크기" + ingredientList.size());
-	System.out.println("첫번째 재료 이름" + ingredientList.get(0).getIngreName());
 	%>
 
 	<!-- 칵테일 이미지, 정보 -->
@@ -166,24 +165,26 @@
 
 					<div class="metname">
 						<h3 class="metinfo1">
-							<%
-							for (int i = 0; i < ingredientList.size(); i++) {
-							%>
+							<%if(ingredientList!=null){
+                     for (int i = 0; i < ingredientList.size(); i++) {
+                     %>
 							<%=ingredientList.get(i).getIngreName()%><br>
-							<%
-							}
-							%>
+							<%}
+                     }else{%>
+							재료를 등록해주세요
+							<%}%>
 						</h3>
 					</div>
 					<div class="amount">
 						<h3 class="metinfo2">
-							<%
-							for (int i = 0; i < ingredientList.size(); i++) {
-							%>
+							<%if(ingredientList!=null){
+                     for (int i = 0; i < ingredientList.size(); i++) {
+                     %>
 							<%=ingredientList.get(i).getVolume()%><br>
-							<%
-							}
-							%>
+							<%}
+                     }else{%>
+							!!
+							<%}%>
 						</h3>
 					</div>
 				</div>

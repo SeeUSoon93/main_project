@@ -103,25 +103,36 @@
 				<p class="challtitle">칵테일 설명</p>
 				<textarea placeholder="칵테일 소개를 적어주세요" name="cockInfo"></textarea>
 			</div>
-			
-						<div class="sibaslbase">
+
+			<div class="sibaslbase">
 
 				<!-- 칵테일 베이스 선ㅌ개 -->
 				<p class="challtitle2">칵테일 베이스 선택해주세요</p>
-						<input type="checkbox" name="cockBase" value="보드카"onclick="getCheckboxValue()"/>보드카&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="진" onclick="getCheckboxValue()"/>진&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="위스키" onclick="getCheckboxValue()"/>위스키&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="와인" onclick="getCheckboxValue()"/>와인&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="맥주" onclick="getCheckboxValue()"/>맥주&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="소주" onclick="getCheckboxValue()"/>소주&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="리큐르" onclick="getCheckboxValue()"/>리큐르&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="럼" onclick="getCheckboxValue()"/>럼&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="데킬라" onclick="getCheckboxValue()"/>데킬라&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="브랜디" onclick="getCheckboxValue()"/>브랜디&nbsp;&nbsp;
-						<input type="checkbox" name="cockBase" value="논알콜" onclick="getCheckboxValue()"/>논 알콜
+				<input type="checkbox" name="cockBase" value="보드카"
+					onclick="getCheckboxValue()" />보드카&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="진"
+					onclick="getCheckboxValue()" />진&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="위스키"
+					onclick="getCheckboxValue()" />위스키&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="와인"
+					onclick="getCheckboxValue()" />와인&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="맥주"
+					onclick="getCheckboxValue()" />맥주&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="소주"
+					onclick="getCheckboxValue()" />소주&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="리큐르"
+					onclick="getCheckboxValue()" />리큐르&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="럼"
+					onclick="getCheckboxValue()" />럼&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="데킬라"
+					onclick="getCheckboxValue()" />데킬라&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="브랜디"
+					onclick="getCheckboxValue()" />브랜디&nbsp;&nbsp; <input
+					type="checkbox" name="cockBase" value="논알콜"
+					onclick="getCheckboxValue()" />논 알콜
 			</div>
-			
-						<div class="cockAlc">
+
+			<div class="cockAlc">
 
 				<!-- 재료 -->
 				<p class="challtitle2">칵테일 도수</p>
@@ -129,29 +140,31 @@
 					<input type="text" name="cockAlc" placeholder="ex) 16">
 				</div>
 			</div>
-			
-			
-			
+
+
+
 
 			<div class="imgredient">
 
-<!-- 재료 -->
+				<!-- 재료 -->
 				<p class="challtitle">재료 / 용량</p>
 				<div id="ingredient-container">
-				 
-				 
-				 <!-- input 태그 그룹 -->
-                <div class="ingredient-group">
-                  	<input type="text" name="ingreName" placeholder="ex) 보드카" onfocus="clearValue(this)">
-                    <input type="text" name="volume" class="volume" placeholder="ex) 30ml" onfocus="clearValue(this)">
-                </div>
-	                
-	                
+
+
+					<!-- input 태그 그룹 -->
+					<div class="ingredient-group">
+						<input type="text" name="ingreName" placeholder="ex) 보드카"
+							onfocus="clearValue(this)"> <input type="text"
+							name="volume" class="volume" placeholder="ex) 30ml"
+							onfocus="clearValue(this)">
+					</div>
+
+
 				</div>
-            <button type="button" onclick="addIngredientGroup()">추 가</button>
-               <button type="button" onclick="removeIngredientGroup()">삭 제</button>
-					<%-- 재료 목록 불러오기 --%>
-					<%-- 		<% 
+				<button type="button" onclick="addIngredientGroup()">추 가</button>
+				<button type="button" onclick="removeIngredientGroup()">삭 제</button>
+				<%-- 재료 목록 불러오기 --%>
+				<%-- 		<% 
 		List<IngredientVO> ingreAll = new IngredientDAO().ingreAll();
 		System.out.print("칵테일 리스트 사이즈 :"+ingreAll.size());
 		
@@ -190,7 +203,7 @@ ex)
 
 	</form>
 
-<script>
+	<script>
 	// 재료 그룹 추가 버튼을 클릭할 때 호출되는 함수
 	function addIngredientGroup() {
 	    const ingredientContainer = document.getElementById("ingredient-container");
