@@ -183,6 +183,8 @@ a:visited,a:active {
    justify-content : center;
    position: absolute;
 /*   left: 12%;*/
+border-radius: 15px;
+overflow: hidden;
 }
 
 .recipeImg {
@@ -190,8 +192,12 @@ a:visited,a:active {
    width: 250px;
    height: 200px;
    object-fit: cover;
+   transition: all 0.2s linear;
 }
 
+.recipeImg:hover {
+	transform: scale(1.2);
+}
 
 .recipetitle {
    width: 250px;

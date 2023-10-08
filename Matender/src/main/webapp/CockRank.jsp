@@ -171,7 +171,7 @@
 
 	<div class="RankGroup2">
 
-		<h3>도전!레시피 순위</h3>
+		<h3>도전! 마텐더 순위</h3>
 
 		<div class="cocktailsBox2">
 			<div class="prevArrow2">

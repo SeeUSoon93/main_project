@@ -43,9 +43,10 @@
 				</li>
 				<li><a href="CockMenu.jsp?menu=main" data-hover="전체메뉴"><div>전체메뉴</div></a></li>
 				<li><a href="CockRank.jsp" data-hover="인기순위"><div>인기순위</div></a></li>
+				<li><a href="ChallBoard.jsp" data-hover="도전!마텐더"><div>도전! 마텐더</div></a></li>
 				<li><a href="WebMagazine.jsp" data-hover="칵테일 웹진"><div>칵테일
 							웹진</div></a></li>
-				<li><a href="ChallBoard.jsp" data-hover="도전!마텐더"><div>도전! 마텐더</div></a></li>
+				<li><a href="Test.jsp" data-hover="연애테스트"><div>연애테스트</div></a></li>
 				<li><a href="WebBoard.jsp?page=1" data-hover="커뮤니티"><div>커뮤니티</div></a></li>
 			
 			<div class="pagebarmom">

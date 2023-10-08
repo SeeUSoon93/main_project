@@ -24,10 +24,22 @@
 	String recipeNum = request.getParameter("recipeNum");
 	System.out.println("조회할 레시피 번호 : " + recipeNum);
 	AllVO recipeInfo = new CockDAO().recipeInfo(recipeNum);
+	
+	if(recipeInfo == null){
+		%>
+		<script type="text/javascript">
+			alert('없는 메뉴입니다!');		
+			window.location.href="CockMenu.jsp?menu=main"
+			</script>
+		<%		
+	}else{
 
 	System.out.println("조회한 레시피 이름 : " + recipeInfo.getRecipeName());
 	System.out.println("조회한 레시피 번호 : " + recipeInfo.getRecipeNum());
 	System.out.println("조회한 레시피 도수 : " + recipeInfo.getCockAlc() + "도");
+	
+	
+
 
 	/* 레시피 재료 불러오기 */
 
@@ -293,12 +305,12 @@
 									<%
 									if (similRecipe.get(i).getRecipeCode().equals("CH001")) {
 									%>
-									<img src="<%=similRecipe.get(i).getImgPath()%>" class="img">
+									<img src="<%=similRecipe.get(i).getImgPath()%>" class="recipeImg">
 									<%
 									} else {
 									%>
 									<img src="./boardFile/<%=similRecipe.get(i).getImgPath()%>"
-										class="img">
+										class="recipeImg">
 									<%
 									}
 									%>
@@ -325,6 +337,7 @@
 							</a>
 						</div>
 						<%
+						}
 						}
 						%>
 					</div>
