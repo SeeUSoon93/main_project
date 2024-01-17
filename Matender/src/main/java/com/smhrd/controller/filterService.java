@@ -38,10 +38,8 @@ public class filterService extends HttpServlet {
 				sb.append(line);
 			}
 
-			// JSON 데이터 파싱
 			JSONObject jsonData = new JSONObject(sb.toString());
-			System.out.println(jsonData);
-			// JSON 데이터에서 필요한 데이터를 미리 추출
+
 			JSONArray baseDataArray = jsonData.getJSONArray("base");
 //            JSONArray ingredientDataArray = jsonData.getJSONArray("ingredient");
 			JSONArray dosuDataArray = jsonData.getJSONArray("dosu");
